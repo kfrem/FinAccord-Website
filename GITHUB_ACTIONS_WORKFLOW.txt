@@ -1,0 +1,59 @@
+GITHUB ACTIONS WORKFLOW FILE
+=============================
+
+You need to create this file manually on GitHub due to workflow permissions.
+
+FILE PATH: .github/workflows/deploy-to-hostinger.yml
+
+FILE CONTENT:
+-------------
+
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Deploy to Hostinger via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /public_html/finaccount/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.env
+          **/DEPLOYMENT_GUIDE.md
+
+HOW TO ADD THIS FILE:
+---------------------
+
+1. Go to: https://github.com/kfrem/FinAccord-Website
+2. Click: Add file → Create new file
+3. Name: .github/workflows/deploy-to-hostinger.yml
+4. Paste the content above
+5. Commit directly to main branch
+
+THEN ADD THESE SECRETS:
+-----------------------
+
+Go to: https://github.com/kfrem/FinAccord-Website/settings/secrets/actions
+
+Add three secrets:
+1. FTP_SERVER = your FTP host (e.g., ftp.kashiskin.com)
+2. FTP_USERNAME = your FTP username
+3. FTP_PASSWORD = your FTP password
+
+That's it! Every push to main will auto-deploy!
