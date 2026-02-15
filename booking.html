@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Consultation | FinAccord Advisory</title>
+    <meta name="description" content="Book your free 30-minute strategy session with FinAccord Advisory. Assess your financial structure and identify quick wins.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='4' fill='%23C8A054'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-weight='700' font-size='18' fill='%230B1426'%3EFA%3C/text%3E%3C/svg%3E">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="mainNav">
+    <div class="container nav__inner">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-mark">FA</div>
+            <div class="nav__logo-text">Fin<span>Accord</span></div>
+        </a>
+        <div class="nav__links">
+            <a href="index.html" class="nav__link" data-i18n="nav.home">Home</a>
+            <a href="about.html" class="nav__link" data-i18n="nav.about">About</a>
+            <a href="services.html" class="nav__link" data-i18n="nav.services">Services</a>
+            <a href="booking.html" class="nav__link nav__link--active" data-i18n="nav.booking">Book Consultation</a>
+            <div class="lang-toggle">
+                <button class="lang-toggle__btn lang-toggle__btn--active" onclick="setLang('en')">EN</button>
+                <button class="lang-toggle__btn" onclick="setLang('fr')">FR</button>
+            </div>
+        </div>
+        <button class="nav__hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <div class="nav__mobile" id="mobileNav">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="booking.html" data-i18n="nav.booking">Book Consultation</a>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="section section--navy" style="padding-top: calc(72px + 3rem); position: relative; overflow: hidden;">
+    <div class="geo-pattern" style="opacity: 0.03;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header section-header--center">
+            <span class="label" style="color: var(--gold);" data-i18n="booking.step1">Select Date & Time</span>
+            <h2 style="color: var(--white);" data-i18n="booking.title">Book Your Free Strategy Session</h2>
+            <p data-i18n="booking.subtitle">30 minutes to assess your financial structure and identify quick wins. No cost, no obligation.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ BOOKING SYSTEM ============ -->
+<section class="section booking-section" id="bookingSystem">
+    <div class="container">
+
+        <!-- SUCCESS SCREEN (hidden by default) -->
+        <div id="bookingSuccess" style="display: none; text-align: center; max-width: 560px; margin: 0 auto;">
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🎉</div>
+            <h2 style="font-family: var(--font-display); color: var(--navy);" data-i18n="booking.success.title">Booking Confirmed!</h2>
+            <div class="gold-divider gold-divider--center"></div>
+            <p style="color: var(--gray-500); margin-bottom: 0.5rem; font-size: 1.05rem;" data-i18n="booking.success.msg">
+                We'll be in touch within 24 hours to confirm your strategy session.
+            </p>
+            <p id="bookingSummary" style="font-weight: 600; color: var(--navy); margin-bottom: 2rem;"></p>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+                <button onclick="downloadBookingICS()" class="btn btn--primary" data-i18n="booking.success.cal">📅 Add to Calendar</button>
+                <button onclick="sendBookingWhatsApp()" class="btn btn--whatsapp" data-i18n="booking.success.wa">💬 Send Details via WhatsApp</button>
+                <button onclick="resetBooking()" class="btn btn--outline-dark" data-i18n="booking.success.another">Book Another Session</button>
+            </div>
+        </div>
+
+        <!-- BOOKING FORM -->
+        <div id="bookingForm" class="booking-container">
+
+            <!-- LEFT: Calendar & Time -->
+            <div class="booking-panel">
+                <h3><span class="step-num">1</span> <span data-i18n="booking.step1">Select Date & Time</span></h3>
+
+                <!-- Calendar -->
+                <div class="cal-header">
+                    <h4 id="calMonthYear"></h4>
+                    <div class="cal-nav">
+                        <button onclick="calNav(-1)" aria-label="Previous month">‹</button>
+                        <button onclick="calNav(1)" aria-label="Next month">›</button>
+                    </div>
+                </div>
+
+                <div class="cal-days" id="calDayLabels"></div>
+                <div class="cal-days" id="calGrid"></div>
+
+                <!-- Time Slots -->
+                <div id="timeSection" style="display: none; margin-top: 1.5rem;">
+                    <h4 style="font-family: var(--font-display); margin-bottom: 0.75rem;">
+                        <span id="timeSectionLabel">Available Times</span>
+                        <span id="timeLoading" style="display: none;"><span class="spinner" style="display: inline-block; width: 16px; height: 16px; vertical-align: middle; margin-left: 8px;"></span></span>
+                    </h4>
+                    <div class="time-slots" id="timeSlots"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Details Form -->
+            <div class="booking-panel">
+                <h3><span class="step-num">2</span> <span data-i18n="booking.step2">Your Details</span></h3>
+
+                <div id="formPlaceholder" style="display: flex; align-items: center; justify-content: center; min-height: 300px; color: var(--gray-500);">
+                    Please select a date and time to continue.
+                </div>
+
+                <form id="consultationForm" style="display: none;" onsubmit="submitBooking(event)">
+                    <!-- Selected slot display -->
+                    <div style="padding: 1rem; background: var(--gold-muted); border: 1px solid var(--gold-border); border-radius: var(--radius-md); margin-bottom: 1.5rem;">
+                        <div style="font-size: 0.75rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em;">Selected Session</div>
+                        <div id="selectedSlotDisplay" style="font-weight: 700; font-size: 1.1rem; color: var(--navy); margin-top: 0.25rem;"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" data-i18n="booking.company">Company Name</label>
+                            <input class="form-input" name="company" required placeholder="Acme Corp Ltd">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" data-i18n="booking.contact">Contact Person</label>
+                            <input class="form-input" name="contact_name" required placeholder="John Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" data-i18n="booking.email">Email Address</label>
+                            <input class="form-input" name="email" type="email" required placeholder="john@acme.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" data-i18n="booking.phone">Phone / WhatsApp</label>
+                            <input class="form-input" name="phone" type="tel" required placeholder="+233 20 000 0000" oninput="this.value = this.value.replace(/[^\d+\s()-]/g, '')">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" data-i18n="booking.industry">Industry</label>
+                            <select class="form-select" name="industry" required>
+                                <option value="">Select your industry...</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Agriculture">Agriculture & Agribusiness</option>
+                                <option value="Technology">Technology & SaaS</option>
+                                <option value="Retail">Retail & FMCG</option>
+                                <option value="Construction">Construction & Real Estate</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Logistics">Logistics & Supply Chain</option>
+                                <option value="Education">Education</option>
+                                <option value="Mining">Mining & Extractives</option>
+                                <option value="Financial Services">Financial Services</option>
+                                <option value="NGO">NGO & Development</option>
+                                <option value="Hospitality">Hospitality & Tourism</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" data-i18n="booking.timezone">Your Timezone</label>
+                            <select class="form-select" name="timezone" required>
+                                <option value="">Select timezone...</option>
+                                <option value="GMT+0">GMT+0 (Ghana, Senegal)</option>
+                                <option value="GMT+1">GMT+1 (Nigeria, Congo)</option>
+                                <option value="GMT+2">GMT+2 (Zambia, South Africa)</option>
+                                <option value="GMT+3">GMT+3 (Kenya, East Africa)</option>
+                                <option value="GMT-5">GMT-5 (US Eastern)</option>
+                                <option value="GMT-6">GMT-6 (US Central)</option>
+                                <option value="GMT-8">GMT-8 (US Pacific)</option>
+                                <option value="GMT+0 UK">GMT+0 (UK)</option>
+                                <option value="GMT+1 EU">GMT+1 (Europe Central)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="booking.pain">What's your biggest financial challenge right now?</label>
+                        <textarea class="form-textarea" name="pain_points" placeholder="E.g., Messy books, no management accounts, need investor-ready financials, cash flow issues..." rows="3"></textarea>
+                    </div>
+
+                    <div style="margin: 1rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" name="whatsapp_confirm" id="waConfirm" style="width: 1rem; height: 1rem; accent-color: var(--gold);">
+                        <label for="waConfirm" style="font-size: 0.88rem; cursor: pointer;" data-i18n="booking.whatsapp_confirm">Also send confirmation via WhatsApp</label>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--full" id="submitBtn" data-i18n="booking.submit">
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+            <span>© 2026 FinAccord Advisory. All rights reserved.</span>
+            <div class="footer__bottom-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Scripts -->
+<script src="js/supabase-config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+
+</body>
+</html>

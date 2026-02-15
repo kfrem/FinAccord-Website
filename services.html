@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | FinAccord Advisory</title>
+    <meta name="description" content="Comprehensive fractional finance director services: management accounts, financial forecasting, investor readiness, and more.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='4' fill='%23C8A054'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-weight='700' font-size='18' fill='%230B1426'%3EFA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="mainNav">
+    <div class="container nav__inner">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-mark">FA</div>
+            <div class="nav__logo-text">Fin<span>Accord</span></div>
+        </a>
+        <div class="nav__links">
+            <a href="index.html" class="nav__link" data-i18n="nav.home">Home</a>
+            <a href="about.html" class="nav__link" data-i18n="nav.about">About</a>
+            <a href="services.html" class="nav__link nav__link--active" data-i18n="nav.services">Services</a>
+            <a href="booking.html" class="nav__link" data-i18n="nav.booking">Book Consultation</a>
+            <div class="lang-toggle">
+                <button class="lang-toggle__btn lang-toggle__btn--active" onclick="setLang('en')">EN</button>
+                <button class="lang-toggle__btn" onclick="setLang('fr')">FR</button>
+            </div>
+            <a href="booking.html" class="nav__cta" data-i18n="nav.cta">Book Free Session</a>
+        </div>
+        <button class="nav__hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile" id="mobileNav">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="booking.html">Book</a>
+        <a href="booking.html" class="btn btn--primary btn--full mt-2">Book Free Session</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="section section--navy" style="padding-top: calc(72px + 3rem); position: relative; overflow: hidden;">
+    <div class="geo-pattern" style="opacity: 0.03;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header section-header--center">
+            <span class="label" style="color: var(--gold);" data-i18n="svcpage.hero.label">Our Services</span>
+            <h2 style="color: var(--white);" data-i18n="svcpage.hero.title">Comprehensive Financial Leadership</h2>
+            <p data-i18n="svcpage.hero.desc">Every engagement is tailored to where your business is today and where it's heading. We don't sell packages — we design solutions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Note -->
+<section class="section" style="padding-bottom: 0;">
+    <div class="container">
+        <div class="pricing-note fade-up" data-i18n="svcpage.pricing.note">
+            <strong>Pricing</strong> is discussed during your free strategy session and tailored to your specific needs, business size, and scope of engagement. We believe in transparent, value-aligned pricing — not one-size-fits-all packages.
+        </div>
+    </div>
+</section>
+
+<!-- Core Services -->
+<section class="section">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="label">Core Services</span>
+            <h2>What We Deliver</h2>
+        </div>
+
+        <!-- Service 1: Data Transformation -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🔍</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="svc.s1.title">Data Transformation</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;" data-i18n="svc.s1.desc">We clean the chaos — deduplication, reclassification, standardisation. Your accounting data becomes reliable, auditable, and decision-ready.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Data Cleansing</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Chart of Accounts Design</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Transaction Reclassification</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">System Migration</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 2: Management Accounts -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">📊</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="svc.s2.title">Management Accounts</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;" data-i18n="svc.s2.desc">Monthly P&L, balance sheet, cash flow, KPI dashboards, and departmental analysis — delivered on time, every time. The financial heartbeat of your business.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Monthly P&L</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Balance Sheet</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Cash Flow</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">KPI Dashboard</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Departmental Analysis</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 3: Margin Analysis -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🎯</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="svc.s3.title">Margin &amp; Profitability Analysis</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;" data-i18n="svc.s3.desc">Understand profitability by department, product line, customer segment. Identify cost drivers and margin leaks before they become crises.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Product Profitability</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Customer Analysis</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Cost Driver Mapping</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Pricing Strategy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 4: Forecasting -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">📈</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="svc.s4.title">Financial Forecasting</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;" data-i18n="svc.s4.desc">12-month rolling forecasts, scenario modelling, cash runway analysis, and growth projections — powered by our proprietary analytics engine.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Rolling Forecast</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Scenario Modelling</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Cash Runway</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Growth Projections</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 5: Investor Readiness -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🏛️</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="svc.s5.title">Investor &amp; Board Readiness</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;" data-i18n="svc.s5.desc">Financial models, pitch deck financials, board packs, and due diligence preparation. Walk into every meeting with confidence and credibility.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Financial Models</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Board Packs</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Pitch Deck Financials</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Due Diligence</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Bank Negotiations</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 6: Team Development -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">👥</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;" data-i18n="svc.s6.title">Finance Team Development</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;" data-i18n="svc.s6.desc">Upskill your in-house team, establish processes, implement controls. We build capacity so your business isn't dependent on any one person — including us.</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Staff Training</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Process Design</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Internal Controls</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Capacity Building</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ENTERPRISE & INSTITUTIONAL SERVICES                          -->
+<!-- ============================================================ -->
+<section class="section section--navy" style="position: relative; overflow: hidden;">
+    <div class="geo-pattern" style="opacity: 0.03;"></div>
+    <div class="container container--narrow" style="position: relative; z-index: 2;">
+        <div class="section-header section-header--center fade-up">
+            <span class="label" style="color: var(--gold);">Enterprise Development &amp; Institutional Programmes</span>
+            <h2 style="color: var(--white);">Beyond Finance: Building Enterprises, Transforming Economies</h2>
+            <p>Our team&rsquo;s 100+ years of operational experience extends far beyond the balance sheet. We design and deliver enterprise development programmes that create sustainable businesses, generate employment, and turn government policy into measurable economic impact.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container container--narrow">
+
+        <!-- Service 7: Entrepreneur Development -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; border-bottom: 1px solid var(--gray-200); align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🚀</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;">Entrepreneur Creation &amp; Capacity Building</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;">
+                    We take aspiring entrepreneurs from idea to operational business through a structured, results-driven programme that combines intensive training, financial literacy, mentorship from seasoned operators, and rigorous accountability frameworks. This is not a classroom exercise &mdash; it is a launchpad.
+                </p>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;">
+                    Each participant progresses through a phased journey: opportunity identification and validation, business model design, financial planning, legal structuring, first-revenue milestones, and sustained growth coaching. Our coaches &mdash; who have personally built, scaled, and restructured businesses across Africa and Europe &mdash; remain embedded alongside each entrepreneur through weekly accountability check-ins, quarterly business reviews, and on-demand strategic guidance until the enterprise is self-sustaining.
+                </p>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1.25rem;">
+                    This programme is designed to deliver measurable outcomes that satisfy donor reporting requirements, government KPIs, and institutional impact metrics &mdash; including jobs created, revenue generated, tax contributions, and businesses surviving beyond 24 months.
+                </p>
+
+                <div style="background: var(--gold-muted); border: 1px solid var(--gold-border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.25rem;">
+                    <h4 style="font-family: var(--font-display); font-size: 1rem; color: var(--navy); margin-bottom: 0.75rem;">Programme Structure</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem; color: var(--gray-700);">
+                        <div><strong style="color: var(--navy);">Phase 1:</strong> Discovery &amp; Validation (Weeks 1&ndash;4)</div>
+                        <div><strong style="color: var(--navy);">Phase 2:</strong> Business Architecture (Weeks 5&ndash;8)</div>
+                        <div><strong style="color: var(--navy);">Phase 3:</strong> Launch &amp; First Revenue (Weeks 9&ndash;16)</div>
+                        <div><strong style="color: var(--navy);">Phase 4:</strong> Growth &amp; Accountability (Months 5&ndash;12)</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Cohort-Based Training</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">1-to-1 Mentorship</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Accountability Frameworks</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Financial Literacy</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Youth Enterprise</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Women in Business</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Impact Reporting</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service 8: Policy-to-Enterprise Translation -->
+        <div class="fade-up" style="display: grid; grid-template-columns: 80px 1fr; gap: 2rem; padding: 2.5rem 0; align-items: start;">
+            <div style="width: 64px; height: 64px; background: var(--gold-muted); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;">🏛️</div>
+            <div>
+                <h3 style="margin-bottom: 0.5rem;">Policy-to-Enterprise Translation</h3>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;">
+                    Governments and development institutions invest billions in economic transformation programmes &mdash; yet too often, policy ambition fails to translate into enterprise reality on the ground. FinAccord bridges this gap. We take government policies, institutional frameworks, donor-funded programmes, and multilateral initiatives and translate them into actionable, investable business models that create real enterprises, real employment, and real economic value.
+                </p>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1rem;">
+                    Our team analyses policy objectives, identifies commercially viable enterprise opportunities within the policy framework, designs financially sustainable business structures, and then recruits, trains, and supports the entrepreneurs who will execute them. Whether the mandate is agricultural value chain development, youth employment, import substitution, digital economy activation, or industrial diversification &mdash; we convert intent into operating businesses with auditable financial performance and demonstrable social impact.
+                </p>
+                <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1.25rem;">
+                    We work as an implementation partner alongside government ministries, development finance institutions, NGOs, and multilateral agencies &mdash; providing the financial architecture, entrepreneurial capacity building, and programme management that turns strategic vision into economic reality. Every programme we design includes robust monitoring, evaluation, and reporting frameworks aligned to international standards including the SDGs.
+                </p>
+
+                <div style="background: var(--gold-muted); border: 1px solid var(--gold-border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.25rem;">
+                    <h4 style="font-family: var(--font-display); font-size: 1rem; color: var(--navy); margin-bottom: 0.75rem;">Who We Work With</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem; color: var(--gray-700);">
+                        <div><strong style="color: var(--navy);">Government:</strong> Ministries of Trade, Industry, Agriculture, Youth &amp; Employment</div>
+                        <div><strong style="color: var(--navy);">Development Finance:</strong> AfDB, World Bank, IFC, DFIs</div>
+                        <div><strong style="color: var(--navy);">Multilateral:</strong> UNDP, UNIDO, EU Development, USAID, DFID/FCDO</div>
+                        <div><strong style="color: var(--navy);">Private Sector:</strong> Foundations, CSR programmes, impact investors</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Policy Analysis</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Enterprise Design</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Programme Management</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Value Chain Development</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">SDG Alignment</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">M&amp;E Frameworks</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Donor Reporting</span>
+                    <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Import Substitution</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FD Subcontracting -->
+<section class="section section--cream">
+    <div class="container">
+        <div style="padding: 3rem; background: var(--white); border: 1px solid var(--gold-border); border-radius: var(--radius-lg); text-align: center; max-width: 700px; margin: 0 auto;" class="fade-up">
+            <span class="label" style="display: block; margin-bottom: 0.75rem;" data-i18n="svcpage.sub.title">For Finance Directors & Accounting Firms</span>
+            <h3 style="margin-bottom: 1rem;">White-Label Analytical Services</h3>
+            <p style="color: var(--gray-500); line-height: 1.7; margin-bottom: 1.5rem;" data-i18n="svcpage.sub.desc">Already have a Finance Director or run an accounting practice? Our subcontracting service allows you to leverage our specialist analytics and reporting capabilities — white-labelled, confidential, and seamless.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1.5rem;">
+                <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Board Pack Preparation</span>
+                <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Financial Modelling</span>
+                <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Data Analytics</span>
+                <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Dashboard Development</span>
+                <span class="industry-tag" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">100% Confidential</span>
+            </div>
+            <a href="booking.html" class="btn btn--dark">Discuss a Partnership →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--navy" style="position: relative; overflow: hidden;">
+    <div class="geo-pattern"></div>
+    <div class="container" style="position: relative; z-index: 2; text-align: center;">
+        <h2 style="color: var(--white); margin-bottom: 1rem;" class="fade-up">Ready to Transform Your Financials?</h2>
+        <p style="color: rgba(255,255,255,0.55); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;" class="fade-up">Book a free 30-minute strategy session. We'll assess your needs and recommend the right approach.</p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;" class="fade-up">
+            <a href="booking.html" class="btn btn--primary">Book Strategy Session</a>
+            <a href="#" class="btn btn--whatsapp" onclick="openWhatsApp()">Chat on WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+            <span>&copy; 2026 FinAccord Advisory. All rights reserved.</span>
+            <div class="footer__bottom-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="booking.html">Book</a></div>
+        </div>
+    </div>
+</footer>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/supabase-config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

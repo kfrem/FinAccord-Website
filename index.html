@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinAccord Advisory | Fractional Finance Director for Africa's Growth Companies</title>
+    <meta name="description" content="Strategic financial leadership without the full-time cost. Board-ready intelligence, management accounts, and CFO-level guidance for growth businesses across Africa.">
+    <meta name="keywords" content="fractional finance director, CFO services Africa, management accounts, financial advisory, Ghana, Nigeria, Kenya, Congo">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='4' fill='%23C8A054'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-weight='700' font-size='18' fill='%230B1426'%3EFA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="mainNav">
+    <div class="container nav__inner">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-mark">FA</div>
+            <div class="nav__logo-text">Fin<span>Accord</span></div>
+        </a>
+
+        <div class="nav__links">
+            <a href="index.html" class="nav__link nav__link--active" data-i18n="nav.home">Home</a>
+            <a href="about.html" class="nav__link" data-i18n="nav.about">About</a>
+            <a href="services.html" class="nav__link" data-i18n="nav.services">Services</a>
+            <a href="booking.html" class="nav__link" data-i18n="nav.booking">Book Consultation</a>
+
+            <div class="lang-toggle">
+                <button class="lang-toggle__btn lang-toggle__btn--active" onclick="setLang('en')">EN</button>
+                <button class="lang-toggle__btn" onclick="setLang('fr')">FR</button>
+            </div>
+
+            <a href="booking.html" class="nav__cta" data-i18n="nav.cta">Book Free Session</a>
+        </div>
+
+        <button class="nav__hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <div class="nav__mobile" id="mobileNav">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="booking.html" data-i18n="nav.booking">Book Consultation</a>
+        <div style="padding: 1rem 0; display: flex; gap: 0.5rem;">
+            <button class="lang-toggle__btn lang-toggle__btn--active" onclick="setLang('en')" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; border-radius: 4px;">EN</button>
+            <button class="lang-toggle__btn" onclick="setLang('fr')" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; border-radius: 4px;">FR</button>
+        </div>
+        <a href="booking.html" class="btn btn--primary btn--full mt-2" data-i18n="nav.cta">Book Free Session</a>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+    <div class="hero__bg"></div>
+    <div class="geo-pattern"></div>
+
+    <div class="container">
+        <div class="hero__content">
+            <div class="hero__eyebrow" data-i18n="hero.eyebrow">Trusted Across 5 African Markets</div>
+
+            <h1 data-i18n="hero.title">Your <em>Finance Director.</em><br>Without the Full-Time&nbsp;Cost.</h1>
+
+            <p class="hero__subtitle" data-i18n="hero.subtitle">
+                Board-ready financial intelligence, management accounts, and strategic CFO guidance — for growth businesses that have outgrown simple bookkeeping but aren't yet ready for a full-time Finance Director.
+            </p>
+
+            <div class="hero__actions">
+                <a href="booking.html" class="btn btn--primary" data-i18n="hero.cta1">Book Free Strategy Session</a>
+                <a href="#how-it-works" class="btn btn--outline" data-i18n="hero.cta2">How It Works</a>
+            </div>
+
+            <div class="hero__trust">
+                <div class="hero__trust-item">
+                    <div class="hero__trust-number">100+</div>
+                    <div class="hero__trust-label" data-i18n="hero.trust1">Years Combined Experience</div>
+                </div>
+                <div class="hero__trust-item">
+                    <div class="hero__trust-number">FCCA</div>
+                    <div class="hero__trust-label" data-i18n="hero.trust2">Chartered Accountants</div>
+                </div>
+                <div class="hero__trust-item">
+                    <div class="hero__trust-number">5</div>
+                    <div class="hero__trust-label" data-i18n="hero.trust3">African Markets Served</div>
+                </div>
+                <div class="hero__trust-item">
+                    <div class="hero__trust-number">24/7</div>
+                    <div class="hero__trust-label" data-i18n="hero.trust4">Availability</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Markets Strip -->
+<div class="markets-strip">
+    <div class="container">
+        <div class="markets-strip__inner">
+            <span class="markets-strip__label" data-i18n="markets.label">Markets We Serve</span>
+            <div class="markets-strip__flags">
+                <span class="market-flag"><span class="market-flag__emoji">🇬🇭</span> Ghana</span>
+                <span class="market-flag"><span class="market-flag__emoji">🇳🇬</span> Nigeria</span>
+                <span class="market-flag"><span class="market-flag__emoji">🇰🇪</span> Kenya</span>
+                <span class="market-flag"><span class="market-flag__emoji">🇨🇩</span> Congo</span>
+                <span class="market-flag"><span class="market-flag__emoji">🇺🇬</span> Uganda</span>
+                <span class="market-flag"><span class="market-flag__emoji">🇿🇲</span> Zambia</span>
+                <span class="market-flag"><span class="market-flag__emoji">🇸🇳</span> Sénégal</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ PROBLEM / PAIN POINTS ============ -->
+<section class="section" id="problem">
+    <div class="container">
+        <div class="section-header section-header--center fade-up">
+            <span class="label" data-i18n="problem.label">The Challenge</span>
+            <h2 data-i18n="problem.title">Growing Fast, But Flying Blind?</h2>
+            <p data-i18n="problem.desc">
+                You're closing deals, hiring staff, and scaling operations. But your financial data can't keep up. Sound familiar?
+            </p>
+        </div>
+
+        <div class="outcomes-grid stagger fade-up">
+            <div class="outcome-card" style="border-left: 3px solid var(--red);">
+                <div class="outcome-card__label" data-i18n="problem.p1.title">Messy Books</div>
+                <div class="outcome-card__desc" data-i18n="problem.p1.desc">Your accounting software has data, but no one can tell you what's actually happening in the business. Reports are late, inconsistent, or simply wrong.</div>
+            </div>
+            <div class="outcome-card" style="border-left: 3px solid var(--red);">
+                <div class="outcome-card__label" data-i18n="problem.p2.title">Cash Flow Surprises</div>
+                <div class="outcome-card__desc" data-i18n="problem.p2.desc">You're profitable on paper but always short on cash. No one forecasts when you'll run out, or when you can safely invest in growth.</div>
+            </div>
+            <div class="outcome-card" style="border-left: 3px solid var(--red);">
+                <div class="outcome-card__label" data-i18n="problem.p3.title">Investor Meetings Without Ammunition</div>
+                <div class="outcome-card__desc" data-i18n="problem.p3.desc">Banks and investors ask for financial models, board packs, and scenario analyses. You don't have them — and you're losing credibility.</div>
+            </div>
+            <div class="outcome-card" style="border-left: 3px solid var(--red);">
+                <div class="outcome-card__label" data-i18n="problem.p4.title">Can't Justify a Full-Time FD</div>
+                <div class="outcome-card__desc" data-i18n="problem.p4.desc">A qualified Finance Director costs $80K–$150K annually. Your business needs that expertise, but at a fraction of the commitment.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SERVICES OVERVIEW ============ -->
+<section class="section section--cream" id="services-overview">
+    <div class="container">
+        <div class="section-header fade-up">
+            <span class="label" data-i18n="services.label">What We Deliver</span>
+            <h2 data-i18n="services.title">Finance Director-Level Intelligence, On Demand</h2>
+            <p data-i18n="services.desc">
+                We transform messy books into board-ready intelligence. Every engagement is tailored to where your business is today and where it's heading.
+            </p>
+        </div>
+
+        <div class="services-grid stagger fade-up">
+            <div class="service-card">
+                <div class="service-card__number">01</div>
+                <h3 data-i18n="svc.s1.title">Data Transformation</h3>
+                <p data-i18n="svc.s1.desc">We clean the chaos — deduplication, reclassification, standardisation. Your accounting data becomes reliable, auditable, and decision-ready.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__number">02</div>
+                <h3 data-i18n="svc.s2.title">Management Accounts</h3>
+                <p data-i18n="svc.s2.desc">Monthly P&L, balance sheet, cash flow, KPI dashboards, and departmental analysis — delivered on time, every time. The financial heartbeat of your business.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__number">03</div>
+                <h3 data-i18n="svc.s3.title">Margin &amp; Profitability Analysis</h3>
+                <p data-i18n="svc.s3.desc">Understand profitability by department, product line, customer segment. Identify cost drivers and margin leaks before they become crises.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__number">04</div>
+                <h3 data-i18n="svc.s4.title">Financial Forecasting</h3>
+                <p data-i18n="svc.s4.desc">12-month rolling forecasts, scenario modelling, cash runway analysis, and growth projections — powered by our proprietary analytics engine.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__number">05</div>
+                <h3 data-i18n="svc.s5.title">Investor &amp; Board Readiness</h3>
+                <p data-i18n="svc.s5.desc">Financial models, pitch deck financials, board packs, and due diligence preparation. Walk into every meeting with confidence and credibility.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__number">06</div>
+                <h3 data-i18n="svc.s6.title">Finance Team Development</h3>
+                <p data-i18n="svc.s6.desc">Upskill your in-house team, establish processes, implement controls. We build capacity so your business isn't dependent on any one person — including us.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__number">07</div>
+                <h3>Entrepreneur Creation &amp; Capacity Building</h3>
+                <p>From idea to operational business — structured training, mentorship, accountability programmes, and growth coaching that launches sustainable enterprises.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card__number">08</div>
+                <h3>Policy-to-Enterprise Translation</h3>
+                <p>We convert government policies, donor programmes, and institutional mandates into investable business models that create real enterprises and measurable economic impact.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;" class="fade-up">
+            <a href="services.html" class="btn btn--dark" data-i18n="services.cta">Explore All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ WHY US / DIFFERENTIATOR ============ -->
+<section class="section section--navy" id="why-us" style="position: relative; overflow: hidden;">
+    <div class="geo-pattern" style="opacity: 0.03;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header section-header--center fade-up">
+            <span class="label" style="color: var(--gold);" data-i18n="why.label">Why FinAccord</span>
+            <h2 style="color: var(--white);" data-i18n="why.title">Not Just Accountants. Strategic Partners.</h2>
+            <p data-i18n="why.desc">
+                We are a collective of Fellow Chartered Accountants, CPAs, senior data analysts, and corporate business coaches with over 100 years of combined experience across Africa, the United States, and Europe — backed by a proprietary financial intelligence system and deep operational expertise that sets us apart.
+            </p>
+        </div>
+
+        <div class="credentials-grid stagger fade-up">
+            <div class="credential-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+                <div class="credential-card__icon" style="background: rgba(200,160,84,0.15);">🎓</div>
+                <div class="credential-card__title" style="color: var(--gold);" data-i18n="why.c1.title">FCCA & CPA Qualified</div>
+                <div class="credential-card__desc" style="color: rgba(255,255,255,0.5);" data-i18n="why.c1.desc">Globally recognised credentials with the rigour to match. We hold ourselves to the highest professional standards.</div>
+            </div>
+            <div class="credential-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+                <div class="credential-card__icon" style="background: rgba(200,160,84,0.15);">⚡</div>
+                <div class="credential-card__title" style="color: var(--gold);" data-i18n="why.c2.title">Proprietary Analytics Engine</div>
+                <div class="credential-card__desc" style="color: rgba(255,255,255,0.5);" data-i18n="why.c2.desc">Our tech-enabled approach uses custom-built dashboards and models (Python, SQL, advanced Excel) to deliver insights faster and deeper than traditional firms.</div>
+            </div>
+            <div class="credential-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+                <div class="credential-card__icon" style="background: rgba(200,160,84,0.15);">🌍</div>
+                <div class="credential-card__title" style="color: var(--gold);" data-i18n="why.c3.title">Africa-First Expertise</div>
+                <div class="credential-card__desc" style="color: rgba(255,255,255,0.5);" data-i18n="why.c3.desc">We understand the regulatory landscapes, currency complexities, and business realities across multiple African markets — Anglophone and Francophone.</div>
+            </div>
+            <div class="credential-card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+                <div class="credential-card__icon" style="background: rgba(200,160,84,0.15);">🤝</div>
+                <div class="credential-card__title" style="color: var(--gold);" data-i18n="why.c4.title">FD-to-FD Subcontracting</div>
+                <div class="credential-card__desc" style="color: rgba(255,255,255,0.5);" data-i18n="why.c4.desc">Even serving Finance Directors can leverage our team. Outsource specialist analytical work, forecasting, or board pack preparation to us — white-labelled and confidential.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section" id="how-it-works">
+    <div class="container">
+        <div class="section-header section-header--center fade-up">
+            <span class="label" data-i18n="how.label">How It Works</span>
+            <h2 data-i18n="how.title">From First Call to Financial Clarity</h2>
+            <p data-i18n="how.subtitle">Three steps to transforming your financial operations.</p>
+        </div>
+
+        <div class="process-steps stagger fade-up">
+            <div class="process-step">
+                <div class="process-step__number">1</div>
+                <h4 data-i18n="how.s1.title">Free Strategy Session</h4>
+                <p data-i18n="how.s1.desc">30 minutes to understand your business, assess your financial structure, and identify the quick wins. No cost, no obligation.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-step__number">2</div>
+                <h4 data-i18n="how.s2.title">Tailored Proposal</h4>
+                <p data-i18n="how.s2.desc">We design an engagement that fits your exact needs — scope, deliverables, timeline, and investment. Every proposal is bespoke.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-step__number">3</div>
+                <h4 data-i18n="how.s3.title">Ongoing Partnership</h4>
+                <p data-i18n="how.s3.desc">Monthly delivery of management accounts, dashboards, and strategic insight. We become an extension of your leadership team.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;" class="fade-up">
+            <a href="booking.html" class="btn btn--primary" data-i18n="how.cta">Book Your Free Session →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ OUTCOMES / SOCIAL PROOF ============ -->
+<section class="section section--cream">
+    <div class="container">
+        <div class="section-header section-header--center fade-up">
+            <span class="label" data-i18n="outcomes.label">Client Outcomes</span>
+            <h2 data-i18n="outcomes.title">What Happens When You Get Financial Clarity</h2>
+        </div>
+
+        <div class="outcomes-grid stagger fade-up">
+            <div class="outcome-card">
+                <div class="outcome-card__metric">3x</div>
+                <div class="outcome-card__label" data-i18n="out.o1.title">Faster Decision Making</div>
+                <div class="outcome-card__desc" data-i18n="out.o1.desc">Real-time dashboards replace guesswork. CEOs make confident moves backed by data, not gut feel.</div>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-card__metric">60%</div>
+                <div class="outcome-card__label" data-i18n="out.o2.title">Cost Savings vs Full-Time FD</div>
+                <div class="outcome-card__desc" data-i18n="out.o2.desc">Get the same strategic firepower without the salary, benefits, and office space of a permanent hire.</div>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-card__metric">90%</div>
+                <div class="outcome-card__label" data-i18n="out.o3.title">Report Accuracy Improvement</div>
+                <div class="outcome-card__desc" data-i18n="out.o3.desc">From messy spreadsheets to board-ready reports. Clean data in, reliable intelligence out.</div>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-card__metric">12mo</div>
+                <div class="outcome-card__label" data-i18n="out.o4.title">Rolling Financial Visibility</div>
+                <div class="outcome-card__desc" data-i18n="out.o4.desc">Stop firefighting. See 12 months ahead with scenario-tested forecasts and cash runway projections.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="section">
+    <div class="container">
+        <div class="section-header section-header--center fade-up">
+            <span class="label" data-i18n="ind.label">Industries</span>
+            <h2 data-i18n="ind.title">Deep Expertise Across Key Sectors</h2>
+            <p data-i18n="ind.desc">
+                Our team has delivered financial leadership across a diverse range of industries. We bring cross-sector insight to every engagement.
+            </p>
+        </div>
+
+        <div class="industry-tags fade-up" style="max-width: 800px; margin: 0 auto;">
+            <span class="industry-tag">🏭 Manufacturing</span>
+            <span class="industry-tag">🌾 Agriculture &amp; Agribusiness</span>
+            <span class="industry-tag">💻 Technology &amp; SaaS</span>
+            <span class="industry-tag">🏪 Retail &amp; FMCG</span>
+            <span class="industry-tag">🏗️ Construction &amp; Real Estate</span>
+            <span class="industry-tag">🏥 Healthcare</span>
+            <span class="industry-tag">📦 Logistics &amp; Supply Chain</span>
+            <span class="industry-tag">🎓 Education</span>
+            <span class="industry-tag">⛏️ Mining &amp; Extractives</span>
+            <span class="industry-tag">💰 Financial Services</span>
+            <span class="industry-tag">🌐 NGO &amp; Development</span>
+            <span class="industry-tag">🏨 Hospitality &amp; Tourism</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CTA SECTION ============ -->
+<section class="section section--navy" style="position: relative; overflow: hidden;">
+    <div class="geo-pattern"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+        <div style="max-width: 640px; margin: 0 auto; text-align: center;" class="fade-up">
+            <span class="label" style="color: var(--gold);" data-i18n="cta.label">Ready to Start?</span>
+            <h2 style="color: var(--white); margin: 1rem 0;" data-i18n="cta.title">Book Your Free 30-Minute Strategy Session</h2>
+            <p style="color: rgba(255,255,255,0.55); margin-bottom: 2rem; font-size: 1.05rem;" data-i18n="cta.desc">
+                No cost. No obligation. Just 30 minutes to assess your financial structure, identify quick wins, and determine if we're the right fit.
+            </p>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+                <a href="booking.html" class="btn btn--primary" data-i18n="cta.cta1">Book Strategy Session</a>
+                <a href="#" class="btn btn--whatsapp" onclick="openWhatsApp()" data-i18n="cta.cta2">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ OFFICES / CONTACT ============ -->
+<section class="section section--navy" id="contact" style="padding-top: 0;">
+    <div class="container">
+        <div class="section-header section-header--center fade-up">
+            <span class="label" style="color: var(--gold);" data-i18n="contact.label">Get In Touch</span>
+            <h2 style="color: var(--white);" data-i18n="contact.title">Global Reach. Local Understanding.</h2>
+        </div>
+
+        <div class="contact-grid stagger fade-up" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="contact-card">
+                <div class="contact-card__icon">🇬🇧</div>
+                <h4>London (HQ)</h4>
+                <p>61 Bridge Street<br>HR5 3DJ</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-card__icon">🇺🇸</div>
+                <h4>New York</h4>
+                <p>445 Park Avenue<br>New York, NY</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-card__icon">🇨🇩</div>
+                <h4>Kinshasa</h4>
+                <p>H2-1, av. Tombalbaye<br>C/Gombe, V/Kinshasa</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-card__icon">🇳🇬</div>
+                <h4>Abuja</h4>
+                <p>Coming Soon</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-card__icon">🇬🇭</div>
+                <h4>Accra</h4>
+                <p>Coming Soon</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-card__icon">🇺🇬</div>
+                <h4>Kampala</h4>
+                <p>Coming Soon</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;" class="fade-up">
+            <a href="mailto:advisory@finaccord.com" class="btn btn--outline">✉ advisory@finaccord.com</a>
+            <a href="#" class="btn btn--whatsapp" onclick="openWhatsApp()">💬 WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__grid">
+            <div class="footer__brand">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div class="nav__logo-mark" style="width: 28px; height: 28px; font-size: 0.85rem;">FA</div>
+                    <span style="font-family: var(--font-display); font-size: 1.1rem; color: var(--white);">Fin<span style="color: var(--gold);">Accord</span> Advisory</span>
+                </div>
+                <p data-i18n="footer.desc">Strategic financial leadership for Africa's growth companies.</p>
+            </div>
+            <div>
+                <h5 data-i18n="footer.services">Services</h5>
+                <a href="services.html">Management Accounts</a>
+                <a href="services.html">Financial Forecasting</a>
+                <a href="services.html">Board &amp; Investor Readiness</a>
+                <a href="services.html">Entrepreneur Development</a>
+                <a href="services.html">Policy-to-Enterprise</a>
+            </div>
+            <div>
+                <h5 data-i18n="footer.company">Company</h5>
+                <a href="about.html" data-i18n="footer.c1">About Us</a>
+                <a href="about.html#team" data-i18n="footer.c2">Our Team</a>
+                <a href="booking.html" data-i18n="footer.c3">Book Consultation</a>
+            </div>
+            <div>
+                <h5 data-i18n="footer.connect">Connect</h5>
+                <a href="mailto:advisory@finaccord.com">advisory@finaccord.com</a>
+                <a href="#" onclick="openWhatsApp()">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2026 FinAccord Advisory. All rights reserved.</span>
+            <div class="footer__bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ============ TOAST CONTAINER ============ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="js/supabase-config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
