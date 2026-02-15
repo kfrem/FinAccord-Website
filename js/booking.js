@@ -1,5 +1,6 @@
 // ============================================================================
 // FINACCORD ADVISORY — Booking Calendar Engine
+// Adapted from MySaloon BookingCalendar.tsx for vanilla JS + Supabase
 // No React, No Calendly, No paid APIs
 // ============================================================================
 
@@ -15,6 +16,7 @@ let confirmedBooking = null;
 const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const HOURS = SITE_CONFIG.booking.defaultHours;
 
+// Generate time slots
 function generateTimeSlots() {
     const slots = [];
     for (let h = HOURS.open; h < HOURS.close; h++) {
@@ -28,18 +30,23 @@ function generateTimeSlots() {
 
 const TIME_SLOTS = generateTimeSlots();
 
+// --- Initialize Calendar ---
 document.addEventListener('DOMContentLoaded', () => {
     renderDayLabels();
     renderCalendar();
     loadBlockedDates();
 });
 
+// --- Render Day Labels ---
 function renderDayLabels() {
     const container = document.getElementById('calDayLabels');
     if (!container) return;
-    container.innerHTML = DAY_LABELS.map(d => `<div class="cal-day-label">${d}</div>`).join('');
+    container.innerHTML = DAY_LABELS.map(d =>
+        `<div class="cal-day-label">${d}</div>`
+    ).join('');
 }
 
+// --- Render Calendar Grid ---
 function renderCalendar() {
     const grid = document.getElementById('calGrid');
     const monthYear = document.getElementById('calMonthYear');
@@ -55,18 +62,22 @@ function renderCalendar() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
+    // Calculate max bookable date
     const maxDate = new Date(today);
     maxDate.setDate(maxDate.getDate() + SITE_CONFIG.booking.daysAhead);
 
+    // Day of week offset (0=Mon for our grid)
     let startDay = firstDay.getDay() - 1;
-    if (startDay < 0) startDay = 6;
+    if (startDay < 0) startDay = 6; // Sunday
 
     let html = '';
 
+    // Empty cells for days before month starts
     for (let i = 0; i < startDay; i++) {
         html += '<button class="cal-date cal-date--empty" disabled></button>';
     }
 
+    // Days of the month
     for (let day = 1; day <= lastDay.getDate(); day++) {
         const date = new Date(calCurrentYear, calCurrentMonth, day);
         const dateStr = formatDate(date);
@@ -88,13 +99,20 @@ function renderCalendar() {
     grid.innerHTML = html;
 }
 
+// --- Navigate Calendar ---
 function calNav(direction) {
     calCurrentMonth += direction;
-    if (calCurrentMonth > 11) { calCurrentMonth = 0; calCurrentYear++; }
-    else if (calCurrentMonth < 0) { calCurrentMonth = 11; calCurrentYear--; }
+    if (calCurrentMonth > 11) {
+        calCurrentMonth = 0;
+        calCurrentYear++;
+    } else if (calCurrentMonth < 0) {
+        calCurrentMonth = 11;
+        calCurrentYear--;
+    }
     renderCalendar();
 }
 
+// --- Select Date ---
 function selectDate(year, month, day) {
     selectedDate = new Date(year, month, day);
     selectedTime = null;
@@ -104,9 +122,12 @@ function selectDate(year, month, day) {
     updateFormVisibility();
 }
 
+// --- Show Time Slots ---
 function showTimeSlots() {
     const section = document.getElementById('timeSection');
-    if (!section) return;
+    const container = document.getElementById('timeSlots');
+    if (!section || !container) return;
+
     section.style.display = 'block';
     renderTimeSlots();
 }
@@ -118,13 +139,16 @@ function renderTimeSlots() {
     container.innerHTML = TIME_SLOTS.map(time => {
         const isTaken = takenTimes.includes(time);
         const isSelected = selectedTime === time;
+
         let classes = 'time-slot';
         if (isTaken) classes += ' time-slot--taken';
         if (isSelected) classes += ' time-slot--selected';
+
         return `<button class="${classes}" ${isTaken ? 'disabled' : ''} onclick="selectTime('${time}')">${time}</button>`;
     }).join('');
 }
 
+// --- Select Time ---
 function selectTime(time) {
     selectedTime = time;
     renderTimeSlots();
@@ -132,39 +156,69 @@ function selectTime(time) {
     updateSlotDisplay();
 }
 
+// --- Fetch Availability from Supabase ---
 async function fetchAvailability() {
     if (!selectedDate) return;
+
     const loading = document.getElementById('timeLoading');
     if (loading) loading.style.display = 'inline';
+
     takenTimes = [];
+
     try {
-        const startOfDay = new Date(selectedDate); startOfDay.setHours(0, 0, 0, 0);
-        const endOfDay = new Date(selectedDate); endOfDay.setHours(23, 59, 59, 999);
-        if (!supabase) throw new Error("No DB");
-        const { data, error } = await supabase.from(DB.consultations).select('consultation_time')
-            .gte('consultation_time', startOfDay.toISOString()).lte('consultation_time', endOfDay.toISOString()).neq('status', 'cancelled');
+        const startOfDay = new Date(selectedDate);
+        startOfDay.setHours(0, 0, 0, 0);
+
+        const endOfDay = new Date(selectedDate);
+        endOfDay.setHours(23, 59, 59, 999);
+
+        if (!supabase) throw new Error("No DB"); const { data, error } = await supabase
+            .from(DB.consultations)
+            .select('consultation_time')
+            .gte('consultation_time', startOfDay.toISOString())
+            .lte('consultation_time', endOfDay.toISOString())
+            .neq('status', 'cancelled');
+
         if (data) {
             takenTimes = data.map(app => {
                 const d = new Date(app.consultation_time);
-                return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+                return d.getHours().toString().padStart(2, '0') + ':' +
+                    d.getMinutes().toString().padStart(2, '0');
             });
         }
-    } catch (err) { console.warn('Demo mode:', err.message); }
+
+        if (error) {
+            console.warn('Supabase not configured yet, running in demo mode.');
+        }
+    } catch (err) {
+        console.warn('Running in demo mode (Supabase not connected):', err.message);
+    }
+
     if (loading) loading.style.display = 'none';
     renderTimeSlots();
 }
 
+// --- Load Blocked Dates ---
 async function loadBlockedDates() {
     try {
-        if (!supabase) throw new Error("No DB");
-        const { data } = await supabase.from(DB.blocked_slots).select('blocked_date');
-        if (data) { blockedDates = data.map(d => d.blocked_date); renderCalendar(); }
-    } catch (err) { console.warn('Blocked dates not loaded (demo mode).'); }
+        if (!supabase) throw new Error("No DB"); const { data } = await supabase
+            .from(DB.blocked_slots)
+            .select('blocked_date');
+
+        if (data) {
+            blockedDates = data.map(d => d.blocked_date);
+            renderCalendar();
+        }
+    } catch (err) {
+        console.warn('Blocked dates not loaded (demo mode).');
+    }
 }
 
+// --- Update Form Visibility ---
 function updateFormVisibility() {
     const placeholder = document.getElementById('formPlaceholder');
     const form = document.getElementById('consultationForm');
+
     if (selectedTime) {
         if (placeholder) placeholder.style.display = 'none';
         if (form) form.style.display = 'block';
@@ -174,6 +228,7 @@ function updateFormVisibility() {
     }
 }
 
+// --- Update Slot Display ---
 function updateSlotDisplay() {
     const display = document.getElementById('selectedSlotDisplay');
     if (display && selectedDate && selectedTime) {
@@ -182,11 +237,16 @@ function updateSlotDisplay() {
     }
 }
 
+// --- Submit Booking ---
 async function submitBooking(e) {
     e.preventDefault();
+
     const form = e.target;
     const btn = document.getElementById('submitBtn');
-    if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner" style="display:inline-block;width:16px;height:16px;margin-right:8px;vertical-align:middle;"></span> Confirming...'; }
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner" style="display: inline-block; width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;"></span> Confirming...';
+    }
 
     const formData = new FormData(form);
     const company = sanitize(formData.get('company'));
@@ -198,82 +258,147 @@ async function submitBooking(e) {
     const painPoints = sanitize(formData.get('pain_points'));
     const whatsappConfirm = formData.get('whatsapp_confirm') === 'on';
 
+    // Validation
     if (!company || !contact || !email || !phone || !industry || !timezone) {
         showToast('Please fill in all required fields.', 'error');
         if (btn) { btn.disabled = false; btn.textContent = 'Confirm Booking'; }
         return;
     }
+
     if (!selectedDate || !selectedTime) {
         showToast('Please select a date and time.', 'error');
         if (btn) { btn.disabled = false; btn.textContent = 'Confirm Booking'; }
         return;
     }
 
+    // Build consultation time
     const bookingDate = new Date(selectedDate);
     const [hours, mins] = selectedTime.split(':').map(Number);
     bookingDate.setHours(hours, mins, 0, 0);
 
     const bookingData = {
-        company_name: company, contact_name: contact, contact_email: email,
-        contact_phone: phone, industry: industry, timezone: timezone,
-        pain_points: painPoints, consultation_time: bookingDate.toISOString(),
-        status: 'pending', whatsapp_confirm: whatsappConfirm,
+        company_name: company,
+        contact_name: contact,
+        contact_email: email,
+        contact_phone: phone,
+        industry: industry,
+        timezone: timezone,
+        pain_points: painPoints,
+        consultation_time: bookingDate.toISOString(),
+        status: 'pending',
+        whatsapp_confirm: whatsappConfirm,
         notes: `Industry: ${industry} | TZ: ${timezone} | WhatsApp: ${whatsappConfirm}`,
         created_at: new Date().toISOString()
     };
 
     try {
-        if (!supabase) throw new Error("No DB");
-        const { data, error } = await supabase.from(DB.consultations).insert(bookingData);
+        if (!supabase) throw new Error("No DB"); const { data, error } = await supabase
+            .from(DB.consultations)
+            .insert(bookingData);
+
         if (error) throw error;
-        confirmedBooking = { ...bookingData, dateFormatted: selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }), time: selectedTime };
+
+        // Store for success screen
+        confirmedBooking = {
+            ...bookingData,
+            dateFormatted: selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+            time: selectedTime
+        };
+
         showSuccessScreen();
         showToast('Booking confirmed! We\'ll be in touch soon.', 'success');
-        if (whatsappConfirm) { setTimeout(() => sendBookingWhatsApp(), 1500); }
+
+        // Open WhatsApp if requested
+        if (whatsappConfirm) {
+            setTimeout(() => sendBookingWhatsApp(), 1500);
+        }
+
     } catch (err) {
-        confirmedBooking = { ...bookingData, dateFormatted: selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }), time: selectedTime };
+        console.warn('Supabase insert failed (demo mode):', err.message);
+
+        // DEMO MODE: Still show success (for testing without Supabase)
+        confirmedBooking = {
+            ...bookingData,
+            dateFormatted: selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+            time: selectedTime
+        };
+
         showSuccessScreen();
         showToast('Demo mode: Booking would be saved. Connect Supabase for full functionality.', 'info');
     }
 }
 
+// --- Show Success Screen ---
 function showSuccessScreen() {
     document.getElementById('bookingForm').style.display = 'none';
     document.getElementById('bookingSuccess').style.display = 'block';
+
     const summary = document.getElementById('bookingSummary');
     if (summary && confirmedBooking) {
-        summary.innerHTML = `<strong>${confirmedBooking.company_name}</strong><br>${confirmedBooking.dateFormatted} at ${confirmedBooking.time}<br><span style="font-size:0.88rem;color:var(--gray-500);">Contact: ${confirmedBooking.contact_name} &bull; ${confirmedBooking.contact_email}</span>`;
+        summary.innerHTML = `
+            <strong>${confirmedBooking.company_name}</strong><br>
+            ${confirmedBooking.dateFormatted} at ${confirmedBooking.time}<br>
+            <span style="font-size: 0.88rem; color: var(--gray-500);">Contact: ${confirmedBooking.contact_name} • ${confirmedBooking.contact_email}</span>
+        `;
     }
+
+    // Scroll to top of success
     document.getElementById('bookingSuccess').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// --- Reset Booking ---
 function resetBooking() {
-    selectedDate = null; selectedTime = null; confirmedBooking = null; takenTimes = [];
+    selectedDate = null;
+    selectedTime = null;
+    confirmedBooking = null;
+    takenTimes = [];
+
     document.getElementById('bookingSuccess').style.display = 'none';
     document.getElementById('bookingForm').style.display = 'grid';
     document.getElementById('consultationForm').reset();
     document.getElementById('timeSection').style.display = 'none';
-    updateFormVisibility(); renderCalendar();
+
+    updateFormVisibility();
+    renderCalendar();
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// --- Download ICS Calendar File ---
 function downloadBookingICS() {
     if (!confirmedBooking) return;
-    downloadICS(selectedDate || new Date(confirmedBooking.consultation_time), confirmedBooking.time, 'FinAccord Strategy Session', confirmedBooking.contact_name);
+    downloadICS(
+        selectedDate || new Date(confirmedBooking.consultation_time),
+        confirmedBooking.time,
+        'FinAccord Strategy Session',
+        confirmedBooking.contact_name
+    );
 }
 
+// --- Send WhatsApp ---
 function sendBookingWhatsApp() {
-    if (!confirmedBooking) { openWhatsApp(); return; }
+    if (!confirmedBooking) {
+        openWhatsApp();
+        return;
+    }
+
     const msg = `Hello FinAccord Advisory,\n\nI've booked a strategy session:\n\n` +
         `📅 ${confirmedBooking.dateFormatted} at ${confirmedBooking.time}\n` +
-        `🏢 ${confirmedBooking.company_name}\n👤 ${confirmedBooking.contact_name}\n` +
-        `📧 ${confirmedBooking.contact_email}\n📱 ${confirmedBooking.contact_phone}\n` +
-        `🏭 Industry: ${confirmedBooking.industry}\n🌍 Timezone: ${confirmedBooking.timezone}\n` +
+        `🏢 ${confirmedBooking.company_name}\n` +
+        `👤 ${confirmedBooking.contact_name}\n` +
+        `📧 ${confirmedBooking.contact_email}\n` +
+        `📱 ${confirmedBooking.contact_phone}\n` +
+        `🏭 Industry: ${confirmedBooking.industry}\n` +
+        `🌍 Timezone: ${confirmedBooking.timezone}\n` +
         (confirmedBooking.pain_points ? `\n💬 Challenge: ${confirmedBooking.pain_points}\n` : '') +
         `\nLooking forward to our session!`;
+
     openWhatsApp(msg);
 }
 
+// --- Utility: Format date to YYYY-MM-DD ---
 function formatDate(date) {
-    return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+    return date.getFullYear() + '-' +
+        (date.getMonth() + 1).toString().padStart(2, '0') + '-' +
+        date.getDate().toString().padStart(2, '0');
 }

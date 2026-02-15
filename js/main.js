@@ -82,7 +82,7 @@ function downloadICS(date, time, service, name) {
     const [hours, minutes] = time.split(':').map(Number);
     startDate.setHours(hours, minutes, 0, 0);
 
-    const endDate = new Date(startDate.getTime() + 30 * 60000);
+    const endDate = new Date(startDate.getTime() + 30 * 60000); // 30 min session
     const now = new Date();
 
     const fmt = (d) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
