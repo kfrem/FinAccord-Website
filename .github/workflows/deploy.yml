@@ -1,4 +1,4 @@
-name: 🚀 Auto-Deploy FinAccord
+name: 🚀 Auto-Deploy FinAccord (DEBUG)
 on:
   push:
     branches: [ main ]
@@ -10,7 +10,16 @@ jobs:
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
-        
+
+      - name: 🔍 Debug: Show secrets (masked)
+        env:
+          HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+        run: |
+          echo "Connecting to: $HOST:$PORT"
+          echo "Username: u609349519"
+          echo "Remote path: /home/u609349519/domains/kashiskin.com/public_html/finaccord/"
+
       - name: 📤 Deploy to Hostinger
         uses: wlixcc/SFTP-Deploy-Action@v1.2.2
         with:
@@ -21,4 +30,5 @@ jobs:
           remote_path: '/home/u609349519/domains/kashiskin.com/public_html/finaccord/'
           local_path: './'
           delete: 'true'
-          timeout: '30s'
+          timeout: '45s'
+          verbose: 'true'
