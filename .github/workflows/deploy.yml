@@ -1,34 +1,25 @@
-name: 🚀 Auto-Deploy FinAccord (DEBUG)
+name: Deploy to Hostinger
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: 🔍 Debug: Show secrets (masked)
+      - name: Install sshpass and rsync
+        run: sudo apt-get update && sudo apt-get install -y sshpass rsync
+
+      - name: Deploy via SSH (port 65002)
         env:
-          HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
-          PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          HOST: ${{ secrets.HOSTINGER_HOST }}
+          PORT: ${{ secrets.HOSTINGER_PORT }}
+          USER: ${{ secrets.HOSTINGER_USER }}
+          PASS: ${{ secrets.HOSTINGER_PASS }}
         run: |
-          echo "Connecting to: $HOST:$PORT"
-          echo "Username: u609349519"
-          echo "Remote path: /home/u609349519/domains/kashiskin.com/public_html/finaccord/"
-
-      - name: 📤 Deploy to Hostinger
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.2
-        with:
-          server: ${{ secrets.HOSTINGER_SSH_HOST }}
-          port: ${{ secrets.HOSTINGER_SSH_PORT }}
-          username: 'u609349519'
-          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
-          remote_path: '/home/u609349519/domains/kashiskin.com/public_html/finaccord/'
-          local_path: './'
-          delete: 'true'
-          timeout: '45s'
-          verbose: 'true'
+          echo "$PASS" > /tmp/pass.txt
+          chmod 600 /tmp/pass.txt
+          sshpass -f /tmp/pass.txt rsync -avz --delete -e "ssh -p $PORT -o StrictHostKeyChecking=no" ./ "$USER@$HOST:/home/$USER/domains/kashiskin.com/public_html/finaccord/"
+          rm /tmp/pass.txt
