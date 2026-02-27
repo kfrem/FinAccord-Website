@@ -1,0 +1,10 @@
+{
+  "name": "finaccord-website",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve . --listen $PORT --single"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
