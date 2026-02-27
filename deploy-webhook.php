@@ -16,7 +16,7 @@
  */
 
 // SECURITY: Set your secret key here (must match GitHub webhook secret)
-define('SECRET_KEY', 'YOUR_SECRET_KEY_HERE');
+define('SECRET_KEY', 'SovFramework2026!Deploy');
 
 // Configuration
 define('REPO_URL', 'https://github.com/kfrem/FinAccord-Website.git');
