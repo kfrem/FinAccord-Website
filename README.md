@@ -31,3 +31,5 @@ SUPABASE_SETUP.sql  ← Run once in Supabase SQL Editor
 ## Change Admin PIN
 Default: admin2026
 Go to: finaccount.kashiskin.com/admin.html
+
+<!-- deployed: 2026-02-27 22:25 UTC -->
