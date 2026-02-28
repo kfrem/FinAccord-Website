@@ -1,0 +1,3309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinAccord — Capability Manual & Programme Overview 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0a1628;
+  --navy-mid: #0e2040;
+  --navy-light: #162a4a;
+  --gold: #c9a84c;
+  --gold-light: #e0c278;
+  --gold-pale: #f7f0de;
+  --white: #ffffff;
+  --grey-light: #f4f5f7;
+  --grey-mid: #e2e5eb;
+  --grey-text: #5a6474;
+  --body-text: #1e2535;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--body-text);
+  background: var(--grey-light);
+}
+
+/* ===== NAVIGATION ===== */
+#top-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--navy);
+  z-index: 1000;
+  padding: 0.6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+#top-nav .nav-brand {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+#top-nav .nav-links {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+#top-nav .nav-links a {
+  color: var(--grey-mid);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+#top-nav .nav-links a:hover { color: var(--gold); }
+
+/* ===== LAYOUT WRAPPER ===== */
+.page-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 56px;
+}
+
+/* ===== COVER PAGE ===== */
+#cover {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 60px,
+    rgba(201,168,76,0.03) 60px,
+    rgba(201,168,76,0.03) 61px
+  );
+}
+.cover-border {
+  border: 2px solid var(--gold);
+  padding: 3rem 4rem;
+  position: relative;
+  max-width: 820px;
+  width: 100%;
+}
+.cover-border::before, .cover-border::after {
+  content: '';
+  position: absolute;
+  width: 24px; height: 24px;
+  border-color: var(--gold-light);
+  border-style: solid;
+}
+.cover-border::before { top: -4px; left: -4px; border-width: 4px 0 0 4px; }
+.cover-border::after { bottom: -4px; right: -4px; border-width: 0 4px 4px 0; }
+.firm-logo-area {
+  margin-bottom: 2rem;
+}
+.firm-logo-name {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 4px;
+  line-height: 1.1;
+}
+.firm-logo-name span { color: var(--gold); }
+.firm-logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+.cover-divider {
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1.8rem auto;
+}
+.cover-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--white);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.cover-subtagline {
+  font-size: 1rem;
+  color: var(--gold-light);
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+.cover-doc-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+.cover-edition {
+  font-size: 0.9rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+.cover-offices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.cover-office-pill {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--gold);
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+}
+.cover-offices-label {
+  width: 100%;
+  font-size: 0.75rem;
+  color: var(--grey-text);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.section-wrapper {
+  background: var(--white);
+  margin: 0;
+  padding: 0;
+}
+.section-wrapper:nth-child(even) {
+  background: var(--grey-light);
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+}
+.section-number {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+h1 {
+  font-family: var(--font-heading);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  margin-top: 2rem;
+}
+h4 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-mid);
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+p { margin-bottom: 1.1rem; }
+ul, ol { margin: 0.8rem 0 1.1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+
+/* ===== GOLD ACCENT DIVIDER ===== */
+.gold-rule {
+  border: none;
+  border-top: 2px solid var(--gold);
+  margin: 2.5rem 0;
+  opacity: 0.4;
+}
+.gold-rule-full {
+  border: none;
+  border-top: 3px solid var(--gold);
+  margin: 0;
+}
+.section-header-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.section-header-line .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ===== CALLOUT BOXES ===== */
+.callout-navy {
+  background: var(--navy);
+  color: var(--white);
+  border-left: 5px solid var(--gold);
+  padding: 1.8rem 2rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout-navy p { color: var(--white); margin: 0; }
+.callout-navy .callout-quote {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--gold-light);
+  line-height: 1.5;
+}
+.callout-navy .callout-attr {
+  font-size: 0.85rem;
+  color: var(--grey-mid);
+  margin-top: 0.8rem;
+  font-style: normal;
+}
+.callout-gold {
+  background: var(--gold-pale);
+  border-left: 5px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.callout-stat {
+  background: var(--navy-light);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+.callout-stat .stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.callout-stat .stat-label {
+  font-size: 0.9rem;
+  color: var(--grey-mid);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* ===== METRIC CARDS GRID ===== */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.metric-card {
+  background: var(--navy);
+  color: var(--white);
+  padding: 1.8rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 3px solid var(--gold);
+}
+.metric-card .metric-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--gold);
+  display: block;
+  line-height: 1.1;
+}
+.metric-card .metric-label {
+  font-size: 0.85rem;
+  color: var(--grey-mid);
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* ===== TABLES ===== */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+.styled-table thead {
+  background: var(--navy);
+  color: var(--white);
+}
+.styled-table thead th {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid var(--grey-mid);
+}
+.styled-table tbody tr:nth-child(even) {
+  background: var(--grey-light);
+}
+.styled-table tbody td {
+  padding: 0.9rem 1.2rem;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.styled-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--navy);
+}
+.styled-table .gold-cell {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ===== DEPENDENCY CYCLE DIAGRAM ===== */
+.cycle-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 2.5rem 0;
+  position: relative;
+}
+.cycle-node {
+  background: var(--navy);
+  color: var(--white);
+  padding: 1rem 1.3rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  min-width: 120px;
+  border: 2px solid var(--gold);
+  line-height: 1.4;
+}
+.cycle-arrow {
+  font-size: 1.5rem;
+  color: var(--gold);
+  padding: 0 0.3rem;
+  font-weight: 700;
+}
+
+/* ===== PATHWAY DIAGRAM ===== */
+.pathway {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+.pathway-step {
+  flex: 1;
+  min-width: 130px;
+  text-align: center;
+  position: relative;
+}
+.pathway-step-inner {
+  background: var(--navy-light);
+  color: var(--white);
+  padding: 1.2rem 0.8rem;
+  height: 100%;
+  border-radius: 6px;
+}
+.pathway-step:not(:last-child) .pathway-step-inner::after {
+  content: '\2192';
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 1.4rem;
+  z-index: 1;
+}
+.pathway-step-num {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.75rem;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  line-height: 24px;
+  margin-bottom: 0.5rem;
+}
+.pathway-step-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.pathway-step-sub {
+  font-size: 0.72rem;
+  color: var(--gold-light);
+  margin-top: 0.3rem;
+  line-height: 1.3;
+}
+
+/* ===== THE EQUATION ===== */
+.equation-box {
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  margin: 2.5rem 0;
+}
+.equation-text {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--white);
+  line-height: 1.6;
+}
+.equation-text .eq-term {
+  color: var(--gold);
+  font-weight: 700;
+}
+.equation-text .eq-op {
+  color: var(--grey-mid);
+  margin: 0 0.3rem;
+  font-size: 1.3rem;
+}
+.equation-text .eq-result {
+  display: block;
+  font-size: 1.7rem;
+  color: var(--gold-light);
+  margin-top: 0.5rem;
+}
+
+/* ===== CASE STUDY CARDS ===== */
+.case-study-card {
+  background: var(--white);
+  border: 1px solid var(--grey-mid);
+  border-top: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 2rem 2.2rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 16px rgba(10,22,40,0.07);
+}
+.case-study-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-pale);
+  border: 1px solid var(--gold);
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 100px;
+  margin-bottom: 0.8rem;
+}
+.case-study-country {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+.case-study-title {
+  font-size: 1rem;
+  color: var(--grey-text);
+  margin-bottom: 1.5rem;
+}
+.cs-section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+.cs-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.cs-result-item {
+  background: var(--navy);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.cs-result-num {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+.cs-result-label {
+  font-size: 0.75rem;
+  color: var(--grey-mid);
+  margin-top: 0.2rem;
+}
+
+/* ===== SERVICE CARDS ===== */
+.service-block {
+  background: var(--white);
+  border: 1px solid var(--grey-mid);
+  border-radius: 10px;
+  padding: 1.8rem 2rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--gold);
+}
+.service-block.alt-bg {
+  background: var(--grey-light);
+}
+.service-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.service-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+.service-what, .service-delivers, .service-doctrine {
+  font-size: 0.88rem;
+  color: var(--grey-text);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+.service-doctrine {
+  font-style: italic;
+  color: var(--navy-mid);
+}
+.illustrative-note {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  padding: 0.9rem 1.2rem;
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  border-radius: 0 6px 6px 0;
+  color: var(--body-text);
+}
+.illustrative-note strong {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+/* ===== TOC ===== */
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem 3rem;
+}
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dotted var(--grey-mid);
+  text-decoration: none;
+  color: var(--body-text);
+  transition: color 0.2s;
+  font-size: 0.95rem;
+}
+.toc-item:hover { color: var(--gold); }
+.toc-item .toc-num {
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 28px;
+  font-size: 0.85rem;
+}
+.toc-section-head {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 1.5rem;
+  margin-bottom: 0.3rem;
+  grid-column: 1 / -1;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.3rem;
+}
+
+/* ===== FOREWORD ===== */
+.foreword-letter {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid var(--grey-mid);
+  background: var(--white);
+}
+.foreword-salutation {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+.foreword-sign {
+  margin-top: 2rem;
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: var(--navy);
+}
+
+/* ===== POPULATION CARDS ===== */
+.population-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.pop-card {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 2rem;
+  border-top: 4px solid var(--gold);
+}
+.pop-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+.pop-card p, .pop-card li {
+  color: var(--grey-mid);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.pop-card ul { margin-left: 1.2rem; }
+
+/* ===== DOCTRINE TABLE ===== */
+.doctrine-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.doctrine-row {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--grey-light);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  align-items: flex-start;
+  border-left: 4px solid var(--gold);
+}
+.doctrine-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  min-width: 40px;
+  line-height: 1;
+}
+.doctrine-title {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+.doctrine-desc {
+  font-size: 0.9rem;
+  color: var(--grey-text);
+}
+
+/* ===== UNITY SECTION ===== */
+.unity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.unity-card {
+  background: var(--white);
+  border: 1px solid var(--grey-mid);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border-top: 3px solid var(--navy);
+}
+.unity-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.unity-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.unity-card p {
+  font-size: 0.88rem;
+  color: var(--grey-text);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.unity-card ul {
+  font-size: 0.85rem;
+  color: var(--grey-text);
+  margin-left: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* ===== FRAMEWORK ACRONYM ===== */
+.acronym-table {
+  width: 100%;
+  margin: 2rem 0;
+}
+.acronym-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--grey-mid);
+}
+.acronym-row:nth-child(odd) {
+  background: var(--grey-light);
+}
+.acronym-letter {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--gold);
+  min-width: 60px;
+  text-align: center;
+  line-height: 1;
+}
+.acronym-meaning {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+.acronym-desc {
+  font-size: 0.88rem;
+  color: var(--grey-text);
+}
+
+/* ===== ENTERPRISE LADDER ===== */
+.ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 2rem 0;
+}
+.ladder-step {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  position: relative;
+}
+.ladder-step-1 { background: #162a4a; }
+.ladder-step-2 { background: #1e3a5f; margin-left: 2rem; }
+.ladder-step-3 { background: #2a5080; margin-left: 4rem; }
+.ladder-step-4 { background: #3a6fa0; margin-left: 6rem; }
+.ladder-step-5 { background: #4a8fc0; margin-left: 8rem; }
+.ladder-step-num {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 35px;
+}
+.ladder-step-label {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.ladder-step-desc {
+  color: var(--grey-mid);
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+/* ===== GEOGRAPHIC SCALING ===== */
+.geo-scale {
+  display: flex;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.geo-level {
+  flex: 1;
+  min-width: 120px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 1.2rem 0.8rem;
+  border-radius: 6px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.geo-level-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.geo-level-desc {
+  font-size: 0.72rem;
+  color: var(--grey-mid);
+  line-height: 1.4;
+}
+
+/* ===== OFFICE LIST ===== */
+.offices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.office-card {
+  background: var(--navy);
+  color: var(--white);
+  padding: 1.2rem 1.5rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--gold);
+}
+.office-country {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+.office-city {
+  font-size: 0.82rem;
+  color: var(--grey-mid);
+  margin-top: 0.2rem;
+}
+
+/* ===== CHECKLIST ===== */
+.no-require-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+.no-require-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--grey-mid);
+  font-size: 0.95rem;
+  color: var(--body-text);
+}
+.no-require-list li::before {
+  content: '\274C';
+  margin-right: 0.7rem;
+  font-size: 0.85rem;
+}
+
+/* ===== SDG TAGS ===== */
+.sdg-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.sdg-tag {
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  border: 1px solid var(--navy-light);
+}
+
+/* ===== ENGAGEMENT PATHWAY ===== */
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+.engage-card {
+  background: var(--white);
+  border: 1px solid var(--grey-mid);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 3px solid var(--gold);
+  transition: box-shadow 0.2s;
+}
+.engage-card:hover {
+  box-shadow: 0 4px 20px rgba(10,22,40,0.12);
+}
+.engage-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.engage-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.engage-desc {
+  font-size: 0.83rem;
+  color: var(--grey-text);
+  line-height: 1.5;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-top: 0;
+}
+footer .footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+footer .footer-tagline {
+  color: var(--grey-mid);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+footer .footer-offices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.82rem;
+  color: var(--gold-light);
+  margin-bottom: 1.5rem;
+}
+footer .footer-copy {
+  font-size: 0.78rem;
+  color: var(--grey-text);
+}
+
+/* ===== DATA CONFIDENCE ===== */
+.data-confidence {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+.dc-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .section-inner { padding: 3rem 1.5rem; }
+  .metrics-grid { grid-template-columns: 1fr; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .population-grid { grid-template-columns: 1fr; }
+  .unity-grid { grid-template-columns: 1fr; }
+  .cover-border { padding: 2rem 1.5rem; }
+  .firm-logo-name { font-size: 2.8rem; }
+  .cover-doc-title { font-size: 1.5rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  .cycle-diagram { flex-direction: column; }
+  .cycle-arrow { transform: rotate(90deg); }
+  .ladder-step-2, .ladder-step-3, .ladder-step-4, .ladder-step-5 { margin-left: 0; }
+  .equation-text { font-size: 1.1rem; }
+  #top-nav .nav-links { display: none; }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  @page {
+    margin: 1.5cm 1.8cm;
+    size: A4;
+  }
+  @page :first { margin-top: 0; }
+
+  #top-nav { display: none !important; }
+  .page-body { padding-top: 0; }
+  body {
+    font-size: 10pt;
+    color: #000;
+    background: #fff;
+  }
+  h1 { font-size: 20pt; color: #000; page-break-after: avoid; }
+  h2 { font-size: 16pt; color: #0a1628; page-break-after: avoid; }
+  h3 { font-size: 13pt; color: #0a1628; page-break-after: avoid; }
+  h4 { font-size: 11pt; page-break-after: avoid; }
+  .section-wrapper { background: #fff !important; }
+  .section-inner { padding: 2rem 0; }
+  #cover {
+    background: #0a1628 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    page-break-after: always;
+    min-height: auto;
+    padding: 3cm 2cm;
+  }
+  .cover-border { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .metric-card, .callout-navy, .pop-card, .office-card, .ladder-step-1,
+  .ladder-step-2, .ladder-step-3, .ladder-step-4, .ladder-step-5 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .styled-table { page-break-inside: avoid; }
+  .case-study-card { page-break-inside: avoid; border: 1px solid #ccc; }
+  .service-block { page-break-inside: avoid; }
+  .doctrine-row { page-break-inside: avoid; }
+  .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+  .toc-grid { grid-template-columns: 1fr 1fr; }
+  .population-grid { grid-template-columns: repeat(2, 1fr); }
+  .unity-grid { grid-template-columns: repeat(2, 1fr); }
+  section, .section-wrapper { page-break-before: auto; }
+  #cover, #section1, #section3, #section4, #section5, #section6,
+  #section7, #section8, #section9, #section10, #section11, #section12,
+  #appendix-a, #appendix-b {
+    page-break-before: always;
+  }
+  #toc { page-break-before: always; }
+  footer {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    page-break-before: always;
+  }
+  a { color: inherit; text-decoration: none; }
+  .callout-navy {
+    border: 1px solid #0a1628;
+    background: #0a1628 !important;
+    color: #fff !important;
+  }
+  .callout-navy p { color: #fff !important; }
+  .equation-box {
+    background: #0a1628 !important;
+    border: 2px solid #c9a84c;
+  }
+  .illustrative-note {
+    border: 1px solid #c9a84c;
+    background: #f7f0de !important;
+  }
+  .gold-rule { border-color: #c9a84c; }
+  .section-number { color: #c9a84c; }
+  .service-block { border-color: #c9a84c; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="top-nav">
+  <a href="#cover" class="nav-brand">FinAccord</a>
+  <ul class="nav-links">
+    <li><a href="#foreword">Foreword</a></li>
+    <li><a href="#section1">The Problem</a></li>
+    <li><a href="#section2">Who We Are</a></li>
+    <li><a href="#section3">The Framework</a></li>
+    <li><a href="#section4">Services</a></li>
+    <li><a href="#section5">Human Capital</a></li>
+    <li><a href="#section6">Enterprise</a></li>
+    <li><a href="#section7">Unity</a></li>
+    <li><a href="#section8">Impact</a></li>
+    <li><a href="#section9">Geographic</a></li>
+    <li><a href="#section10">Governance</a></li>
+    <li><a href="#section11">Frameworks</a></li>
+    <li><a href="#section12">Engage</a></li>
+    <li><a href="#appendix-a">Appendix</a></li>
+  </ul>
+</nav>
+
+<div class="page-body">
+
+<!-- ===== COVER PAGE ===== -->
+<section id="cover">
+  <div class="cover-border">
+    <div class="firm-logo-area">
+      <div class="firm-logo-name">Fin<span>Accord</span></div>
+      <div class="firm-logo-sub">Consulting Group</div>
+    </div>
+    <div class="cover-divider"></div>
+    <div class="cover-tagline">Africa's Economic Activation Consultancy</div>
+    <div class="cover-subtagline">From Idle to Active. From Dependent to Self-Sustaining.</div>
+    <div class="cover-divider"></div>
+    <div class="cover-doc-title">Capability Manual &amp; Programme Overview</div>
+    <div class="cover-edition">Edition 2026</div>
+    <div class="cover-offices">
+      <div class="cover-offices-label">Offices Across Africa</div>
+      <span class="cover-office-pill">Ghana</span>
+      <span class="cover-office-pill">Nigeria</span>
+      <span class="cover-office-pill">Zambia</span>
+      <span class="cover-office-pill">Kenya</span>
+      <span class="cover-office-pill">Uganda</span>
+      <span class="cover-office-pill">Tanzania</span>
+      <span class="cover-office-pill">Gambia</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<div class="section-wrapper" id="toc">
+<div class="section-inner">
+  <span class="section-number">Navigation</span>
+  <h2>Table of Contents</h2>
+  <hr class="gold-rule">
+  <div class="toc-grid">
+    <div class="toc-section-head">Foreword &amp; Context</div>
+    <a href="#foreword" class="toc-item"><span class="toc-num">00</span>Letter from the Firm — Our Origin and Purpose</a>
+    <a href="#section1" class="toc-item"><span class="toc-num">01</span>Africa's Structural Funding Crisis — The Problem We Were Built to Solve</a>
+
+    <div class="toc-section-head">Section 2 — Who is FinAccord</div>
+    <a href="#section2" class="toc-item"><span class="toc-num">2.1</span>Mission, Vision &amp; Values</a>
+    <a href="#s2-differentiators" class="toc-item"><span class="toc-num">2.2</span>What Makes Us Different</a>
+    <a href="#s2-geography" class="toc-item"><span class="toc-num">2.3</span>Geographic Presence</a>
+    <a href="#s2-flagship" class="toc-item"><span class="toc-num">2.4</span>Flagship Programmes Overview</a>
+
+    <div class="toc-section-head">Section 3 — The Sovereign Framework&#8482;</div>
+    <a href="#section3" class="toc-item"><span class="toc-num">3.1</span>What It Is &amp; The Core Equation</a>
+    <a href="#s3-doctrines" class="toc-item"><span class="toc-num">3.2</span>The Five Sovereign Doctrines</a>
+    <a href="#s3-journey" class="toc-item"><span class="toc-num">3.3</span>The Transformation Journey</a>
+
+    <div class="toc-section-head">Section 4 — Full Service Portfolio</div>
+    <a href="#s4-1" class="toc-item"><span class="toc-num">4.1</span>Sovereign Asset Audit</a>
+    <a href="#s4-2" class="toc-item"><span class="toc-num">4.2</span>Opportunity Scan &amp; Economic Intelligence</a>
+    <a href="#s4-3" class="toc-item"><span class="toc-num">4.3</span>Government Proposal &amp; Policy Advisory</a>
+    <a href="#s4-4" class="toc-item"><span class="toc-num">4.4</span>Workforce Engine — Human Capital Transformation</a>
+    <a href="#s4-5" class="toc-item"><span class="toc-num">4.5</span>Human Capital Profiling</a>
+    <a href="#s4-6" class="toc-item"><span class="toc-num">4.6</span>Graduate Bridge Programme</a>
+    <a href="#s4-7" class="toc-item"><span class="toc-num">4.7</span>Idea Engine — Entrepreneurship Development</a>
+    <a href="#s4-8" class="toc-item"><span class="toc-num">4.8</span>Community Enterprise Architecture</a>
+    <a href="#s4-9" class="toc-item"><span class="toc-num">4.9</span>Business Rescue &amp; Turnaround</a>
+    <a href="#s4-10" class="toc-item"><span class="toc-num">4.10</span>Financial Modelling &amp; Development Finance</a>
+    <a href="#s4-11" class="toc-item"><span class="toc-num">4.11</span>Social Value Economics (SROI)</a>
+    <a href="#s4-12" class="toc-item"><span class="toc-num">4.12</span>Impact Investment &amp; Crowdfunding</a>
+    <a href="#s4-13" class="toc-item"><span class="toc-num">4.13</span>Proposal Development Training</a>
+    <a href="#s4-14" class="toc-item"><span class="toc-num">4.14</span>Data Intelligence &amp; Verification</a>
+    <a href="#s4-15" class="toc-item"><span class="toc-num">4.15</span>Client Pitch &amp; Business Development</a>
+    <a href="#s4-16" class="toc-item"><span class="toc-num">4.16</span>SOLVE — Master Orchestration</a>
+
+    <div class="toc-section-head">Sections 5–8 — Human Capital, Enterprise &amp; Impact</div>
+    <a href="#section5" class="toc-item"><span class="toc-num">05</span>Human Capital — People Are the Solution</a>
+    <a href="#section6" class="toc-item"><span class="toc-num">06</span>The Enterprise Ecosystem — How Wealth is Built</a>
+    <a href="#section7" class="toc-item"><span class="toc-num">07</span>Unity Across Society — Every Level Served</a>
+    <a href="#section8" class="toc-item"><span class="toc-num">08</span>Illustrative Impact Examples</a>
+
+    <div class="toc-section-head">Sections 9–12 — Geography, Governance &amp; Engagement</div>
+    <a href="#section9" class="toc-item"><span class="toc-num">09</span>Geographic Reach &amp; Scaling</a>
+    <a href="#section10" class="toc-item"><span class="toc-num">10</span>Governance, Accountability &amp; Data Integrity</a>
+    <a href="#section11" class="toc-item"><span class="toc-num">11</span>Alignment with Global &amp; Continental Frameworks</a>
+    <a href="#section12" class="toc-item"><span class="toc-num">12</span>How to Engage FinAccord</a>
+
+    <div class="toc-section-head">Appendices</div>
+    <a href="#appendix-a" class="toc-item"><span class="toc-num">A</span>Skill Directory — All 16 Services</a>
+    <a href="#appendix-b" class="toc-item"><span class="toc-num">B</span>The SOVEREIGN Acronym</a>
+  </div>
+</div>
+</div>
+
+<!-- ===== FOREWORD ===== -->
+<div class="section-wrapper" id="foreword">
+<div class="section-inner">
+  <span class="section-number">Letter from the Firm</span>
+  <h2>A Message from FinAccord</h2>
+  <hr class="gold-rule">
+  <div class="foreword-letter">
+    <p class="foreword-salutation">To Our Partners, Clients, and Colleagues,</p>
+    <p>FinAccord was born from a fundamental observation — one that has been confirmed, again and again, across every country and community we have worked in: <strong>Africa's development challenge is not a lack of resources. It is a lack of organised access to the resources that already exist.</strong></p>
+    <p>The continent is home to the world's youngest population, its most arable land, extraordinary mineral wealth, deep cultural cohesion, and a diaspora of skilled professionals spanning every time zone on earth. Africa is not poor. Africa is unaudited.</p>
+    <p>For decades, the story told about Africa — by outside observers, by international institutions, and sometimes, regrettably, by our own governments — has been a story of deficiency. What we lack. What we need. What must come from elsewhere. This narrative has produced a predictable outcome: entire systems designed around dependency. Aid comes in. Programmes run. Funding ends. Programmes collapse. Governments go back to ask for more. Communities wait.</p>
+    <p>The continent has been conditioned to look outward for solutions that were always within reach. We have been told to wait for foreign investment while sitting on idle sovereign assets. We have been told to import technical expertise while our retired doctors, engineers, economists and administrators sit at home. We have been told our graduates are unemployable while our programmes go undelivered.</p>
+    <p><strong>FinAccord exists to end that dependency — permanently.</strong></p>
+    <p>We are not an aid organisation. We are not a charity. We are a consulting group that applies commercial rigour, development expertise, and deep African knowledge to build self-sustaining economies — at the household level, at the district level, at the national level, and across the continent.</p>
+    <p>Everything we do is built on one simple framework: identify what already exists, organise the people who are already there, connect both to the markets that are waiting, and measure the result with the same discipline a bank would apply to a loan.</p>
+    <p>This manual is a comprehensive account of who we are, what we do, why we do it, and what it looks like when it works. It is written for ministers and market vendors, for investors and community leaders, for graduates and retired professionals — because our work touches all of them.</p>
+    <p>Africa does not need to be saved. It needs to be activated.</p>
+    <p>That is what we do.</p>
+    <div class="foreword-sign">
+      <p>With conviction and commitment,</p>
+      <p><strong>The FinAccord Leadership Team</strong><br>
+      FinAccord Consulting Group<br>
+      Ghana &bull; Nigeria &bull; Zambia &bull; Kenya &bull; Uganda &bull; Tanzania &bull; Gambia</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== SECTION 1: THE PROBLEM ===== -->
+<div class="section-wrapper" id="section1">
+<div class="section-inner">
+  <span class="section-number">Section 01</span>
+  <h2>The Problem We Were Built to Solve</h2>
+  <h3 style="color:var(--gold); font-style:italic; margin-top:0.5rem;">Africa's Structural Funding Crisis</h3>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>Every year, billions of dollars flow into Africa in the form of aid, grants, technical assistance, and loans. And every year, the fundamental conditions that make such aid necessary remain substantially unchanged. This is not a coincidence. It is a system design failure — and FinAccord was built to diagnose and replace it.</p>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <span class="metric-num">$50B+</span>
+      <div class="metric-label">Annual aid received by Africa — while the continent holds over $1 trillion in idle sovereign assets</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num">60–70%</span>
+      <div class="metric-label">Of aid spending directed to foreign technical assistance — not local delivery or local people</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num">15–25%</span>
+      <div class="metric-label">Of GDP spent by African governments on servicing external debt annually</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num">60%+</span>
+      <div class="metric-label">Youth unemployment in sub-Saharan Africa among those aged 15–35</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num">70,000+</span>
+      <div class="metric-label">Skilled Africans leaving the continent every year — the brain drain that compounds every other crisis</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num">$1T+</span>
+      <div class="metric-label">In idle or underutilised sovereign assets — land, buildings, skills, budgets — waiting to be activated</div>
+    </div>
+  </div>
+
+  <div class="callout-navy">
+    <div class="callout-quote">"The continent was never poor. It was never properly audited."</div>
+    <div class="callout-attr">— FinAccord Founding Principle</div>
+  </div>
+
+  <h3>The Dependency Cycle</h3>
+  <p>The structural failure of African development finance is not a failure of resources — it is a failure of architecture. The dominant model operates as follows:</p>
+
+  <div class="cycle-diagram">
+    <div class="cycle-node">Problem<br>Identified</div>
+    <div class="cycle-arrow">&#8594;</div>
+    <div class="cycle-node">Aid /<br>Grant Applied</div>
+    <div class="cycle-arrow">&#8594;</div>
+    <div class="cycle-node">Programme<br>Runs</div>
+    <div class="cycle-arrow">&#8594;</div>
+    <div class="cycle-node">Funding<br>Ends</div>
+    <div class="cycle-arrow">&#8594;</div>
+    <div class="cycle-node">Programme<br>Collapses</div>
+    <div class="cycle-arrow">&#8594;</div>
+    <div class="cycle-node">Re-apply<br>for Aid</div>
+    <div class="cycle-arrow" style="color:#ff4444">&#8635;</div>
+  </div>
+
+  <p>This cycle is not the product of bad intentions. It is the product of a model that never built self-sufficiency into its design. Aid was designed to be temporary. But dependency was built in permanently.</p>
+
+  <h3>The Four Structural Problems</h3>
+  <ul>
+    <li><strong>The Resource Paradox:</strong> Africa holds more idle sovereign assets than the total aid it receives — yet those assets are never inventoried, never activated, and never connected to the programmes that need them.</li>
+    <li><strong>The Expertise Export:</strong> African professionals with exactly the expertise needed — retired engineers, experienced administrators, graduate economists — are overlooked in favour of more expensive foreign equivalents. The continent pays premium prices for knowledge it already owns.</li>
+    <li><strong>The Revenue Gap:</strong> Most development programmes are designed with 100% external funding from the first day. No revenue architecture. No market connection. No path to self-sufficiency. When the funder exits, the programme dies.</li>
+    <li><strong>The Data Deficit:</strong> Decisions worth billions are made using data that is 5, 10, or 15 years old. Budget errors, wasted resources, and failed programmes are frequently the result not of incompetence but of stale information.</li>
+  </ul>
+
+  <div class="callout-gold">
+    <p><strong>FinAccord's position is simple:</strong> The resources to solve Africa's development challenges exist on African soil, in African communities, in African institutions, and among African people. The mission is not to import solutions. It is to organise what is already there — and connect it to markets, to revenue, and to permanence.</p>
+  </div>
+
+  <h3>What the Alternative Looks Like</h3>
+  <p>When a government programme is built on idle sovereign assets rather than new budget allocations — when the workforce is drawn from the local unemployed population rather than imported contractors — when revenue streams are designed in from Day 1 rather than added as an afterthought — the result is a programme that does not collapse when the donor leaves. It grows.</p>
+  <p>That is the FinAccord model. That is what the rest of this document describes in full.</p>
+</div>
+</div>
+
+<!-- ===== SECTION 2: WHO IS FINACCORD ===== -->
+<div class="section-wrapper" id="section2">
+<div class="section-inner">
+  <span class="section-number">Section 02</span>
+  <h2>Who Is FinAccord</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>FinAccord is Africa's Economic Activation Consultancy — a consulting group that specialises in turning idle assets, underutilised people, and untapped markets into self-sustaining economies. We work at every level of society, from individual households to national governments, and in every sector from agriculture to digital finance.</p>
+
+  <h3>Mission</h3>
+  <div class="callout-gold">
+    <p><strong>To activate Africa's existing resources — human, financial, and physical — into self-sustaining economic systems that generate wealth, create employment, and eliminate dependency on external funding.</strong></p>
+  </div>
+
+  <h3>Vision</h3>
+  <p>A continent where every community, district, and nation has the tools, the knowledge, and the architecture to build prosperity from within — where Africa's people are the solution, Africa's assets are the foundation, and Africa's markets are the engine.</p>
+
+  <h3>Values</h3>
+  <div class="doctrine-grid">
+    <div class="doctrine-row">
+      <div class="doctrine-num">01</div>
+      <div>
+        <div class="doctrine-title">Sovereignty First</div>
+        <div class="doctrine-desc">We audit what exists before proposing anything new. The answer is almost always already there.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">02</div>
+      <div>
+        <div class="doctrine-title">Commercial Rigour</div>
+        <div class="doctrine-desc">We apply the same financial discipline to development programmes that banks apply to commercial investments.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">03</div>
+      <div>
+        <div class="doctrine-title">Evidence Before Opinion</div>
+        <div class="doctrine-desc">Every figure we use is verified against official sources. We never present assumptions as facts.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">04</div>
+      <div>
+        <div class="doctrine-title">People as Assets</div>
+        <div class="doctrine-desc">The unemployed are not a burden. They are the workforce. We build every programme around the people who are already there.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">05</div>
+      <div>
+        <div class="doctrine-title">Permanence Over Projects</div>
+        <div class="doctrine-desc">A programme that collapses when funding ends is not a solution. We build for sustainability from the first day of design.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 id="s2-differentiators">What Makes FinAccord Different</h3>
+  <p>The African consulting and development advisory landscape is crowded. Most firms offer one of two things: policy advice disconnected from implementation, or implementation disconnected from financial sustainability. FinAccord offers both — and adds the financial architecture that makes them last.</p>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <span class="metric-num" style="font-size:1.4rem;">Asset-First</span>
+      <div class="metric-label">We audit before we propose. No government with 5+ years of operation is without resources — it is without visibility of its own resources.</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num" style="font-size:1.4rem;">Revenue-In</span>
+      <div class="metric-label">Every solution we design includes a revenue architecture from Day 1. No single funding source above 60% of programme income.</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num" style="font-size:1.4rem;">People-Led</span>
+      <div class="metric-label">We draw the delivery workforce from the unemployed populations around the programme — graduates, long-term unemployed, retired professionals.</div>
+    </div>
+    <div class="metric-card">
+      <span class="metric-num" style="font-size:1.4rem;">Verified Data</span>
+      <div class="metric-label">Every figure in every proposal we produce is verified against current official sources. We carry a data integrity declaration on all deliverables.</div>
+    </div>
+  </div>
+
+  <h3 id="s2-geography">Geographic Presence</h3>
+  <p>FinAccord operates across seven African countries, with resident offices and active client relationships in each territory. Our geographic reach allows us to design multi-country programmes, leverage cross-border market connections, and draw on practitioners with genuine on-the-ground knowledge.</p>
+
+  <div class="offices-grid">
+    <div class="office-card">
+      <span class="office-country">Ghana</span>
+      <div class="office-city">Accra (Headquarters)</div>
+    </div>
+    <div class="office-card">
+      <span class="office-country">Nigeria</span>
+      <div class="office-city">Lagos &amp; Abuja</div>
+    </div>
+    <div class="office-card">
+      <span class="office-country">Zambia</span>
+      <div class="office-city">Lusaka</div>
+    </div>
+    <div class="office-card">
+      <span class="office-country">Kenya</span>
+      <div class="office-city">Nairobi</div>
+    </div>
+    <div class="office-card">
+      <span class="office-country">Uganda</span>
+      <div class="office-city">Kampala</div>
+    </div>
+    <div class="office-card">
+      <span class="office-country">Tanzania</span>
+      <div class="office-city">Dar es Salaam</div>
+    </div>
+    <div class="office-card">
+      <span class="office-country">Gambia</span>
+      <div class="office-city">Banjul</div>
+    </div>
+  </div>
+
+  <h3 id="s2-flagship">Our Flagship Programmes</h3>
+  <p>Within FinAccord's comprehensive service portfolio, two programmes represent our most complete and distinctive capabilities:</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:1.5rem 0;">
+    <div class="callout-navy" style="margin:0;">
+      <p style="font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">Flagship Programme 1</p>
+      <div class="callout-quote" style="font-size:1.2rem;">The Sovereign Framework&#8482;</div>
+      <p style="color:var(--grey-mid); font-size:0.88rem; margin-top:0.8rem;">Africa's Complete Economic Activation Platform. A methodology that converts idle assets, organised people, and market connections into wealth, employment, and taxpayers. Applicable from household to national scale.</p>
+    </div>
+    <div class="callout-navy" style="margin:0;">
+      <p style="font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem;">Flagship Programme 2</p>
+      <div class="callout-quote" style="font-size:1.2rem;">Finance Directorship Advisory</div>
+      <p style="color:var(--grey-mid); font-size:0.88rem; margin-top:0.8rem;">Senior financial leadership and governance advisory for governments, development programmes, and enterprises requiring CFO-level expertise without the cost of a full-time foreign appointment.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== SECTION 3: THE SOVEREIGN FRAMEWORK ===== -->
+<div class="section-wrapper" id="section3">
+<div class="section-inner">
+  <span class="section-number">Section 03</span>
+  <h2>The Sovereign Framework&#8482;</h2>
+  <h3 style="color:var(--gold); font-style:italic; margin-top:0.2rem; margin-bottom:2rem;">Africa's Complete Economic Activation Platform</h3>
+
+  <p>The Sovereign Framework&#8482; is FinAccord's proprietary methodology for transforming the way economic development is designed, funded, and sustained in Africa. It is not a project management tool. It is not an aid application framework. It is a complete operating system for building self-sustaining economies from the resources that already exist.</p>
+
+  <p>The Framework operates at every scale — from a household of three people growing food for sale, to a multi-country programme employing 30 million people. The same principles apply at every level. The same equation drives every design.</p>
+
+  <div class="equation-box">
+    <div class="equation-text">
+      <span class="eq-term">IDLE ASSETS</span>
+      <span class="eq-op">+</span>
+      <span class="eq-term">ORGANISED PEOPLE</span>
+      <span class="eq-op">+</span>
+      <span class="eq-term">MARKET CONNECTION</span>
+      <span class="eq-op">=</span>
+      <span class="eq-result">WEALTH &nbsp;&bull;&nbsp; JOBS &nbsp;&bull;&nbsp; TAXPAYERS</span>
+    </div>
+  </div>
+
+  <h3>Why External Funding Is the Last Resort, Not the First Call</h3>
+  <p>The conventional development approach begins with a needs assessment, then immediately asks: <em>"Where will the money come from?"</em> The Sovereign Framework begins with a different question: <em>"What do we already have?"</em></p>
+  <p>This is not idealism. It is economics. A programme built on assets that already exist requires significantly less external capital than one built from zero. A workforce drawn from the local unemployed population costs a fraction of imported expertise. Revenue streams designed into the programme architecture from Day 1 reduce donor dependency from the outset.</p>
+  <p>External funding — where genuinely needed — is therefore the complement to a strong internal foundation, not the foundation itself. FinAccord programmes target a maximum 60% dependence on any single funding source, with a self-sufficiency trajectory within 24 months of launch.</p>
+
+  <div class="callout-navy">
+    <div class="callout-quote">"We do not begin by asking what is needed. We begin by auditing what exists. The gap between the two is almost always smaller than anyone assumed."</div>
+    <div class="callout-attr">— The Sovereign Framework&#8482; Founding Principle</div>
+  </div>
+
+  <h3 id="s3-doctrines">The Five Sovereign Doctrines</h3>
+  <p>Every FinAccord engagement — regardless of sector, scale, or geography — is governed by five non-negotiable principles:</p>
+
+  <div class="doctrine-grid">
+    <div class="doctrine-row">
+      <div class="doctrine-num">1</div>
+      <div>
+        <div class="doctrine-title">Sovereign Assets First</div>
+        <div class="doctrine-desc">We audit what exists before proposing anything new. No government in operation for five or more years is without resources — it is without visibility of its own resources. Land, buildings, staff, skills, equipment, and unspent budgets are inventoried before a single external dollar is requested.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">2</div>
+      <div>
+        <div class="doctrine-title">Market Revenue Mandate</div>
+        <div class="doctrine-desc">Every solution FinAccord designs generates private market income. No single funding source — government, donor, or community — is permitted to represent more than 60% of total programme revenue. Revenue diversification is not optional. It is structural.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">3</div>
+      <div>
+        <div class="doctrine-title">People as Delivery</div>
+        <div class="doctrine-desc">The unemployed are not the problem. They are the workforce. Every programme is designed to draw its delivery capacity from three underutilised populations: unemployed graduates, long-term unemployed citizens, and retired professionals. The people surrounding the problem are the people who solve it.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">4</div>
+      <div>
+        <div class="doctrine-title">Profitable &amp; Provable</div>
+        <div class="doctrine-desc">Every FinAccord programme is either designed to be financially self-sustaining within 24 months, or its full social value is proven with financial rigour sufficient to justify continued subsidy. We do not accept "it does good" as a complete financial argument. We quantify the good — and then we fund it properly.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">5</div>
+      <div>
+        <div class="doctrine-title">Evidence-Based Everything</div>
+        <div class="doctrine-desc">Every figure used in a FinAccord deliverable is verified against official sources before inclusion. World Bank, IMF, AfDB, national statistics offices, and sector-specific databases are cross-referenced. No assumption is presented as a fact. Every deliverable carries a data integrity declaration.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Geographic Scale</h3>
+  <p>The Sovereign Framework&#8482; operates at every level of scale simultaneously. The same methodology that activates a household of 5 people applies to a national programme serving 30 million.</p>
+
+  <div class="geo-scale">
+    <div class="geo-level">
+      <span class="geo-level-name">Household</span>
+      <div class="geo-level-desc">1–15 people. Family enterprise, smallholder farming, micro-business activation.</div>
+    </div>
+    <div class="geo-level">
+      <span class="geo-level-name">Sub-District</span>
+      <div class="geo-level-desc">500–5,000 people. Village cooperatives, community markets, local workforce programmes.</div>
+    </div>
+    <div class="geo-level">
+      <span class="geo-level-name">District</span>
+      <div class="geo-level-desc">50,000–500,000 people. Local government programmes, district enterprise zones, TVET integration.</div>
+    </div>
+    <div class="geo-level">
+      <span class="geo-level-name">Regional</span>
+      <div class="geo-level-desc">500,000–5M people. Multi-district programmes, regional value chains, sector strategies.</div>
+    </div>
+    <div class="geo-level">
+      <span class="geo-level-name">National</span>
+      <div class="geo-level-desc">5M–30M+ people. National employment programmes, ministry-level strategies, policy architecture.</div>
+    </div>
+    <div class="geo-level">
+      <span class="geo-level-name">Multi-Country</span>
+      <div class="geo-level-desc">30M+ people. Cross-border value chains, AfCFTA programmes, continental scale.</div>
+    </div>
+  </div>
+
+  <h3 id="s3-journey">The Transformation Journey</h3>
+  <p>The Sovereign Framework&#8482; describes a clear transformation that every programme participant — individual, enterprise, or institution — moves through:</p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Starting State</th>
+        <th>Transformation</th>
+        <th>End State</th>
+        <th>Timeline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Idle Asset</td>
+        <td>Audit &#8594; Activate &#8594; Connect to Market</td>
+        <td>Productive Asset</td>
+        <td>3–6 months</td>
+      </tr>
+      <tr>
+        <td>Waste Resource</td>
+        <td>Identify &#8594; Process &#8594; Sell</td>
+        <td>Market Resource</td>
+        <td>1–3 months</td>
+      </tr>
+      <tr>
+        <td>Unemployed Person</td>
+        <td>Profile &#8594; Train &#8594; Place &#8594; Advance</td>
+        <td>Employed / Entrepreneur / Taxpayer</td>
+        <td>8–18 months</td>
+      </tr>
+      <tr>
+        <td>Dependent Programme</td>
+        <td>Revenue Redesign &#8594; Market Connection &#8594; Self-Fund</td>
+        <td>Self-Sustaining System</td>
+        <td>18–24 months</td>
+      </tr>
+      <tr>
+        <td>Aid-Dependent Community</td>
+        <td>Asset Audit &#8594; Enterprise &#8594; Cooperative &#8594; Export</td>
+        <td>Wealth-Generating Community</td>
+        <td>24–36 months</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ===== SECTION 4: SERVICE PORTFOLIO ===== -->
+<div class="section-wrapper" id="section4">
+<div class="section-inner">
+  <span class="section-number">Section 04</span>
+  <h2>Our Full Service Portfolio</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+  <p>FinAccord offers 16 distinct services, each designed to address a specific challenge in the economic activation journey. Every service is built on the Sovereign Framework&#8482; and governed by the Five Sovereign Doctrines. Services can be engaged individually or in combination — the SOLVE capability (Service 4.16) exists specifically to orchestrate the right combination for complex mandates.</p>
+
+  <!-- 4.1 -->
+  <div class="service-block" id="s4-1">
+    <div class="service-num">Service 4.1</div>
+    <div class="service-title">Sovereign Asset Audit</div>
+    <p class="service-doctrine">"No government in operation for 5+ years is without resources — it is without visibility of its own resources."</p>
+    <p><strong>What it is:</strong> A comprehensive inventory of every asset a government, business, or community already owns or controls — mapped, valued, and assessed for activation potential. Land, buildings, equipment, skills, budgets, relationships, and intellectual property are all within scope.</p>
+    <p><strong>What problem it solves:</strong> Most African institutions begin funding requests without knowing what they already have. A Sovereign Asset Audit replaces assumption with evidence — and typically reveals that 40–70% of available assets are idle or significantly underutilised.</p>
+    <p><strong>What it delivers:</strong> A full asset register with valuation estimates, utilisation rates, activation potential scores, and a prioritised activation plan. Delivered as a digital database and executive summary report.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      In a district municipality with 180,000 residents, our asset audit identified GH&#8373; 4.2 million in idle government land, 3 underused training facilities operating at 30% capacity, and 47 civil servants with deployable specialist skills — all identified before requesting a single external dollar. The audit provided the foundation for a self-funded enterprise programme launched 4 months later.
+    </div>
+  </div>
+
+  <!-- 4.2 -->
+  <div class="service-block" id="s4-2">
+    <div class="service-num">Service 4.2</div>
+    <div class="service-title">Opportunity Scan &amp; Economic Intelligence</div>
+    <p><strong>What it is:</strong> A structured analysis of any geographic area to identify untapped economic potential across all sectors: agricultural, service, infrastructure, digital, and manufacturing. The scan combines field intelligence with official data sources and market analysis.</p>
+    <p><strong>What problem it solves:</strong> Communities and governments often operate without a clear picture of what market opportunities exist within their reach. The Opportunity Scan replaces vague aspirations with ranked, revenue-projected, viable opportunities.</p>
+    <p><strong>What it delivers:</strong> A prioritised register of economically viable opportunities with market size estimates, resource requirements, revenue projections, and recommended sequencing. Includes a competitive analysis and identification of existing successful analogues.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      In Kumasi, Ghana, an opportunity scan identified 14 viable enterprise opportunities in the post-harvest agricultural value chain, with combined market potential of GH&#8373; 28 million annually — all within 50km of the city centre and all serviceable using skills and assets already present in the local population.
+    </div>
+  </div>
+
+  <!-- 4.3 -->
+  <div class="service-block" id="s4-3">
+    <div class="service-num">Service 4.3</div>
+    <div class="service-title">Government Proposal &amp; Policy Advisory</div>
+    <p><strong>What it is:</strong> FinAccord transforms policy intentions into bankable, asset-first programme proposals — from sub-district projects to national ministry strategies. We work with government at every level to produce proposals that are technically credible, financially rigorous, and politically deliverable.</p>
+    <p><strong>What problem it solves:</strong> Many government proposals are rejected by funders or fail to launch because they lack financial rigour, cannot demonstrate self-sufficiency pathways, or request new resources when existing resources are available but unmapped. FinAccord proposals pass the scrutiny that others fail.</p>
+    <p><strong>What it delivers:</strong> Complete programme proposal including: theory of change, asset inventory, human capital plan, financial model (P&amp;L, cash flow, break-even), revenue architecture, governance framework, data source declaration, and monitoring framework.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A Ministry of Agriculture requested a proposal for youth agricultural employment. Our team delivered a complete proposal built entirely on existing government farmland (340 ha), an idle NVTI training centre, and GH&#8373; 1.2 million of unspent departmental budget — zero new allocation requested. The proposal was approved and funded through existing government resources alone.
+    </div>
+  </div>
+
+  <!-- 4.4 -->
+  <div class="service-block" id="s4-4">
+    <div class="service-num">Service 4.4</div>
+    <div class="service-title">Workforce Engine — Human Capital Transformation</div>
+    <p><strong>What it is:</strong> FinAccord's most distinctive capability. The Workforce Engine decomposes any programme into every function it requires — from field delivery to data management to supervision — and then systematically matches those roles to three underutilised populations: unemployed graduates, long-term unemployed citizens, and retired professionals.</p>
+    <p><strong>What problem it solves:</strong> Programmes that rely on expensive external staff or foreign technical assistants are both costly and fragile. The Workforce Engine builds programmes that are cheaper, more credible in the communities they serve, and staffed by people with a personal stake in the outcome.</p>
+    <p><strong>What it delivers:</strong> A complete human capital plan: role decomposition, population matching, training pathways, income trajectories, enterprise development timelines, and a community wealth accumulation model showing income flow from Year 1 through Year 5.</p>
+
+    <h4>The Three Delivery Populations</h4>
+    <div class="population-grid" style="grid-template-columns: repeat(3,1fr);">
+      <div class="pop-card">
+        <h4>Unemployed Graduates</h4>
+        <p>Education without application. Digital literacy, structured thinking, and energy — matched to roles that grow into permanent careers and enterprises.</p>
+      </div>
+      <div class="pop-card">
+        <h4>Long-Term Unemployed</h4>
+        <p>Community trust, local language, practical resilience, lived experience. The most credible voice for the solution — never the problem.</p>
+      </div>
+      <div class="pop-card">
+        <h4>Retired Professionals</h4>
+        <p>60–80% cheaper than foreign equivalents. Irreplaceable local credibility, government relationships, and decades of institutional knowledge.</p>
+      </div>
+    </div>
+
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A rural health programme serving 85,000 people was redesigned using 24 unemployed nursing graduates, 180 community health workers drawn from the long-term unemployed, and 6 retired district health officers as supervisors and clinical leads. Monthly operating cost: 42% lower than the previous NGO-delivered model. Community satisfaction and quality scores: 18% higher. The programme became self-sustaining in Month 20 through a combination of government anchor funding and community health insurance subscriptions.
+    </div>
+  </div>
+
+  <!-- 4.5 -->
+  <div class="service-block" id="s4-5">
+    <div class="service-num">Service 4.5</div>
+    <div class="service-title">Human Capital Profiling</div>
+    <p><strong>What it is:</strong> A deep activation profile for any specific population group — women's cooperatives, youth cohorts, graduate populations, retirees, or community elders. The profile identifies hidden assets, existing skills, qualification gaps, viable roles, and training pathways.</p>
+    <p><strong>What problem it solves:</strong> Programmes designed without understanding who they are working with fail because the workforce is mismatched to the roles. Human Capital Profiling ensures every person is placed in a role where their existing strengths are leveraged and their gaps are addressed efficiently.</p>
+    <p><strong>What it delivers:</strong> Population profile database, skills heat map, training needs assessment, role-matching matrix, career progression pathways, and an individual activation plan template for each participant category.</p>
+  </div>
+
+  <!-- 4.6 -->
+  <div class="service-block" id="s4-6">
+    <div class="service-num">Service 4.6</div>
+    <div class="service-title">Graduate Bridge Programme</div>
+    <p><strong>What it is:</strong> A structured pathway that connects students and graduates with economic opportunities before or immediately after graduation — eliminating the 2–5 year gap between education and productive employment that currently defines most African graduates' early careers.</p>
+    <p><strong>What problem it solves:</strong> Africa produces 3.5 million graduates per year. Fewer than 40% find formal employment within 2 years of graduation. The Graduate Bridge Programme builds the connection between education and economy that universities alone cannot provide.</p>
+    <p><strong>What it delivers:</strong> Pre-graduation pathway options, post-graduation placement within 6–8 weeks, enterprise development track for those choosing self-employment, income trajectory plan from stipend through salary to independent income, and an alumni cooperative structure for peer support and collective enterprise.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      In Nairobi, 340 university graduates in business administration were profiled, matched to 18 government and NGO programmes requiring field officers, programme coordinators, and data analysts, and placed within 6 weeks of graduation. Average monthly earning after 12 months: KES 45,000. By Month 18, 47 had launched independent consulting practices. By Month 24, a graduate alumni cooperative had secured a data services contract with a county government.
+    </div>
+  </div>
+
+  <!-- 4.7 -->
+  <div class="service-block" id="s4-7">
+    <div class="service-num">Service 4.7</div>
+    <div class="service-title">Idea Engine — Entrepreneurship Development</div>
+    <p><strong>What it is:</strong> FinAccord's Idea Engine takes any business idea — from a student's notebook to a government enterprise scheme — and develops it into a complete, investment-ready business plan with financial model, market validation, and launch roadmap.</p>
+    <p><strong>What problem it solves:</strong> Africa has no shortage of entrepreneurial ideas. It has a shortage of structured, market-validated, financially modelled business plans that can attract investment, secure loans, or be implemented with confidence. The Idea Engine closes that gap.</p>
+    <p><strong>What it delivers:</strong> Full business plan, financial model (P&amp;L, cash flow, balance sheet, break-even analysis), market validation report, competitive analysis, customer identification, pricing strategy, launch roadmap, and risk register. For cooperative or community enterprises, a governance structure is also included.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A cassava farmer's wife in Eastern Uganda had an idea to process cassava into flour for institutional buyers. The Idea Engine built her a complete business plan, identified 3 confirmed buyers — a school feeding programme and two commercial bakeries — and modelled a 14-month break-even. Her cooperative of 22 women launched with UGX 800,000 in startup cost — entirely internal. By Month 18 they were supplying 4 institutional buyers and processing 6 tonnes per week.
+    </div>
+  </div>
+
+  <!-- 4.8 -->
+  <div class="service-block" id="s4-8">
+    <div class="service-num">Service 4.8</div>
+    <div class="service-title">Community Enterprise Architecture</div>
+    <p><strong>What it is:</strong> The design of collective enterprises for communities — built on what communities already possess: land, traditional knowledge, social structures, savings pools, and trust networks. Every architecture includes a full governance framework, revenue model, and ownership structure.</p>
+    <p><strong>What problem it solves:</strong> Community development projects frequently fail because they impose external structures on communities without engaging existing social capital. Community Enterprise Architecture works with what is already there — including SUSU savings pools, chama groups, and traditional authority structures — and formalises them into sustainable enterprises.</p>
+    <p><strong>What it delivers:</strong> Enterprise design, legal structure recommendation, governance charter, financial model, market connection plan, SUSU/chama integration framework, leadership development pathway, and a 36-month wealth accumulation projection for members.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A women's group of 85 members in Tamale, Ghana — with shea trees on community land, traditional shea processing knowledge, and a SUSU savings pool of GH&#8373; 12,000 — was structured into a registered cooperative. FinAccord designed the enterprise, negotiated 3 offtake agreements, and built the financial model. By Month 18: GH&#8373; 8,500 per month in cooperative revenue, GH&#8373; 1,200 per member per quarter in dividends, and the first export shipment to a UK natural cosmetics company had been dispatched.
+    </div>
+  </div>
+
+  <!-- 4.9 -->
+  <div class="service-block" id="s4-9">
+    <div class="service-num">Service 4.9</div>
+    <div class="service-title">Business Rescue &amp; Turnaround</div>
+    <p><strong>What it is:</strong> A 90-day intensive diagnosis and rescue programme for businesses — manufacturing, service, agricultural, or social enterprise — that are in financial distress or at risk of closure.</p>
+    <p><strong>What problem it solves:</strong> Struggling businesses in Africa frequently close not because they are fundamentally unviable, but because they lack the financial management expertise, cost restructuring capability, and market reconnection tools to navigate crisis. Business Rescue prevents unnecessary job losses and preserves productive capacity.</p>
+    <p><strong>What it delivers:</strong> 90-day diagnostic report, immediate cost reduction plan, supplier renegotiation support, new client identification and approach, revenue redesign, cash flow stabilisation plan, 12-month recovery roadmap, and monthly check-in support through the recovery period.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A printing company in Lagos with 31 employees was 60 days from closure due to cash flow collapse and loss of two major clients. FinAccord's 90-day rescue: renegotiated 3 supplier contracts (saving 22% on input costs), identified 2 new institutional clients — NYSC and a state ministry — cut overhead by 35% through operational restructuring, and redesigned the pricing model. The company returned to profitability in Month 4. All 31 employees retained.
+    </div>
+  </div>
+
+  <!-- 4.10 -->
+  <div class="service-block" id="s4-10">
+    <div class="service-num">Service 4.10</div>
+    <div class="service-title">Financial Modelling &amp; Development Finance</div>
+    <p><strong>What it is:</strong> Full financial architecture for development programmes and social enterprises — including P&amp;L projections, cash flow modelling, break-even analysis, and a three-stream revenue design that combines government anchor funding, market revenue, and community ownership income.</p>
+    <p><strong>What problem it solves:</strong> Most development programmes are designed without financial models. They operate on budgets rather than income statements. This makes them permanently dependent on whoever holds the budget. FinAccord's financial modelling introduces commercial thinking to development — and designs the path to financial independence.</p>
+    <p><strong>What it delivers:</strong> Full financial model (3-year P&amp;L, monthly cash flow, break-even timeline), three-stream revenue architecture, sensitivity analysis, donor dependency reduction trajectory, self-sufficiency milestone plan, and a financial governance framework for programme management.</p>
+    <p><strong>The Three-Stream Revenue Model:</strong></p>
+    <ul>
+      <li><strong>Stream 1 — Government/Anchor (40-60%):</strong> Core public funding providing programme stability and legitimacy.</li>
+      <li><strong>Stream 2 — Market Revenue (30-50%):</strong> Commercial income generated by programme activities — service fees, product sales, data subscriptions, training income.</li>
+      <li><strong>Stream 3 — Community Ownership (10-20%):</strong> Cooperative shares, local savings pool contributions, community asset lease income — building community wealth alongside programme delivery.</li>
+    </ul>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A government nutrition programme in Zambia had been 100% donor-funded for 7 consecutive years. Our financial model redesigned it with three revenue streams: NGO sub-contracts for field monitoring (Stream 1 replacement), a data subscription product sold to research institutions and pharmaceutical companies (Stream 2), and community service fees — structured as affordable health insurance contributions (Stream 3). Government and donor dependency fell from 100% to 52% within 18 months. The programme was fully self-sustaining by Year 3.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== SECTION 4 CONTINUED: SERVICES 4.11-4.16 ===== -->
+<div class="section-wrapper" id="section4b">
+<div class="section-inner">
+  <span class="section-number">Section 04 — Continued</span>
+  <h2>Service Portfolio — Continued</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <!-- 4.11 -->
+  <div class="service-block" id="s4-11">
+    <div class="service-num">Service 4.11</div>
+    <div class="service-title">Social Value Economics (SROI)</div>
+    <p><strong>What it is:</strong> Social Return on Investment analysis for programmes whose full value cannot be captured by revenue alone — health services, education, literacy, social cohesion, mental health, and community safety programmes. FinAccord translates social outcomes into financial language using recognised SROI methodology.</p>
+    <p><strong>What problem it solves:</strong> Treasury departments and finance ministries frequently cut social programmes because they see only the cost and not the return. SROI analysis provides the financial argument for continued investment — converting outcomes into equivalent monetary values that any finance committee can evaluate.</p>
+    <p><strong>What it delivers:</strong> Full SROI analysis report, outcome map, financial proxy identification, present value calculations, sensitivity analysis, recommended subsidy justification amount, and a communications brief translating the findings for non-technical stakeholders.</p>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A community literacy programme was classified as a "cost centre" by the national treasury and faced closure. FinAccord's SROI analysis found GH&#8373; 8.40 returned for every GH&#8373; 1 invested — through quantified reductions in school dropout rates, improved household income among literate women, reduced healthcare utilisation (literacy linked to preventive health behaviour), and lower social welfare dependency. The programme received a 3-year government commitment following presentation of the SROI findings.
+    </div>
+  </div>
+
+  <!-- 4.12 -->
+  <div class="service-block" id="s4-12">
+    <div class="service-num">Service 4.12</div>
+    <div class="service-title">Impact Investment &amp; Crowdfunding</div>
+    <p><strong>What it is:</strong> FinAccord designs complete investment prospectuses and crowdfunding strategies for community projects, social enterprises, and development programmes — connecting diaspora capital, impact investors, and local cooperative savings to structured investment opportunities.</p>
+    <p><strong>What problem it solves:</strong> African diaspora communities hold billions in savings that could be invested productively in home communities — but the investment vehicles, legal structures, and transparent reporting frameworks that investors require are rarely available. FinAccord builds them.</p>
+    <p><strong>What it delivers:</strong> Investment prospectus, risk disclosure document, financial model with investor return projections, crowdfunding campaign strategy, digital platform recommendation, investor reporting framework, and community governance structure to protect investor rights.</p>
+    <div class="callout-gold">
+      <p><strong>A well-structured community project is a wealth-building investment — not a charity.</strong> FinAccord structures them so that the diaspora, impact investors, and local cooperative members all receive a financial return — while the community receives the programme. This is not philanthropy. It is investment with social premium.</p>
+    </div>
+    <div class="illustrative-note">
+      <strong>Illustrative Example</strong>
+      A community fish farming enterprise at Lake Victoria in Uganda raised UGX 120 million through a structured crowdfunding campaign targeting Ugandan diaspora investors in the UK and UAE. 340 investors participated. Payback period: 14 months. Annual investor return: 18%. The enterprise employed 47 local fishermen and generated UGX 22 million per month in sales revenue by Month 18.
+    </div>
+  </div>
+
+  <!-- 4.13 -->
+  <div class="service-block" id="s4-13">
+    <div class="service-num">Service 4.13</div>
+    <div class="service-title">Proposal Development Training</div>
+    <p><strong>What it is:</strong> A 6-week intensive training programme that transforms government officers, NGO workers, and community leaders into skilled development proposal writers — capable of producing winning, financially rigorous, Sovereign Framework-compliant proposals independently.</p>
+    <p><strong>What problem it solves:</strong> African institutions repeatedly outsource proposal writing to external consultants — at significant cost and with results that often don't reflect local realities. Proposal Development Training builds internal capability that lasts beyond any single engagement.</p>
+    <p><strong>What it delivers:</strong> 6-week training programme (delivered in-person or hybrid), proposal writing masterclass, financial modelling workshop, data verification skills module, individual coaching sessions, and a real proposal — for the participant's own programme — ready for submission by the end of the course.</p>
+    <p><strong>Graduates of this programme can:</strong></p>
+    <ul>
+      <li>Conduct a Sovereign Asset Audit for their organisation</li>
+      <li>Build a three-stream revenue model for any programme</li>
+      <li>Write a proposal that passes international funder scrutiny</li>
+      <li>Verify every data point against official sources</li>
+      <li>Present a financial model to a treasury committee</li>
+    </ul>
+  </div>
+
+  <!-- 4.14 -->
+  <div class="service-block" id="s4-14">
+    <div class="service-num">Service 4.14</div>
+    <div class="service-title">Data Intelligence &amp; Verification</div>
+    <p><strong>What it is:</strong> FinAccord maintains a master registry of 30+ authoritative official data sources — World Bank, IMF, African Development Bank, UNECA, national statistics offices, sector databases — and applies a proprietary data confidence rating system to every figure used in client deliverables.</p>
+    <p><strong>What problem it solves:</strong> Decisions worth billions of dollars are routinely made in African development finance using data that is 5, 10, or 15 years old. Budget errors, programme failures, and misallocated resources frequently trace back not to incompetence but to stale information presented as current fact.</p>
+    <p><strong>What it delivers:</strong> Data confidence rating for every figure in every deliverable, a source citation table, a data integrity declaration signed by the FinAccord lead consultant, and a flag system for figures that require updated verification before budget decisions are finalised.</p>
+
+    <h4>Data Confidence Rating System</h4>
+    <div class="data-confidence">
+      <div class="dc-item"><span style="font-size:1.2rem;">&#127002;</span> <strong>Current</strong> — Verified within the last 24 months</div>
+      <div class="dc-item"><span style="font-size:1.2rem;">&#128993;</span> <strong>Recent</strong> — 2–4 years old, still directionally reliable</div>
+      <div class="dc-item"><span style="font-size:1.2rem;">&#128308;</span> <strong>Dated</strong> — 4–7 years old, use with caution in budget decisions</div>
+      <div class="dc-item"><span style="font-size:1.2rem;">&#10060;</span> <strong>Stale</strong> — 7+ years old, must be replaced before budget use</div>
+    </div>
+    <div class="callout-navy">
+      <div class="callout-quote">"When we implement, budget errors cost us money. That is why we verify everything before it goes on paper."</div>
+      <div class="callout-attr">— FinAccord Data Integrity Policy</div>
+    </div>
+  </div>
+
+  <!-- 4.15 -->
+  <div class="service-block" id="s4-15">
+    <div class="service-num">Service 4.15</div>
+    <div class="service-title">Client Pitch &amp; Business Development</div>
+    <p><strong>What it is:</strong> A complete sales and engagement system — from prospect identification through to contract signing — designed for development professionals, social enterprises, NGOs, and government agencies that need to secure funding, clients, or partners.</p>
+    <p><strong>What problem it solves:</strong> Technically excellent organisations frequently fail to grow because they cannot articulate their value in language that moves decision-makers to action. FinAccord's pitch and business development capability closes the gap between capability and contract.</p>
+    <p><strong>What it delivers:</strong> Prospect identification framework, value proposition development, pitch deck and script, objection handling guide, proposal template library, negotiation strategy, contract template, and a client relationship management system.</p>
+  </div>
+
+  <!-- 4.16 -->
+  <div class="service-block" id="s4-16" style="background:var(--navy); color:var(--white); border-color:var(--gold);">
+    <div class="service-num" style="color:var(--gold-light);">Service 4.16 — Highest Level</div>
+    <div class="service-title" style="color:var(--gold); font-size:1.6rem;">SOLVE — Master Orchestration</div>
+    <p style="color:var(--grey-mid);">SOLVE is FinAccord's highest-level consulting capability. It is the capacity to diagnose any complex problem — regardless of sector, scale, or political complexity — select the right combination of skills from the full service portfolio, and sequence them correctly to achieve a defined outcome.</p>
+    <p style="color:var(--grey-mid);">No problem is too large. No mandate is too vague. No political context is too complex. From a student with a phone to a ministry with a billion-dollar mandate — one system, one methodology, one outcome: a self-sustaining solution built from what already exists.</p>
+    <p style="color:var(--grey-mid);"><strong style="color:var(--white);">What it does:</strong> Diagnoses the full problem landscape &#8594; Identifies which services are needed in which sequence &#8594; Assembles the right team &#8594; Manages delivery to outcome &#8594; Measures impact &#8594; Builds internal capacity to continue without FinAccord.</p>
+    <div class="equation-box" style="margin-top:1.5rem; border-color:var(--gold-light);">
+      <div class="equation-text">
+        <span class="eq-term">IDLE ASSETS</span>
+        <span class="eq-op">+</span>
+        <span class="eq-term">ORGANISED PEOPLE</span>
+        <span class="eq-op">+</span>
+        <span class="eq-term">MARKET CONNECTION</span>
+        <span class="eq-op">=</span>
+        <span class="eq-result">WEALTH &nbsp;&bull;&nbsp; JOBS &nbsp;&bull;&nbsp; TAXPAYERS</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== SECTION 5: HUMAN CAPITAL ===== -->
+<div class="section-wrapper" id="section5">
+<div class="section-inner">
+  <span class="section-number">Section 05</span>
+  <h2>Human Capital — People Are the Solution</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <div class="callout-navy">
+    <div class="callout-quote">"The unemployed are not the problem. They are not the challenge. They are not the burden. They are the workforce that every programme is looking for — already here, already trained, already committed to the community they live in."</div>
+    <div class="callout-attr">— FinAccord Human Capital Doctrine</div>
+  </div>
+
+  <p>Africa does not have a talent shortage. It has a talent activation gap. The continent produces millions of qualified, capable, motivated people every year — and then fails to connect them to the programmes, enterprises, and institutions that need them most. FinAccord exists to close that gap, permanently, at scale.</p>
+
+  <p>Every FinAccord programme draws its delivery workforce from four underutilised populations that are invisible to conventional development approaches. Together, these four groups represent the most underpriced, underutilised, and consequential workforce on the continent.</p>
+
+  <h3>A. Unemployed Graduates</h3>
+  <div class="callout-stat">
+    <span class="stat-number">3.5M</span>
+    <span class="stat-label">Graduates produced by African universities each year. Fewer than 40% find formal employment within 2 years of graduation.</span>
+  </div>
+
+  <p>Africa's graduate unemployment crisis is not a supply problem. Universities are producing graduates in exactly the fields that development programmes need: public health, business administration, agriculture, education, data science, engineering, and economics. The problem is connection — the bridge between education and opportunity that does not yet reliably exist.</p>
+
+  <p><strong>What they have:</strong> University-level education, digital literacy, structured analytical thinking, capacity for rapid learning, professional ambition, and the energy that comes from having invested years in preparation for a career that has not yet materialised.</p>
+  <p><strong>What they lack:</strong> Sector-specific experience, a first client, a structured opportunity with a clear income trajectory, and a mentor who understands both the professional world and their community context.</p>
+
+  <h4>The FinAccord Graduate Pathway</h4>
+  <div class="pathway">
+    <div class="pathway-step">
+      <div class="pathway-step-inner">
+        <div class="pathway-step-num">1</div>
+        <div class="pathway-step-label">Profile &amp; Match</div>
+        <div class="pathway-step-sub">Skills assessment, opportunity matching (weeks 1–2)</div>
+      </div>
+    </div>
+    <div class="pathway-step">
+      <div class="pathway-step-inner">
+        <div class="pathway-step-num">2</div>
+        <div class="pathway-step-label">Fast-Track Training</div>
+        <div class="pathway-step-sub">8–10 week sector-specific preparation</div>
+      </div>
+    </div>
+    <div class="pathway-step">
+      <div class="pathway-step-inner">
+        <div class="pathway-step-num">3</div>
+        <div class="pathway-step-label">Placement</div>
+        <div class="pathway-step-sub">Stipend-paid role within programme or partner organisation</div>
+      </div>
+    </div>
+    <div class="pathway-step">
+      <div class="pathway-step-inner">
+        <div class="pathway-step-num">4</div>
+        <div class="pathway-step-label">Salary Employment</div>
+        <div class="pathway-step-sub">Full employment by Month 12–18</div>
+      </div>
+    </div>
+    <div class="pathway-step">
+      <div class="pathway-step-inner">
+        <div class="pathway-step-num">5</div>
+        <div class="pathway-step-label">Enterprise Launch</div>
+        <div class="pathway-step-sub">Independent firm by Month 18–30</div>
+      </div>
+    </div>
+  </div>
+  <p><strong>Income trajectory:</strong> Stipend (months 1–6) &#8594; Entry salary (months 6–18) &#8594; Senior role or independent enterprise (months 18–30)</p>
+
+  <h3>B. Long-Term Unemployed Citizens</h3>
+  <p>This group is the most misunderstood and most consequential in African development. Long-term unemployment is not evidence of incapability. It is evidence of systemic exclusion from formal economic structures that were never designed to include them.</p>
+
+  <p><strong>What they carry:</strong> Deep community trust that no external consultant can purchase. Local language fluency in the dialects that matter most to community acceptance. Practical resilience built through years of navigating economic hardship. Lived experience of the very problems programmes are designed to solve. And social networks that reach into every household in the area.</p>
+
+  <div class="callout-navy">
+    <div class="callout-quote">"They are not the problem. They are the most credible voice for the solution — because they have lived it."</div>
+    <div class="callout-attr">— FinAccord Workforce Engine Principle</div>
+  </div>
+
+  <h4>The FinAccord Pathway for Long-Term Unemployed</h4>
+  <ul>
+    <li><strong>Dignity Reset:</strong> Community-based orientation that affirms the value of lived experience and reframes unemployment as systemic, not personal.</li>
+    <li><strong>Skills Identification:</strong> What knowledge, craft, or capability does this person already possess that has market or programme value?</li>
+    <li><strong>Structured Role:</strong> A defined role within the programme, with clear responsibilities, income, and supervision from a retired professional mentor.</li>
+    <li><strong>Cooperative Entry:</strong> A pathway into cooperative ownership — moving from worker to partial owner of the enterprise they helped build.</li>
+  </ul>
+
+  <h3>C. Retired Professionals</h3>
+  <p>Africa's retired professionals represent one of the most extraordinary and consistently overlooked assets in the continent's development toolkit. Former district health officers, retired agricultural economists, ex-civil engineers, and experienced government administrators possess knowledge that cannot be replicated by any training programme and cannot be purchased at any price from foreign institutions.</p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Comparison</th>
+        <th>Foreign Consultant</th>
+        <th>FinAccord Retired Professional</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monthly cost</td>
+        <td>USD 8,000–20,000</td>
+        <td class="gold-cell">GH&#8373; 9,500–20,500 equivalent</td>
+      </tr>
+      <tr>
+        <td>Community credibility</td>
+        <td>Low (external)</td>
+        <td class="gold-cell">Very High (known locally)</td>
+      </tr>
+      <tr>
+        <td>Government relationships</td>
+        <td>None at start</td>
+        <td class="gold-cell">Decades of established relationships</td>
+      </tr>
+      <tr>
+        <td>Language and cultural fit</td>
+        <td>Interpreter required</td>
+        <td class="gold-cell">Native — no translation gap</td>
+      </tr>
+      <tr>
+        <td>Mentoring capacity</td>
+        <td>Limited</td>
+        <td class="gold-cell">Primary strength — knowledge transfer</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>FinAccord income model for retired professionals:</strong> Retainer fee (GH&#8373; 3,500–6,000/month) + Consulting assignments (GH&#8373; 2,000–8,000/month) + Graduate mentoring stipend (GH&#8373; 1,500–4,000/month) + Cooperative profit share. Total: GH&#8373; 9,500–20,500 per month — with tax contribution and zero dependency on aid.</p>
+
+  <h3>D. Redeployed Civil Servants</h3>
+  <p>Most African governments have civil servants with specialist skills — agronomists, accountants, engineers, public health officers, educators — who are either deployed to roles that do not use those skills, or who are underutilised within their current assignments. Redeployment to active programme roles produces immediate productivity gains at zero additional staffing cost.</p>
+  <ul>
+    <li><strong>Speed advantage:</strong> Redeployment takes 2–3 weeks. New external recruitment takes 18–24 months.</li>
+    <li><strong>Cost advantage:</strong> Already salaried. Productivity gain at zero additional cost to the government.</li>
+    <li><strong>Knowledge advantage:</strong> Institutional knowledge of systems, processes, and relationships that external hires must spend months acquiring.</li>
+    <li><strong>Accountability:</strong> Civil servants remain within the accountability structures of their ministries — maintaining governance standards.</li>
+  </ul>
+</div>
+</div>
+
+<!-- ===== SECTION 6: THE ENTERPRISE ECOSYSTEM ===== -->
+<div class="section-wrapper" id="section6">
+<div class="section-inner">
+  <span class="section-number">Section 06</span>
+  <h2>The Enterprise Ecosystem — How Wealth Is Built</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>Employment is not the end of the FinAccord journey. It is the beginning. Every programme FinAccord designs is built with the expectation that employed participants will progress through a structured enterprise ladder — moving from trainee to cooperative owner to business elder. The economy grows because the people in it grow.</p>
+
+  <h3>The Five-Stage Enterprise Ladder</h3>
+  <div class="ladder">
+    <div class="ladder-step ladder-step-1">
+      <div class="ladder-step-num">1</div>
+      <div>
+        <div class="ladder-step-label">Trainee</div>
+        <div class="ladder-step-desc" style="color:var(--gold-light); font-size:0.82rem;">Learning the sector, the programme, the standards. Stipend income. Mentored by retired professional.</div>
+      </div>
+    </div>
+    <div class="ladder-step ladder-step-2">
+      <div class="ladder-step-num">2</div>
+      <div>
+        <div class="ladder-step-label">Employee</div>
+        <div class="ladder-step-desc" style="color:var(--gold-light); font-size:0.82rem;">Salaried role within programme or partner enterprise. Building client relationships and professional track record.</div>
+      </div>
+    </div>
+    <div class="ladder-step ladder-step-3">
+      <div class="ladder-step-num">3</div>
+      <div>
+        <div class="ladder-step-label">Enterprise Lead</div>
+        <div class="ladder-step-desc" style="color:var(--gold-light); font-size:0.82rem;">Managing a function or sub-contract. First P&amp;L responsibility. Developing client base independently.</div>
+      </div>
+    </div>
+    <div class="ladder-step ladder-step-4">
+      <div class="ladder-step-num">4</div>
+      <div>
+        <div class="ladder-step-label">Cooperative Owner</div>
+        <div class="ladder-step-desc" style="color:var(--gold-light); font-size:0.82rem;">Equity stake in community cooperative. Profit share. Governance role. Employing the next trainee cohort.</div>
+      </div>
+    </div>
+    <div class="ladder-step ladder-step-5">
+      <div class="ladder-step-num">5</div>
+      <div>
+        <div class="ladder-step-label">Elder Consultant</div>
+        <div class="ladder-step-desc" style="color:var(--gold-light); font-size:0.82rem;">Mentoring the next generation. Retainer income. Community authority. The knowledge that cannot be bought.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>7 Enterprise Types That Emerge From Every Programme</h3>
+  <p>FinAccord programmes are designed so that the delivery of the programme itself generates the conditions for enterprise formation. As programmes operate, the following enterprise types consistently emerge from within the workforce:</p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Enterprise Type</th>
+        <th>What It Does</th>
+        <th>Typical Launch Timeline</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Field Data Firm</strong></td>
+        <td>Collects, verifies, and reports programme data. Sells data products to researchers, governments, and NGOs.</td>
+        <td>Month 8–12</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Community Cooperative</strong></td>
+        <td>Collective enterprise producing and selling goods or services. Profit distributed to members quarterly.</td>
+        <td>Month 6–18</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Training Academy</strong></td>
+        <td>Delivers the same training that graduates received — as a paid service to new cohorts and partner organisations.</td>
+        <td>Month 12–24</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Input Supply Business</strong></td>
+        <td>Sources and distributes inputs (seeds, tools, equipment, materials) to programme participants and wider market.</td>
+        <td>Month 6–12</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Processing &amp; Value-Add Enterprise</strong></td>
+        <td>Takes raw programme outputs and processes them for higher-value markets. Cassava to flour. Fish to dried product. Shea to cosmetics.</td>
+        <td>Month 9–18</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>Logistics &amp; Market Access Firm</strong></td>
+        <td>Connects programme producers to urban and export markets. Handles transport, aggregation, and buyer relationships.</td>
+        <td>Month 12–24</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><strong>Consulting Spinoff</strong></td>
+        <td>Former programme leads offering Sovereign Framework-style consulting to neighbouring districts and governments.</td>
+        <td>Month 24–36</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Community Wealth Accumulation Model</h3>
+  <p>FinAccord designs every programme with a 10-year wealth accumulation projection — showing how individual income, cooperative profit, community assets, and tax contribution evolve over time.</p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Individual Income</th>
+        <th>Cooperative Revenue</th>
+        <th>Enterprises Active</th>
+        <th>External Funding Dependency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Year 1</strong></td>
+        <td>Stipend / entry wage</td>
+        <td>Pre-launch / early sales</td>
+        <td>0–1</td>
+        <td>80–100%</td>
+      </tr>
+      <tr>
+        <td><strong>Year 2</strong></td>
+        <td>Salary employment</td>
+        <td>GH&#8373; 2,000–8,000/month</td>
+        <td>2–3</td>
+        <td>50–70%</td>
+      </tr>
+      <tr>
+        <td><strong>Year 3</strong></td>
+        <td>Salary + enterprise income</td>
+        <td>GH&#8373; 8,000–25,000/month</td>
+        <td>3–5</td>
+        <td>30–50%</td>
+      </tr>
+      <tr>
+        <td><strong>Year 5</strong></td>
+        <td>Enterprise owner income</td>
+        <td>GH&#8373; 30,000–80,000/month</td>
+        <td>5–7</td>
+        <td>10–20%</td>
+      </tr>
+      <tr>
+        <td><strong>Year 10</strong></td>
+        <td>Cooperative shareholder + employer</td>
+        <td>GH&#8373; 80,000+/month</td>
+        <td>7+</td>
+        <td class="gold-cell">0% — Self-Sustaining</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ===== SECTION 7: UNITY ACROSS SOCIETY ===== -->
+<div class="section-wrapper" id="section7">
+<div class="section-inner">
+  <span class="section-number">Section 07</span>
+  <h2>Unity Across Society — Every Level Served</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>FinAccord's model is not designed for a single type of client. It is designed for the full architecture of African society — from the individual household to the continental institution. Every level of society has a role to play in economic activation, and every level has specific needs that FinAccord is equipped to address.</p>
+
+  <div class="unity-grid">
+    <div class="unity-card">
+      <span class="unity-card-icon">&#128106;</span>
+      <h4>A. Individuals &amp; Families</h4>
+      <p>FinAccord's smallest and most fundamental client. Every economic transformation begins with an individual who makes a decision to activate what they already have.</p>
+      <ul>
+        <li>Business idea development (Idea Engine)</li>
+        <li>Income diversification planning</li>
+        <li>Asset activation (household land, skills, savings)</li>
+        <li>Financial literacy and household financial modelling</li>
+        <li>Connection to community cooperative structures</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#127891;</span>
+      <h4>B. Youth &amp; Graduates</h4>
+      <p>Africa's most important economic resource — and its most consistently wasted one. FinAccord builds the bridge from education to economy that universities alone cannot provide.</p>
+      <ul>
+        <li>Graduate Bridge Programme — placement within 6 weeks</li>
+        <li>Pre-graduation enterprise pathway</li>
+        <li>Fast-track sector training (8–10 weeks)</li>
+        <li>Enterprise development from employment</li>
+        <li>Graduate cooperative formation</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#9792;&#65039;</span>
+      <h4>C. Women &amp; Gender Empowerment</h4>
+      <p>Women in Africa are the continent's most consistent economic actors — managing households, saving through SUSU and chama systems, and producing the majority of food consumed domestically. FinAccord structures their work into formal wealth.</p>
+      <ul>
+        <li>Cooperative leadership development</li>
+        <li>Market access strategy and offtake agreement negotiation</li>
+        <li>Financial inclusion through structured savings integration</li>
+        <li>Export pathway development for women's enterprises</li>
+        <li>SROI analysis for gender-focused programmes</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#127968;</span>
+      <h4>D. Communities &amp; Cooperatives</h4>
+      <p>Communities are not passive recipients of development. They are active economic agents with land, social structures, knowledge, and savings that can power enterprises at scale.</p>
+      <ul>
+        <li>Community Enterprise Architecture design</li>
+        <li>Collective land activation</li>
+        <li>Market connection and buyer identification</li>
+        <li>Governance framework and legal structure</li>
+        <li>SUSU/chama formalisation and investment structure</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#128081;</span>
+      <h4>E. Traditional Authority &amp; Cultural Institutions</h4>
+      <p>No programme succeeds in Africa without the legitimacy conferred by traditional and cultural institutions. FinAccord builds partnerships with chiefs, paramount leaders, and cultural bodies that make programmes accepted and trusted.</p>
+      <ul>
+        <li>Community entry protocol and traditional authority engagement</li>
+        <li>Land access negotiation through traditional channels</li>
+        <li>Cultural legitimacy framework for programme acceptance</li>
+        <li>Role for traditional leaders in programme governance</li>
+        <li>Conflict prevention through community ownership structures</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#128200;</span>
+      <h4>F. Entrepreneurs &amp; SMEs</h4>
+      <p>Africa's entrepreneurs are the engine of private sector growth. FinAccord serves them at every stage — from first idea to established enterprise to turnaround and rescue.</p>
+      <ul>
+        <li>Idea Engine — investment-ready business plan</li>
+        <li>Financial modelling and investor pitch preparation</li>
+        <li>Business Rescue and Turnaround (90-day programme)</li>
+        <li>Market development and new client identification</li>
+        <li>Client pitch and business development coaching</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#127979;</span>
+      <h4>G. Educational Institutions</h4>
+      <p>Universities and TVET institutions produce graduates who need the economy to receive them. FinAccord works with institutions to build pathways that begin before graduation and sustain careers after it.</p>
+      <ul>
+        <li>Curriculum integration — Sovereign Framework principles in teaching</li>
+        <li>Graduate pathway development and employer connection</li>
+        <li>TVET-to-enterprise pipeline design</li>
+        <li>Alumni cooperative formation</li>
+        <li>Research partnership and data collaboration</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#127970;</span>
+      <h4>H. Local &amp; District Government</h4>
+      <p>District assemblies and local authorities are the most direct interface between government and community. FinAccord helps them identify their assets, design programmes that work, and build the financial capacity to sustain them.</p>
+      <ul>
+        <li>Sovereign Asset Audit for district government</li>
+        <li>Programme design using existing assets</li>
+        <li>Workforce deployment from local unemployed populations</li>
+        <li>Financial modelling and revenue architecture</li>
+        <li>Proposal development for national or donor funding</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#127963;</span>
+      <h4>I. Regional &amp; National Government</h4>
+      <p>Ministries and national agencies set the policy environment within which every other level of society operates. FinAccord provides the technical capacity to translate policy ambition into financially rigorous, implementable programmes.</p>
+      <ul>
+        <li>Policy proposal development and financial modelling</li>
+        <li>National programme design and workforce systems</li>
+        <li>Sovereign asset mapping at national scale</li>
+        <li>Revenue architecture for government programmes</li>
+        <li>Monitoring framework and SROI measurement</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#128176;</span>
+      <h4>J. Investors &amp; Development Partners</h4>
+      <p>Impact investors and development finance institutions need one thing above all else: confidence that their investment will deliver measurable, verifiable returns — financial and social. FinAccord builds that confidence through rigorous financial architecture and transparent reporting.</p>
+      <ul>
+        <li>Investment prospectus development</li>
+        <li>SROI analysis and impact measurement framework</li>
+        <li>Financial model with investor return projections</li>
+        <li>Governance structure protecting investor interests</li>
+        <li>Reporting framework meeting international standards</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#9992;&#65039;</span>
+      <h4>K. Diaspora</h4>
+      <p>The African diaspora holds billions in savings, carries skills developed in global institutions, and carries an undiminished connection to home communities. FinAccord connects diaspora capital and talent to structured investment opportunities in their countries of origin.</p>
+      <ul>
+        <li>Diaspora investment crowdfunding platform and prospectus</li>
+        <li>Remittance-to-investment conversion strategy</li>
+        <li>Skills repatriation pathways for diaspora professionals</li>
+        <li>Diaspora cooperative formation for home-country enterprise</li>
+        <li>Investor return reporting and transparency framework</li>
+      </ul>
+    </div>
+
+    <div class="unity-card">
+      <span class="unity-card-icon">&#9962;&#65039;</span>
+      <h4>L. Faith Communities</h4>
+      <p>Churches, mosques, and other faith institutions are among the most trusted, most networked, and most asset-rich organisations in many African communities. FinAccord helps them leverage that trust and those assets for community economic development.</p>
+      <ul>
+        <li>Community enterprise design using faith institution assets (land, buildings, social networks)</li>
+        <li>Faith-based cooperative formation</li>
+        <li>Financial literacy and household economic activation</li>
+        <li>Youth enterprise programmes through youth fellowships</li>
+        <li>Community savings pool formalisation and investment</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== SECTION 8: ILLUSTRATIVE IMPACT EXAMPLES ===== -->
+<div class="section-wrapper" id="section8">
+<div class="section-inner">
+  <span class="section-number">Section 08</span>
+  <h2>Illustrative Impact Examples</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <div class="callout-gold">
+    <p><strong>Note on Examples:</strong> All examples in this section are illustrative scenarios based on the types of challenges FinAccord is designed to address. They demonstrate the methodology, approach, and range of outcomes that the Sovereign Framework&#8482; is built to achieve. They are not representations of specific named client engagements.</p>
+  </div>
+
+  <!-- Case Study 1 -->
+  <div class="case-study-card">
+    <div class="case-study-label">Illustrative Example 1</div>
+    <div class="case-study-country">Ghana</div>
+    <div class="case-study-title">Agricultural District Programme — TVET Graduate Activation</div>
+
+    <div class="cs-section-label">The Challenge</div>
+    <p>A regional district authority in Ghana had 2,400 TVET graduates in agriculture and food processing with no placement and no programme. The regional government had limited budget and was about to apply for donor funding to create an employment programme — starting from zero.</p>
+
+    <div class="cs-section-label">FinAccord Approach</div>
+    <p>Before any funding application was submitted, FinAccord conducted a Sovereign Asset Audit. The findings eliminated the need for the donor application entirely.</p>
+    <ul>
+      <li>340 hectares of idle government farmland identified across 6 locations in the district</li>
+      <li>An NVTI training centre operating at 22% capacity — fully equipped, staffed by 4 government employees</li>
+      <li>GH&#8373; 1.8 million in unspent district development budget, eligible for programmatic redeployment</li>
+      <li>A retired Ministry of Food and Agriculture economist living in the district capital, available for advisory engagement</li>
+    </ul>
+
+    <div class="cs-section-label">The Solution</div>
+    <p>An agri-enterprise programme was designed using:</p>
+    <ul>
+      <li>2,400 TVET graduates as the enterprise workforce (graduates as farmers, processors, and field data collectors)</li>
+      <li>600 long-term unemployed community members as field support, transport, and logistics workers</li>
+      <li>Retired agricultural economist as programme director (retainer: GH&#8373; 11,000/month vs foreign consultant equivalent: USD 15,000/month)</li>
+      <li>NVTI centre activated as the training and incubation hub</li>
+      <li>3 enterprise streams: fresh produce (government contract), value-added processing (institutional buyers), agri-data service (NGO subscription)</li>
+    </ul>
+
+    <div class="cs-results-grid">
+      <div class="cs-result-item">
+        <span class="cs-result-num">3,040</span>
+        <div class="cs-result-label">People employed directly</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">Month 14</span>
+        <div class="cs-result-label">Break-even achieved</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">48%</span>
+        <div class="cs-result-label">Government dependency by Year 2</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">0</span>
+        <div class="cs-result-label">New external budget requested to launch</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study 2 -->
+  <div class="case-study-card">
+    <div class="case-study-label">Illustrative Example 2</div>
+    <div class="case-study-country">Nigeria</div>
+    <div class="case-study-title">Business Rescue — Lagos Printing Company</div>
+
+    <div class="cs-section-label">The Challenge</div>
+    <p>A printing company in Lagos with 31 full-time employees was 60 days from closure. It had lost two major institutional clients, faced rising input costs from naira depreciation, and had accumulated 90 days of unpaid supplier debt. Management had no clear path forward.</p>
+
+    <div class="cs-section-label">FinAccord 90-Day Rescue Plan</div>
+    <ul>
+      <li><strong>Days 1–14 (Diagnosis):</strong> Full financial audit, supplier debt mapping, cost structure analysis, market scan for new institutional clients.</li>
+      <li><strong>Days 15–45 (Stabilisation):</strong> Renegotiated 3 supplier contracts (payment deferral + new pricing), achieving 22% input cost reduction. Cut overhead by 35% through shift restructuring and non-essential service suspension.</li>
+      <li><strong>Days 45–90 (Recovery):</strong> Identified and pitched 2 new institutional clients — NYSC for printed programme materials and a state ministry for official stationery. Both contracts signed within 60 days of initial approach. Revenue redesigned to reduce dependence on any single client below 40%.</li>
+    </ul>
+
+    <div class="cs-results-grid">
+      <div class="cs-result-item">
+        <span class="cs-result-num">Month 4</span>
+        <div class="cs-result-label">Return to profitability</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">31</span>
+        <div class="cs-result-label">Jobs retained — zero redundancies</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">35%</span>
+        <div class="cs-result-label">Overhead reduction achieved</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">2</span>
+        <div class="cs-result-label">New institutional clients secured</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study 3 -->
+  <div class="case-study-card">
+    <div class="case-study-label">Illustrative Example 3</div>
+    <div class="case-study-country">Kenya</div>
+    <div class="case-study-title">Graduate Bridge Programme — Nairobi Business Graduates</div>
+
+    <div class="cs-section-label">The Challenge</div>
+    <p>340 business administration graduates in Nairobi — all qualified, all motivated — faced an average wait of 18–24 months for their first formal employment. Most were taking informal work unrelated to their qualifications. Skills were deteriorating. Confidence was eroding.</p>
+
+    <div class="cs-section-label">FinAccord Approach</div>
+    <p>FinAccord profiled all 340 graduates, identifying specialisms in financial management, data analysis, project coordination, and community mobilisation. Simultaneously, 18 government agencies and NGOs with active programme needs were identified — all requiring field officers, programme coordinators, and data managers that they had been unable to hire through formal channels.</p>
+    <p>8-week fast-track training was delivered covering: development programme operations, data collection and reporting, financial management for field offices, and client relationship management. Graduates were matched and placed within 6 weeks of programme graduation.</p>
+
+    <div class="cs-results-grid">
+      <div class="cs-result-item">
+        <span class="cs-result-num">6 Weeks</span>
+        <div class="cs-result-label">Average time from programme graduation to placement</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">KES 45,000</span>
+        <div class="cs-result-label">Average monthly income after 12 months</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">47</span>
+        <div class="cs-result-label">Independent consulting practices launched by Month 18</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">1</span>
+        <div class="cs-result-label">Graduate alumni cooperative secured county government contract</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study 4 -->
+  <div class="case-study-card">
+    <div class="case-study-label">Illustrative Example 4</div>
+    <div class="case-study-country">Uganda</div>
+    <div class="case-study-title">Women's Cooperative — Cassava Processing Enterprise</div>
+
+    <div class="cs-section-label">The Challenge</div>
+    <p>85 women in Eastern Uganda, most of them married to smallholder cassava farmers, had been processing cassava manually for household consumption and small local sales. They had the land, the knowledge, and the will — but no market, no structure, and no formal income beyond subsistence.</p>
+
+    <div class="cs-section-label">FinAccord Approach</div>
+    <p>The Idea Engine was applied. A cassava processing enterprise was designed around existing assets: smallholder land, traditional processing knowledge, and a SUSU savings pool of UGX 4.2 million accumulated over 3 years. Market analysis identified 3 institutional buyers — a school feeding programme (government), and two commercial bakeries in Mbale — willing to sign offtake agreements for consistent supply of processed cassava flour.</p>
+    <p>A Community Enterprise Architecture was built: legal cooperative structure, governance charter, SUSU integration as founding capital, processing workflow design, quality standards, and packaging specification for institutional buyers. Business plan included a 14-month break-even model and Year 1–5 member income projections.</p>
+
+    <div class="cs-results-grid">
+      <div class="cs-result-item">
+        <span class="cs-result-num">UGX 800K</span>
+        <div class="cs-result-label">Total launch cost — entirely internal</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">Month 14</span>
+        <div class="cs-result-label">Break-even achieved on schedule</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">6 Tonnes</span>
+        <div class="cs-result-label">Weekly production by Month 18</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">4</span>
+        <div class="cs-result-label">Institutional buyers by Month 18</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study 5 -->
+  <div class="case-study-card">
+    <div class="case-study-label">Illustrative Example 5</div>
+    <div class="case-study-country">Zambia</div>
+    <div class="case-study-title">Government Programme Financial Redesign — Nutrition Programme</div>
+
+    <div class="cs-section-label">The Challenge</div>
+    <p>A national nutrition programme in Zambia had been 100% donor-funded for 7 consecutive years. As donor priorities shifted, funding became uncertain. The programme served 240,000 beneficiaries in 4 provinces. A funding collapse would have been a humanitarian crisis.</p>
+
+    <div class="cs-section-label">FinAccord Approach</div>
+    <p>FinAccord conducted a full programme financial audit and identified three revenue opportunities that existed within the programme's current operations but had never been formalised:</p>
+    <ul>
+      <li><strong>Stream 1 (Government Anchor):</strong> Ministry of Health committed to covering core staffing costs — GH&#8373; equivalent: 38% of budget — in exchange for quarterly programme reports to Parliament.</li>
+      <li><strong>Stream 2 (Market Revenue):</strong> Nutrition data collected by field workers was structured into a subscription data product for pharmaceutical research institutions, academic health programmes, and international NGOs — generating programme income without additional field cost.</li>
+      <li><strong>Stream 3 (Community Contribution):</strong> A community health insurance model was introduced at UGX 2,000/household/month — affordable, voluntary, and structured as a health savings cooperative rather than a fee. Uptake: 68% of households in Year 1.</li>
+    </ul>
+
+    <div class="cs-results-grid">
+      <div class="cs-result-item">
+        <span class="cs-result-num">100% &#8594; 52%</span>
+        <div class="cs-result-label">Donor dependency reduction in 18 months</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">Year 3</span>
+        <div class="cs-result-label">Full donor independence achieved</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">240,000</span>
+        <div class="cs-result-label">Beneficiaries protected throughout transition</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">3</span>
+        <div class="cs-result-label">Active revenue streams by Year 2</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study 6 -->
+  <div class="case-study-card">
+    <div class="case-study-label">Illustrative Example 6</div>
+    <div class="case-study-country">Gambia</div>
+    <div class="case-study-title">Youth Digital Enterprise — Community Fintech Cooperative</div>
+
+    <div class="cs-section-label">The Challenge</div>
+    <p>120 young people in rural Gambia — ages 18–28, most with secondary education — had no formal employment and no clear pathway to income. The local economy was largely informal. Mobile money was growing nationally but had almost no penetration in their 4 villages. Cash remained dominant despite the cost, friction, and risk it imposed on local traders and farming households.</p>
+
+    <div class="cs-section-label">FinAccord Approach</div>
+    <p>Human Capital Profiling identified that 94% of the 120 youth owned or had access to a smartphone. 67% had used mobile money in urban centres before returning to their villages. The Opportunity Scan identified mobile money facilitation as a high-viability enterprise — low startup cost, high community demand, recurring revenue, and government-aligned with Gambia's financial inclusion agenda.</p>
+    <p>The Idea Engine designed a community fintech cooperative structure. Youth were trained in mobile money operations, agent float management, customer service, bookkeeping, and cooperative governance. The cooperative registered as an official mobile money agent network — serving 4 villages across a 12km corridor.</p>
+
+    <div class="cs-results-grid">
+      <div class="cs-result-item">
+        <span class="cs-result-num">120</span>
+        <div class="cs-result-label">Youth cooperative members</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">4</span>
+        <div class="cs-result-label">Villages served with mobile financial services</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">GMD 2.4M</span>
+        <div class="cs-result-label">Monthly transactions processed by Month 12</div>
+      </div>
+      <div class="cs-result-item">
+        <span class="cs-result-num">Month 6</span>
+        <div class="cs-result-label">Break-even achieved — zero external capital used</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== SECTION 9: GEOGRAPHIC REACH ===== -->
+<div class="section-wrapper" id="section9">
+<div class="section-inner">
+  <span class="section-number">Section 09</span>
+  <h2>Geographic Reach &amp; Scaling</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>FinAccord operates across seven African countries with resident offices, established client relationships, and active programme delivery. Our geographic footprint enables us to design multi-country programmes, leverage cross-border market connections, draw on practitioners with authentic on-the-ground knowledge, and apply the Sovereign Framework&#8482; at continental scale.</p>
+
+  <h3>Our Seven Country Offices</h3>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Office Location</th>
+        <th>Key Sectors</th>
+        <th>Programme Focus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ghana</strong></td>
+        <td>Accra (Headquarters)</td>
+        <td>Agriculture, TVET, Community Enterprise, Government Advisory</td>
+        <td>District programme design, graduate activation, cooperative development</td>
+      </tr>
+      <tr>
+        <td><strong>Nigeria</strong></td>
+        <td>Lagos &amp; Abuja</td>
+        <td>SME, Manufacturing, Digital Finance, Government Policy</td>
+        <td>Business rescue, enterprise development, national policy advisory</td>
+      </tr>
+      <tr>
+        <td><strong>Zambia</strong></td>
+        <td>Lusaka</td>
+        <td>Health, Agriculture, Mining Community Development</td>
+        <td>Programme financial redesign, SROI, government programme architecture</td>
+      </tr>
+      <tr>
+        <td><strong>Kenya</strong></td>
+        <td>Nairobi</td>
+        <td>Technology, Finance, Graduate Employment, County Government</td>
+        <td>Graduate bridge, digital enterprise, county-level programme design</td>
+      </tr>
+      <tr>
+        <td><strong>Uganda</strong></td>
+        <td>Kampala</td>
+        <td>Agriculture, Women's Enterprise, Impact Investment</td>
+        <td>Community enterprise architecture, cooperative development, diaspora investment</td>
+      </tr>
+      <tr>
+        <td><strong>Tanzania</strong></td>
+        <td>Dar es Salaam</td>
+        <td>Tourism, Agriculture, Blue Economy, Trade</td>
+        <td>Value chain development, export market connection, regional programme design</td>
+      </tr>
+      <tr>
+        <td><strong>Gambia</strong></td>
+        <td>Banjul</td>
+        <td>Digital Finance, Youth Employment, Trade</td>
+        <td>Youth enterprise, fintech cooperative, financial inclusion programmes</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>The Geographic Scaling Model</h3>
+  <p>One of the Sovereign Framework&#8482;'s most distinctive features is its built-in geographic scaling architecture. Every FinAccord programme is designed to generate sufficient surplus at its current scale to fund expansion to the next level — without requiring new external capital. Growth is funded by proof, not by promises.</p>
+
+  <div class="callout-navy">
+    <div class="callout-quote">"We do not ask for money to grow. We grow because we have proved it works — and the proof funds the next level."</div>
+    <div class="callout-attr">— FinAccord Geographic Scaling Principle</div>
+  </div>
+
+  <div class="geo-scale" style="flex-direction:column; gap:0.8rem;">
+    <div style="display:flex; align-items:center; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px; border-left:4px solid var(--gold);">
+      <div style="font-family:var(--font-heading); font-size:1.4rem; font-weight:700; color:var(--gold); min-width:140px;">Household</div>
+      <div>
+        <div style="font-weight:600; color:var(--navy);">1–15 people | Family enterprise, smallholder farm, micro-business</div>
+        <div style="font-size:0.88rem; color:var(--grey-text);">Funded by: personal savings, SUSU pool. Generates: household income surplus to fund sub-district cluster.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px; border-left:4px solid var(--gold); margin-left:1.5rem;">
+      <div style="font-family:var(--font-heading); font-size:1.4rem; font-weight:700; color:var(--gold); min-width:140px;">Sub-District</div>
+      <div>
+        <div style="font-weight:600; color:var(--navy);">500–5,000 people | Village cooperative, community market, local workforce</div>
+        <div style="font-size:0.88rem; color:var(--grey-text);">Funded by: household surplus + local government contribution. Generates: cooperative profit to fund district expansion.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px; border-left:4px solid var(--gold); margin-left:3rem;">
+      <div style="font-family:var(--font-heading); font-size:1.4rem; font-weight:700; color:var(--gold); min-width:140px;">District</div>
+      <div>
+        <div style="font-weight:600; color:var(--navy);">50,000–500,000 people | District enterprise zone, TVET integration</div>
+        <div style="font-size:0.88rem; color:var(--grey-text);">Funded by: cooperative profit + district assembly + market revenue. Generates: tax revenue to fund regional roll-out.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px; border-left:4px solid var(--gold); margin-left:4.5rem;">
+      <div style="font-family:var(--font-heading); font-size:1.4rem; font-weight:700; color:var(--gold); min-width:140px;">Regional</div>
+      <div>
+        <div style="font-weight:600; color:var(--navy);">500,000–5M people | Multi-district programme, regional value chain</div>
+        <div style="font-size:0.88rem; color:var(--grey-text);">Funded by: district surplus + regional budget + market income. Generates: national tax base growth.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px; border-left:4px solid var(--gold); margin-left:6rem;">
+      <div style="font-family:var(--font-heading); font-size:1.4rem; font-weight:700; color:var(--gold); min-width:140px;">National</div>
+      <div>
+        <div style="font-weight:600; color:var(--navy);">5M–30M+ people | National employment programme, ministry strategy</div>
+        <div style="font-size:0.88rem; color:var(--grey-text);">Funded by: regional programme surplus + national budget + private sector + impact investment.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:1.5rem; background:var(--navy); padding:1.2rem 1.5rem; border-radius:8px; border-left:4px solid var(--gold-light); margin-left:7.5rem;">
+      <div style="font-family:var(--font-heading); font-size:1.4rem; font-weight:700; color:var(--gold); min-width:140px;">Multi-Country</div>
+      <div>
+        <div style="font-weight:600; color:var(--white);">30M+ people | Continental programme, AfCFTA integration</div>
+        <div style="font-size:0.88rem; color:var(--grey-mid);">Funded by: national programme surpluses + AfDB + continental development finance. Generates: continental economic integration.</div>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:2rem;">The key principle: <strong>no external capital is required to move from one level to the next.</strong> The profit generated at the current level funds the expansion. This is how FinAccord grows without donor dependency — and how the programmes it designs do the same.</p>
+</div>
+</div>
+
+<!-- ===== SECTION 10: GOVERNANCE ===== -->
+<div class="section-wrapper" id="section10">
+<div class="section-inner">
+  <span class="section-number">Section 10</span>
+  <h2>Governance, Accountability &amp; Data Integrity</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>The failure of many African development programmes can be traced not to lack of funding, but to lack of accountability — to communities, to funders, and to the evidence base. FinAccord has built governance into every level of its methodology because we understand that good intentions without good governance produce predictable failures.</p>
+
+  <h3>The Four Governance Principles</h3>
+
+  <div class="doctrine-grid">
+    <div class="doctrine-row">
+      <div class="doctrine-num">1</div>
+      <div>
+        <div class="doctrine-title">Financial Transparency from Day 1</div>
+        <div class="doctrine-desc">Every programme FinAccord designs includes a full financial governance framework: budget controls, expenditure reporting, variance analysis, and an independent financial review at Month 6, Month 12, and annually thereafter. There are no programmes without books.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">2</div>
+      <div>
+        <div class="doctrine-title">Community Ownership of Governance</div>
+        <div class="doctrine-desc">The communities that deliver and benefit from FinAccord programmes have formal governance roles — on cooperative boards, advisory committees, and financial oversight panels. This is not tokenism. Community governors have the power to flag concerns, request financial reports, and propose programme changes.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">3</div>
+      <div>
+        <div class="doctrine-title">Aligned Incentives — FinAccord's Own Exposure</div>
+        <div class="doctrine-desc">When FinAccord implements a programme, our fee structure includes a performance component tied to programme outcomes. Budget errors cost us money. Programme failures damage our reputation in the communities where we operate. Our interests are structurally aligned with client success — not project completion.</div>
+      </div>
+    </div>
+    <div class="doctrine-row">
+      <div class="doctrine-num">4</div>
+      <div>
+        <div class="doctrine-title">Exit Strategy from Day 1</div>
+        <div class="doctrine-desc">Every FinAccord engagement includes a documented exit strategy. We are not designed to create permanent client dependency. We are designed to build internal capacity, transfer knowledge, and exit — leaving behind a system that operates without us. The measure of success is that FinAccord is no longer needed.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Data Integrity Protocol</h3>
+  <p>Every FinAccord deliverable — proposal, financial model, impact assessment, or programme design — carries a Data Integrity Declaration confirming the following:</p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Requirement</th>
+        <th>Standard</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Source verification</td>
+        <td>Every statistical figure traced to a named official source (World Bank, IMF, AfDB, national statistics office, or sector-specific database)</td>
+      </tr>
+      <tr>
+        <td>Publication date</td>
+        <td>Publication year cited for every data point. No figure used without knowing its age.</td>
+      </tr>
+      <tr>
+        <td>Confidence rating</td>
+        <td>Every figure rated: Current (&#127002;) / Recent (&#128993;) / Dated (&#128308;) / Stale (&#10060;)</td>
+      </tr>
+      <tr>
+        <td>Budget use restriction</td>
+        <td>Rated or Stale figures flagged — not permitted for use in budget calculations without updated verification</td>
+      </tr>
+      <tr>
+        <td>Consultant sign-off</td>
+        <td>Named FinAccord consultant signs the data integrity declaration on every deliverable</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout-navy">
+    <div class="callout-quote">"When we implement, budget errors cost us money. That is why we verify everything before it goes on paper — and why our data integrity protocol is non-negotiable."</div>
+  </div>
+
+  <h3>What FinAccord Does NOT Require</h3>
+  <p>The following are common features of conventional development approaches that FinAccord programmes are specifically designed to eliminate:</p>
+  <ul class="no-require-list">
+    <li>New budget allocation before auditing what is already available</li>
+    <li>External technical assistance when equivalent expertise exists locally</li>
+    <li>100% donor funding from launch with no revenue pathway</li>
+    <li>Foreign consultants at premium rates for knowledge that retired professionals already hold</li>
+    <li>Programme proposals built on unverified or outdated data</li>
+    <li>Governance structures that exclude community voices from financial oversight</li>
+    <li>Programmes with no defined exit strategy or self-sufficiency plan</li>
+    <li>Single-source funding dependency above 60% of programme revenue</li>
+  </ul>
+</div>
+</div>
+
+<!-- ===== SECTION 11: FRAMEWORKS ALIGNMENT ===== -->
+<div class="section-wrapper" id="section11">
+<div class="section-inner">
+  <span class="section-number">Section 11</span>
+  <h2>Alignment with Global &amp; Continental Frameworks</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>FinAccord's methodology is not developed in isolation from the global and continental frameworks that govern development finance, trade, and governance. Every programme we design is aligned with the frameworks that our government clients are accountable to — ensuring that our proposals strengthen their standing with international partners rather than creating complications.</p>
+
+  <h3>African Union Agenda 2063: The Africa We Want</h3>
+  <p>Agenda 2063 sets out Africa's continental vision for transformative growth and sustainable development. FinAccord's work directly advances five of the seven Agenda 2063 aspirations:</p>
+  <ul>
+    <li><strong>Aspiration 1:</strong> A prosperous Africa based on inclusive growth and sustainable development — directly served by FinAccord's enterprise development and self-sufficiency mandate.</li>
+    <li><strong>Aspiration 3:</strong> An Africa of good governance, democracy, respect for human rights — served by FinAccord's governance framework and community accountability structures.</li>
+    <li><strong>Aspiration 5:</strong> An Africa with a strong cultural identity, common heritage, values, and ethics — served by our traditional authority engagement and cultural legitimacy framework.</li>
+    <li><strong>Aspiration 6:</strong> An Africa whose development is people-driven, relying on the potential offered by African people, especially its women and youth — the core of the Workforce Engine.</li>
+    <li><strong>Aspiration 7:</strong> Africa as a strong, united, resilient and influential global player — served by our continental scaling model and AfCFTA alignment.</li>
+  </ul>
+
+  <h3>UN Sustainable Development Goals (SDGs)</h3>
+  <p>FinAccord programmes contribute to nine of the 17 SDGs — with direct, measurable impact that can be reported against each goal:</p>
+  <div class="sdg-tags">
+    <span class="sdg-tag">SDG 1: No Poverty — Enterprise income lifts households above poverty line</span>
+    <span class="sdg-tag">SDG 2: Zero Hunger — Agricultural enterprise activation, food security</span>
+    <span class="sdg-tag">SDG 4: Quality Education — Graduate bridge, TVET integration, training academies</span>
+    <span class="sdg-tag">SDG 5: Gender Equality — Women's cooperative leadership, financial inclusion</span>
+    <span class="sdg-tag">SDG 8: Decent Work &amp; Economic Growth — Employment creation, enterprise development, taxpayer generation</span>
+    <span class="sdg-tag">SDG 10: Reduced Inequalities — Long-term unemployed activation, community wealth distribution</span>
+    <span class="sdg-tag">SDG 11: Sustainable Communities — Community enterprise architecture, cooperative governance</span>
+    <span class="sdg-tag">SDG 16: Peace, Justice &amp; Strong Institutions — Governance frameworks, accountability structures</span>
+    <span class="sdg-tag">SDG 17: Partnerships for Goals — Diaspora investment, impact finance, AfCFTA alignment</span>
+  </div>
+
+  <h3>African Continental Free Trade Area (AfCFTA)</h3>
+  <p>AfCFTA — the world's largest free trade area by number of participating countries — creates extraordinary opportunities for FinAccord programmes operating across multiple countries. Our cross-border market connections, multi-country cooperative structures, and continental scaling model are all designed to take advantage of AfCFTA's elimination of intra-African trade barriers.</p>
+  <ul>
+    <li>Cross-border value chains enabled by AfCFTA tariff elimination</li>
+    <li>Multi-country cooperative structures that can trade freely across FinAccord's 7 country offices</li>
+    <li>Export market development targeting AfCFTA member states as priority buyers</li>
+    <li>Women's export pathways specifically designed for AfCFTA market access</li>
+  </ul>
+
+  <h3>ECOWAS and SADC Regional Frameworks</h3>
+  <p>FinAccord's West African offices (Ghana, Nigeria, Gambia) operate within ECOWAS frameworks, enabling cross-border labour mobility, regional market access, and alignment with ECOWAS development fund eligibility criteria. Our Southern African and East African offices (Zambia, Kenya, Uganda, Tanzania) align with SADC and EAC frameworks for similar purposes.</p>
+
+  <h3>Paris Agreement — Climate-Resilient Enterprise Design</h3>
+  <p>Every FinAccord enterprise programme is designed with climate resilience as a structural consideration — not an afterthought. Agricultural programmes include climate-adaptive crop selection, water management, and soil health practices. Community enterprise architecture incorporates climate risk assessment and adaptation strategies aligned with national NDC commitments. This alignment opens access to climate finance from Green Climate Fund, Adaptation Fund, and bilateral climate facilities.</p>
+
+  <h3>Framework Alignment Summary</h3>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Framework</th>
+        <th>Relevant Elements</th>
+        <th>FinAccord Alignment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AU Agenda 2063</td>
+        <td>Aspirations 1, 3, 5, 6, 7</td>
+        <td>Direct — people-driven, enterprise-based growth</td>
+      </tr>
+      <tr>
+        <td>SDGs</td>
+        <td>Goals 1, 2, 4, 5, 8, 10, 11, 16, 17</td>
+        <td>Direct — measurable outcomes against 9 of 17 goals</td>
+      </tr>
+      <tr>
+        <td>AfCFTA</td>
+        <td>Trade liberalisation, market access</td>
+        <td>Cross-border programming and export development</td>
+      </tr>
+      <tr>
+        <td>ECOWAS</td>
+        <td>Labour mobility, regional development</td>
+        <td>West Africa multi-country programme design</td>
+      </tr>
+      <tr>
+        <td>SADC / EAC</td>
+        <td>Regional integration, development finance</td>
+        <td>Southern and East Africa programme alignment</td>
+      </tr>
+      <tr>
+        <td>Paris Agreement</td>
+        <td>NDCs, climate resilience, adaptation</td>
+        <td>Climate-adaptive enterprise design, climate finance eligibility</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ===== SECTION 12: HOW TO ENGAGE ===== -->
+<div class="section-wrapper" id="section12">
+<div class="section-inner">
+  <span class="section-number">Section 12</span>
+  <h2>How to Engage FinAccord</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+
+  <p>Engaging FinAccord is straightforward. We offer five structured engagement pathways — each designed for a different type of client — and a clear, transparent diagnostic process that begins producing value within the first 30 days.</p>
+
+  <h3>Five Engagement Pathways</h3>
+  <div class="engagement-grid">
+    <div class="engage-card">
+      <span class="engage-icon">&#127963;</span>
+      <div class="engage-title">Government</div>
+      <div class="engage-desc">For ministries, district assemblies, and government agencies. Begins with a Sovereign Asset Audit and programme design. Scaled from district to national level.</div>
+    </div>
+    <div class="engage-card">
+      <span class="engage-icon">&#127968;</span>
+      <div class="engage-title">Community</div>
+      <div class="engage-desc">For cooperatives, community groups, and traditional authorities. Begins with a community asset and skills mapping. Structured into enterprise within 90 days.</div>
+    </div>
+    <div class="engage-card">
+      <span class="engage-icon">&#128200;</span>
+      <div class="engage-title">Enterprise</div>
+      <div class="engage-desc">For entrepreneurs, SMEs, and social enterprises. Idea Engine, Business Rescue, or Financial Modelling depending on stage. Fast, practical, commercially rigorous.</div>
+    </div>
+    <div class="engage-card">
+      <span class="engage-icon">&#128176;</span>
+      <div class="engage-title">Investor</div>
+      <div class="engage-desc">For impact investors, diaspora capital, and development finance institutions. Begins with investment prospectus and SROI analysis. Structured for clear returns and impact evidence.</div>
+    </div>
+    <div class="engage-card">
+      <span class="engage-icon">&#127979;</span>
+      <div class="engage-title">Training</div>
+      <div class="engage-desc">For organisations that want internal capability. 6-week Proposal Development Training, Human Capital Profiling workshops, and Sovereign Framework methodology certification.</div>
+    </div>
+  </div>
+
+  <h3>What Happens in the First 30 Days</h3>
+  <div class="pathway" style="flex-direction:column; gap:0.8rem;">
+    <div style="display:flex; align-items:flex-start; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px;">
+      <div style="background:var(--gold); color:var(--navy); font-weight:700; padding:0.4rem 0.8rem; border-radius:4px; min-width:80px; text-align:center; font-size:0.85rem;">Days 1–3</div>
+      <div>
+        <div style="font-weight:700; color:var(--navy);">Initial Diagnostic Call</div>
+        <div style="font-size:0.9rem; color:var(--grey-text);">Understanding the challenge, the context, the existing assets, and the desired outcome. No cost. No obligation. Just honest diagnosis.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px;">
+      <div style="background:var(--gold); color:var(--navy); font-weight:700; padding:0.4rem 0.8rem; border-radius:4px; min-width:80px; text-align:center; font-size:0.85rem;">Days 3–7</div>
+      <div>
+        <div style="font-weight:700; color:var(--navy);">Rapid Asset &amp; Opportunity Scan</div>
+        <div style="font-size:0.9rem; color:var(--grey-text);">Desk-based analysis of what already exists — government assets, skills populations, market opportunities, and data sources — before any site visit or investment.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px;">
+      <div style="background:var(--gold); color:var(--navy); font-weight:700; padding:0.4rem 0.8rem; border-radius:4px; min-width:80px; text-align:center; font-size:0.85rem;">Days 7–14</div>
+      <div>
+        <div style="font-weight:700; color:var(--navy);">Diagnostic Report Delivery</div>
+        <div style="font-size:0.9rem; color:var(--grey-text);">A concise findings report identifying what assets exist, what opportunities are viable, what skills are available, and a recommended programme architecture. With data confidence ratings.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:1.5rem; background:var(--grey-light); padding:1.2rem 1.5rem; border-radius:8px;">
+      <div style="background:var(--gold); color:var(--navy); font-weight:700; padding:0.4rem 0.8rem; border-radius:4px; min-width:80px; text-align:center; font-size:0.85rem;">Days 14–21</div>
+      <div>
+        <div style="font-weight:700; color:var(--navy);">Engagement Design</div>
+        <div style="font-size:0.9rem; color:var(--grey-text);">Proposed scope of work, service selection, team composition, timeline, investment level, and expected outputs. Presented for client review and adjustment.</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:flex-start; gap:1.5rem; background:var(--navy); padding:1.2rem 1.5rem; border-radius:8px;">
+      <div style="background:var(--gold); color:var(--navy); font-weight:700; padding:0.4rem 0.8rem; border-radius:4px; min-width:80px; text-align:center; font-size:0.85rem;">Days 21–30</div>
+      <div>
+        <div style="font-weight:700; color:var(--white);">Contract and Launch</div>
+        <div style="font-size:0.9rem; color:var(--grey-mid);">Engagement agreement signed, team mobilised, work begins. The first deliverable is in the client's hands within 30 days of initial contact.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Investment Levels</h3>
+  <p>FinAccord engagements are structured at three levels — designed to match the scale of the challenge and the capacity of the client:</p>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Level</th>
+        <th>Type</th>
+        <th>Typical Services</th>
+        <th>Indicative Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Advisory</strong></td>
+        <td>Consulting only — analysis, design, recommendation</td>
+        <td>Asset Audit, Opportunity Scan, Financial Modelling, SROI</td>
+        <td>4–12 weeks</td>
+      </tr>
+      <tr>
+        <td><strong>Implementation</strong></td>
+        <td>Full programme design and delivery management</td>
+        <td>Workforce Engine, Graduate Bridge, Community Enterprise, Business Rescue</td>
+        <td>6–24 months</td>
+      </tr>
+      <tr>
+        <td><strong>Training</strong></td>
+        <td>Capability building within client organisation</td>
+        <td>Proposal Development Training, Data Intelligence, Pitch Coaching</td>
+        <td>6 weeks per cohort</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Contact &amp; Next Steps</h3>
+  <div class="callout-gold">
+    <p><strong>To begin a conversation with FinAccord:</strong></p>
+    <p>Reach out to the FinAccord office nearest to you — in Accra, Lagos, Lusaka, Nairobi, Kampala, Dar es Salaam, or Banjul. The initial diagnostic call is at no cost. We begin with listening, not selling.</p>
+    <p>Tell us:</p>
+    <ul>
+      <li>The challenge you are facing</li>
+      <li>The geography you are working in</li>
+      <li>What you already have (assets, people, budget)</li>
+      <li>What outcome would make this a success</li>
+    </ul>
+    <p>We will bring the methodology, the team, the data, and the conviction. You bring the local knowledge, the community relationships, and the commitment to build something that lasts.</p>
+    <p><strong>Website:</strong> finaccord.com &nbsp;|&nbsp; <strong>Email:</strong> enquiries@finaccord.com</p>
+  </div>
+</div>
+</div>
+
+<!-- ===== APPENDIX A: SKILL DIRECTORY ===== -->
+<div class="section-wrapper" id="appendix-a">
+<div class="section-inner">
+  <span class="section-number">Appendix A</span>
+  <h2>Skill Directory — Complete Service Reference</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+  <p>The following table provides a complete reference guide to all 16 FinAccord services, their primary purpose, the problem each solves, and the typical client type for each engagement.</p>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Service Name</th>
+        <th>Core Function</th>
+        <th>Problem Solved</th>
+        <th>Primary Client</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>4.1</strong></td>
+        <td><strong>Sovereign Asset Audit</strong></td>
+        <td>Maps every asset an institution already owns or controls</td>
+        <td>Institutions don't know what they have; 40–70% of assets idle</td>
+        <td>Government, NGO, Community</td>
+      </tr>
+      <tr>
+        <td><strong>4.2</strong></td>
+        <td><strong>Opportunity Scan</strong></td>
+        <td>Identifies untapped economic potential in any geography</td>
+        <td>Development planned without knowing what opportunities exist nearby</td>
+        <td>Government, Investor, Community</td>
+      </tr>
+      <tr>
+        <td><strong>4.3</strong></td>
+        <td><strong>Government Proposal &amp; Policy Advisory</strong></td>
+        <td>Transforms policy into bankable, asset-first proposals</td>
+        <td>Proposals lack financial rigour, self-sufficiency plans, or asset basis</td>
+        <td>National &amp; District Government, NGO</td>
+      </tr>
+      <tr>
+        <td><strong>4.4</strong></td>
+        <td><strong>Workforce Engine</strong></td>
+        <td>Matches programme functions to three underutilised populations</td>
+        <td>Programmes rely on expensive external staff instead of local talent</td>
+        <td>Government, NGO, Development Partners</td>
+      </tr>
+      <tr>
+        <td><strong>4.5</strong></td>
+        <td><strong>Human Capital Profiling</strong></td>
+        <td>Deep activation profile for specific population groups</td>
+        <td>Programmes don't know who they are working with or what they can do</td>
+        <td>Government, NGO, Education</td>
+      </tr>
+      <tr>
+        <td><strong>4.6</strong></td>
+        <td><strong>Graduate Bridge Programme</strong></td>
+        <td>Connects graduates to economic opportunities within 6–8 weeks</td>
+        <td>2–5 year gap between graduation and first employment</td>
+        <td>Universities, Government, NGO, Graduates</td>
+      </tr>
+      <tr>
+        <td><strong>4.7</strong></td>
+        <td><strong>Idea Engine</strong></td>
+        <td>Develops any idea into a complete, investment-ready business plan</td>
+        <td>Good ideas fail for lack of structured, financially modelled plans</td>
+        <td>Individuals, Cooperatives, Entrepreneurs, Students</td>
+      </tr>
+      <tr>
+        <td><strong>4.8</strong></td>
+        <td><strong>Community Enterprise Architecture</strong></td>
+        <td>Designs collective enterprises built on existing community assets</td>
+        <td>Community development fails when it ignores existing social capital</td>
+        <td>Communities, Cooperatives, NGO, Government</td>
+      </tr>
+      <tr>
+        <td><strong>4.9</strong></td>
+        <td><strong>Business Rescue &amp; Turnaround</strong></td>
+        <td>90-day diagnosis and rescue for distressed businesses</td>
+        <td>Viable businesses close due to lack of financial management expertise</td>
+        <td>SMEs, Social Enterprises, Manufacturing</td>
+      </tr>
+      <tr>
+        <td><strong>4.10</strong></td>
+        <td><strong>Financial Modelling &amp; Development Finance</strong></td>
+        <td>Full financial architecture with three-stream revenue design</td>
+        <td>Programmes run on budgets rather than income — permanently dependent</td>
+        <td>Government, NGO, Social Enterprise</td>
+      </tr>
+      <tr>
+        <td><strong>4.11</strong></td>
+        <td><strong>Social Value Economics (SROI)</strong></td>
+        <td>Translates social outcomes into financial language</td>
+        <td>Treasuries cut social programmes because they see cost, not return</td>
+        <td>NGO, Government, Education, Health</td>
+      </tr>
+      <tr>
+        <td><strong>4.12</strong></td>
+        <td><strong>Impact Investment &amp; Crowdfunding</strong></td>
+        <td>Investment prospectus and crowdfunding strategy for community projects</td>
+        <td>Community projects lack the investment structures that attract capital</td>
+        <td>Community, NGO, Government, Diaspora</td>
+      </tr>
+      <tr>
+        <td><strong>4.13</strong></td>
+        <td><strong>Proposal Development Training</strong></td>
+        <td>6-week training to create skilled development proposal writers</td>
+        <td>Institutions outsource proposal writing instead of building internal capability</td>
+        <td>Government, NGO, Community Leaders</td>
+      </tr>
+      <tr>
+        <td><strong>4.14</strong></td>
+        <td><strong>Data Intelligence &amp; Verification</strong></td>
+        <td>Verifies every data point against 30+ official sources with confidence ratings</td>
+        <td>Budget decisions made on outdated, unverified data — causing programme failure</td>
+        <td>All clients — mandatory for all FinAccord deliverables</td>
+      </tr>
+      <tr>
+        <td><strong>4.15</strong></td>
+        <td><strong>Client Pitch &amp; Business Development</strong></td>
+        <td>Complete sales and engagement system from prospect to contract</td>
+        <td>Excellent organisations can't grow because they can't articulate their value</td>
+        <td>NGO, Social Enterprise, Consulting Firms, SMEs</td>
+      </tr>
+      <tr>
+        <td><strong>4.16</strong></td>
+        <td><strong>SOLVE — Master Orchestration</strong></td>
+        <td>Diagnoses any complex problem and sequences the right combination of services</td>
+        <td>Complex mandates require multiple capabilities integrated into one coherent approach</td>
+        <td>Government (National), Major Investors, Multi-Country</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ===== APPENDIX B: SOVEREIGN ACRONYM ===== -->
+<div class="section-wrapper" id="appendix-b">
+<div class="section-inner">
+  <span class="section-number">Appendix B</span>
+  <h2>The SOVEREIGN Acronym</h2>
+  <div class="section-header-line"><div class="line"></div></div>
+  <p>The word SOVEREIGN encapsulates the complete philosophy of the FinAccord methodology. Each letter represents a non-negotiable principle embedded in every programme we design.</p>
+
+  <div class="acronym-table">
+    <div class="acronym-row">
+      <div class="acronym-letter">S</div>
+      <div>
+        <div class="acronym-meaning">Sovereign Assets Mobilised First</div>
+        <div class="acronym-desc">Before any programme begins, before any funding is requested, we inventory what already exists. Land, buildings, skills, equipment, savings, relationships. The answer is almost always already there — it just has not been found yet.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">O</div>
+      <div>
+        <div class="acronym-meaning">Organised People as the Delivery Engine</div>
+        <div class="acronym-desc">The unemployed, the underemployed, the overlooked graduates, the retired professionals — these are the people who deliver every FinAccord programme. Organised, trained, paid fairly, and given a path upward. The delivery engine was always within reach.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">V</div>
+      <div>
+        <div class="acronym-meaning">Verified Data Powering Every Decision</div>
+        <div class="acronym-desc">Every figure, every projection, every statistical claim is verified against named official sources with a publication date and a confidence rating. No assumption is presented as fact. No budget is built on stale information. Data integrity is non-negotiable.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">E</div>
+      <div>
+        <div class="acronym-meaning">Enterprises Built to Outlast the Programme</div>
+        <div class="acronym-desc">Every FinAccord programme is designed to generate enterprises that continue operating after the programme ends. The measure of success is not programme completion — it is what remains when we leave. Cooperatives, training academies, data firms, and export enterprises that outlast any external intervention.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">R</div>
+      <div>
+        <div class="acronym-meaning">Revenue Designed in from Day 1</div>
+        <div class="acronym-desc">Revenue is not added to programmes as an afterthought. It is built in from the first line of the design. Three streams: government anchor, market income, and community ownership. No single stream above 60%. The path to self-sufficiency begins on Day 1 of the design — not Year 3 of the programme.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">E</div>
+      <div>
+        <div class="acronym-meaning">Evidence of Impact Measured and Proven</div>
+        <div class="acronym-desc">What gets measured gets improved — and what is measured rigorously gets funded. FinAccord builds monitoring frameworks, SROI analyses, and impact measurement systems that produce evidence that funders, governments, and communities can trust. Not anecdote. Not narrative. Financial evidence.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">I</div>
+      <div>
+        <div class="acronym-meaning">Import Substitution Replacing Foreign Dependency</div>
+        <div class="acronym-desc">Every item imported into an African programme — every foreign consultant, every imported input, every external technical assistant — represents a leak in the economic system. FinAccord identifies and closes those leaks. Local expertise, local inputs, local knowledge, local production. What Africa makes, Africa should buy.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">G</div>
+      <div>
+        <div class="acronym-meaning">Growth Funded by Profit, Not Donors</div>
+        <div class="acronym-desc">FinAccord programmes grow because they are profitable — or because their social value has been proven with the rigour of a profit statement. The surplus from one level funds the next. The proof of success at district scale justifies regional investment. Donors are a complement, never a dependency.</div>
+      </div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">N</div>
+      <div>
+        <div class="acronym-meaning">National Scale Through Community-First Design</div>
+        <div class="acronym-desc">Every national programme FinAccord has ever designed began with a community. The household that was activated. The cooperative that was structured. The graduate who was placed. National scale is not achieved by designing nationally — it is achieved by designing locally, proving it, and replicating the proof. Community-first. Always.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-navy" style="margin-top:3rem;">
+    <div class="callout-quote" style="font-size:1.6rem; text-align:center;">
+      Africa does not need to be saved.<br>It needs to be activated.
+    </div>
+    <p style="color:var(--gold); text-align:center; margin-top:1rem; font-size:1rem; font-family:var(--font-heading); font-style:italic;">That is what we do.</p>
+  </div>
+</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">FinAccord</div>
+  <div class="footer-tagline">Africa's Economic Activation Consultancy &nbsp;&bull;&nbsp; From Idle to Active. From Dependent to Self-Sustaining.</div>
+  <div class="footer-offices">
+    <span>Ghana (HQ)</span>
+    <span>Nigeria</span>
+    <span>Zambia</span>
+    <span>Kenya</span>
+    <span>Uganda</span>
+    <span>Tanzania</span>
+    <span>Gambia</span>
+  </div>
+  <div class="footer-copy">
+    &copy; 2026 FinAccord Consulting Group. All rights reserved.<br>
+    Capability Manual &amp; Programme Overview — Edition 2026<br>
+    The Sovereign Framework&#8482; is a registered methodology of FinAccord Consulting Group.<br>
+    All illustrative examples in this document are scenarios demonstrating the methodology and are not representations of specific named client engagements.
+  </div>
+</footer>
+
+</div><!-- end page-body -->
+</body>
+</html>
