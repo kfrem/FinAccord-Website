@@ -29,7 +29,7 @@ var SITE_CONFIG = {
     name: 'FinAccord Advisory',
     tagline: "Strategic Financial Leadership for Africa's Growth Companies",
     email: 'advisory@finaccord.com',
-    whatsapp: '447000000000',
+    whatsapp: '447939823988',
     addresses: {
         uk: { label: 'United Kingdom (HQ)', line1: '61 Bridge Street', line2: 'HR5 3DJ, United Kingdom', flag: '\u{1F1EC}\u{1F1E7}' },
         us: { label: 'United States', line1: '445 Park Avenue', line2: 'New York, NY', flag: '\u{1F1FA}\u{1F1F8}' },
