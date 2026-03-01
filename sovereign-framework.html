@@ -3,24 +3,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THE SOVEREIGN FRAMEWORK™ | Africa's Complete Economic Activation Platform</title>
-<meta name="description" content="From a student with an idea to a national programme — one system serves every level. The Sovereign Framework activates underutilised assets into wealth, jobs, and taxpayers.">
+<title>The Sovereign Framework™ | FinAccord Advisory</title>
+<meta name="description" content="Africa's complete economic activation system — from a student with an idea to a national government programme. One integrated framework for governments, communities, entrepreneurs, and diaspora investors.">
 <style>
 :root {
   --gold: #C9A84C;
   --gold-light: #E8D48B;
   --gold-dark: #A07D2E;
-  --black: #0A0A0A;
-  --charcoal: #1A1A1A;
-  --dark: #111111;
-  --dark-card: #161616;
-  --dark-border: #2A2A2A;
+  --black: #0B1426;
+  --charcoal: #142038;
+  --dark: #0f1d33;
+  --dark-card: #1A2B4A;
+  --dark-border: rgba(255,255,255,0.1);
   --white: #FAFAFA;
-  --off-white: #E0E0E0;
-  --muted: #888888;
+  --off-white: #e8e8e8;
+  --muted: #a0a8b8;
   --green: #2ECC71;
   --red-accent: #E74C3C;
   --blue-accent: #3498DB;
+}
+
+/* FINACCORD TOP NAV */
+.fa-topnav {
+  background: rgba(11,20,38,0.98);
+  border-bottom: 1px solid rgba(200,160,84,0.25);
+  padding: 0.6rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  backdrop-filter: blur(20px);
+}
+.fa-topnav__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.fa-topnav__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+.fa-topnav__mark {
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0B1426;
+  flex-shrink: 0;
+}
+.fa-topnav__logo strong { color: var(--gold); }
+.fa-topnav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.fa-topnav__links a {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.fa-topnav__links a:hover { color: var(--gold); }
+.fa-topnav__cta {
+  background: var(--gold) !important;
+  color: #0B1426 !important;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.fa-topnav__cta:hover { background: var(--gold-light) !important; }
+
+/* BRIDGE BANNER */
+.sf-bridge-banner {
+  background: linear-gradient(90deg, rgba(200,160,84,0.12), rgba(200,160,84,0.06));
+  border-bottom: 1px solid rgba(200,160,84,0.2);
+  padding: 0.55rem 2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.02em;
+}
+.sf-bridge-banner a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.4rem;
+}
+.sf-bridge-banner a:hover { color: var(--gold-light); }
+
+/* SECTION CTA */
+.sf-section-cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--dark-border);
+}
+.sf-section-cta a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.sf-section-cta a:hover { color: var(--gold-light); }
+
+/* TESTIMONIALS (dark theme) */
+.sf-testimonial {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+.sf-testimonial:hover { border-left-color: var(--gold-light); transform: translateY(-2px); }
+.sf-testimonial p {
+  font-size: 0.95rem;
+  color: var(--off-white);
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+}
+.sf-testimonial .attribution {
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+.sf-testimonial .attribution span {
+  display: block;
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 0.2rem;
+}
+
+/* LIGHT SECTION */
+.section-light {
+  background: var(--charcoal);
+  border-top: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+/* WHATSAPP FLOAT */
+.wa-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 52px;
+  height: 52px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.wa-float:hover { background: #20BD5A; transform: scale(1.08); }
+.wa-float svg { width: 28px; height: 28px; fill: white; }
+
+/* CAPABILITY FILTERS */
+.sf-cap-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+.sf-cap-btn {
+  padding: 0.45rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(201,168,76,0.3);
+  background: transparent;
+  color: rgba(201,168,76,0.7);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.sf-cap-btn:hover, .sf-cap-btn.active {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.7);
+  color: #C9A84C;
+}
+
+/* CLIENT CARD CLICKABLE */
+a.client-card {
+  text-decoration: none;
+  cursor: pointer;
+}
+a.client-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-3px);
+  background: rgba(201,168,76,0.04);
+}
+
+/* FOOTER ENHANCED */
+.sf-footer {
+  background: var(--charcoal);
+  border-top: 1px solid var(--dark-border);
+  padding: 3rem 2rem;
+}
+.sf-footer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.sf-footer a, .sf-footer p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  line-height: 2;
+  display: block;
+}
+.sf-footer a:hover { color: var(--gold); }
+.sf-footer h5 {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+.sf-footer__bottom {
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--dark-border);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: #444;
+}
+@media (max-width: 768px) {
+  .sf-footer__inner { grid-template-columns: 1fr 1fr; }
+  .fa-topnav__links { display: none; }
+}
+@media (max-width: 480px) {
+  .sf-footer__inner { grid-template-columns: 1fr; }
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -470,40 +719,42 @@ footer p { font-size: 0.75rem; color: #444; font-weight: 300; letter-spacing: 1p
 </head>
 <body>
 
-<!-- PASSWORD GATE -->
-<div id="password-gate">
-  <div class="gate-container">
-    <div class="gate-logo">Confidential</div>
-    <h1 class="gate-title">THE SOVEREIGN<br>FRAMEWORK<span style="color:var(--gold)">™</span></h1>
-    <p class="gate-sub">Africa's Complete Economic Activation Platform</p>
-    <div class="gate-line"></div>
-    <form id="gate-form" onsubmit="return handleLogin(event)">
-      <div class="gate-input-wrapper">
-        <input type="password" id="gate-password" class="gate-input" placeholder="Enter access code" autocomplete="off" autofocus>
-      </div>
-      <button type="submit" class="gate-btn">Access Portfolio</button>
-      <p class="gate-error" id="gate-error"></p>
-    </form>
-    <div class="gate-line"></div>
-    <p class="gate-footer">This document is shared under confidential terms</p>
+<!-- FinAccord Top Navigation -->
+<nav class="fa-topnav">
+  <div class="fa-topnav__inner">
+    <a href="index.html" class="fa-topnav__logo">
+      <div class="fa-topnav__mark">FA</div>
+      <span>Fin<strong>Accord</strong> Advisory</span>
+    </a>
+    <div class="fa-topnav__links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="booking.html">Book Consultation</a>
+      <a href="booking.html" class="fa-topnav__cta">Book Free Session</a>
+    </div>
   </div>
+</nav>
+
+<!-- Bridge Banner -->
+<div class="sf-bridge-banner">
+  The Sovereign Framework™ is the economic activation arm of FinAccord Advisory — Africa's fractional Finance Director firm.
+  <a href="index.html">Visit FinAccord &rarr;</a>
 </div>
 
 <!-- MAIN CONTENT -->
-<div id="main-content">
 
-<!-- NAV -->
+<!-- SF Sub Navigation -->
 <nav id="main-nav">
   <div class="nav-brand">The Sovereign Framework™</div>
   <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">&#9776;</button>
   <ul class="nav-links" id="nav-links">
+    <li><a href="#outcomes">Outcomes</a></li>
+    <li><a href="#clients">Who We Serve</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#context">Built for Africa</a></li>
     <li><a href="#doctrine">Doctrine</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#manifesto">Our Mandate</a></li>
-    <li><a href="#clients">Clients</a></li>
-    <li><a href="#architects">Architects</a></li>
-    <li><a href="#offices">Offices</a></li>
-    <li><a href="#news">News</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -511,13 +762,13 @@ footer p { font-size: 0.75rem; color: #444; font-weight: 300; letter-spacing: 1p
 <!-- HERO -->
 <header class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Africa's Premier Economic Activation Consultancy</div>
+    <div class="hero-tag">Africa's Complete Economic Activation Platform</div>
     <h1>
-      We Activate What Is <span class="gold">Underutilised</span><br>
-      Into What Generates <span class="gold">Lasting Wealth</span>
+      Your Land. Your People. Your Wealth.<br>
+      We Activate <span class="gold">What You Already Have.</span>
     </h1>
     <p class="hero-sub">
-      From a student with an idea to a national government programme — one integrated system serves every level of society. We don't write reports. We build economies. And we begin with what you already have.
+      Whether you're a government with an underperforming programme, a community with cassava and no market, or a graduate with a phone and an idea — we turn what's sitting idle into jobs, revenue, and taxpayers. No external funding. No dependency.
     </p>
 
     <!-- REVISED EQUATION -->
@@ -550,8 +801,8 @@ footer p { font-size: 0.75rem; color: #444; font-weight: 300; letter-spacing: 1p
     </div>
 
     <div class="hero-cta-group">
-      <a href="#contact" class="btn-hero">Engage The Framework</a>
-      <a href="#services" class="btn-outline">Explore Our Capabilities</a>
+      <a href="#process" class="btn-hero">See How It Works</a>
+      <a href="#contact" class="btn-outline">Tell Us Your Challenge</a>
     </div>
   </div>
 </header>
@@ -560,12 +811,12 @@ footer p { font-size: 0.75rem; color: #444; font-weight: 300; letter-spacing: 1p
 <div class="impact-strip">
   <div class="impact-grid">
     <div class="impact-item fade-in">
-      <h3>15+</h3>
-      <p>Integrated Capabilities</p>
+      <h3>24mo</h3>
+      <p>Payback on Every Model</p>
     </div>
     <div class="impact-item fade-in fade-in-delay-1">
-      <h3>9</h3>
-      <p>Country Offices</p>
+      <h3>3</h3>
+      <p>Workforce Populations Activated</p>
     </div>
     <div class="impact-item fade-in fade-in-delay-2">
       <h3>54</h3>

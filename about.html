@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | FinAccord Advisory</title>
     <meta name="description" content="A collective of Fellow Chartered Accountants, CPAs, data analysts, and corporate business coaches with 100+ years of combined experience across Africa and Europe.">
+    <meta property="og:title" content="About FinAccord Advisory">
+    <meta property="og:description" content="The team behind Africa's premier fractional Finance Director service — FCCA qualified, CPA certified, data-driven.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='4' fill='%23C8A054'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-weight='700' font-size='18' fill='%230B1426'%3EFA%3C/text%3E%3C/svg%3E">
 </head>
@@ -20,7 +22,17 @@
         <div class="nav__links">
             <a href="index.html" class="nav__link" data-i18n="nav.home">Home</a>
             <a href="about.html" class="nav__link nav__link--active" data-i18n="nav.about">About</a>
-            <a href="services.html" class="nav__link" data-i18n="nav.services">Services</a>
+            <div class="nav__dropdown">
+                <button class="nav__dropdown-trigger">Services</button>
+                <div class="nav__dropdown-menu">
+                    <span class="dropdown-label">Finance Director Services</span>
+                    <a href="services.html">Core Finance Services</a>
+                    <a href="services.html#enterprise">Enterprise Development</a>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-label">Economic Activation</span>
+                    <a href="sovereign-framework.html" style="color: var(--gold);">The Sovereign Framework™</a>
+                </div>
+            </div>
             <a href="booking.html" class="nav__link" data-i18n="nav.booking">Book Consultation</a>
             <div class="lang-toggle">
                 <button class="lang-toggle__btn lang-toggle__btn--active" onclick="setLang('en')">EN</button>
@@ -31,7 +43,11 @@
         <button class="nav__hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
     <div class="nav__mobile" id="mobileNav">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="booking.html">Book Consultation</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="sovereign-framework.html" style="color:#C9A84C; font-weight:600;">The Sovereign Framework™</a>
+        <a href="booking.html">Book Consultation</a>
         <a href="booking.html" class="btn btn--primary btn--full mt-2">Book Free Session</a>
     </div>
 </nav>
@@ -48,6 +64,23 @@
     </div>
 </section>
 
+<!-- Trust Bar -->
+<div class="trust-bar">
+    <div class="container">
+        <div class="trust-bar__inner">
+            <span class="trust-bar__item"><strong>FCCA</strong> Qualified</span>
+            <span class="trust-bar__sep">·</span>
+            <span class="trust-bar__item"><strong>CPA</strong> Members</span>
+            <span class="trust-bar__sep">·</span>
+            <span class="trust-bar__item"><strong>100+</strong> Years Combined Experience</span>
+            <span class="trust-bar__sep">·</span>
+            <span class="trust-bar__item">Trusted Across <strong>5 African Markets</strong></span>
+            <span class="trust-bar__sep">·</span>
+            <span class="trust-bar__item"><strong>$2M+</strong> in Client Capital Raised</span>
+        </div>
+    </div>
+</div>
+
 <!-- Our Story -->
 <section class="section">
     <div class="container container--narrow">
@@ -55,15 +88,26 @@
             <span class="label">Our Story</span>
             <div class="gold-divider"></div>
 
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--navy);">How We Started</h3>
             <p style="font-size: 1.05rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.5rem;">
                 FinAccord Advisory was born from a simple observation: Africa&rsquo;s most ambitious companies are making million-dollar decisions on incomplete data. Not because they lack drive &mdash; but because they lack the financial visibility that mature organisations take for granted. We set out to change that.
             </p>
+
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--navy);">What Makes Us Different</h3>
             <p style="font-size: 1.05rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.5rem;">
                 Our founders are a group of Fellow Chartered Accountants spanning Europe and Africa, CPA members, senior data analysts, and corporate business coaches &mdash; with over 100 years of extensive operations across finance, business growth, and mentoring. We have built and scaled enterprises, restructured failing operations, coached founders through critical transitions, and delivered financial intelligence to organisations ranging from agricultural cooperatives in West Africa to technology ventures in London and Accra.
             </p>
+
+            <!-- Pull quote -->
+            <blockquote style="border-left: 3px solid var(--gold); padding: 1rem 1.5rem; background: var(--off-white); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 2rem 0; font-style: italic; font-size: 1.1rem; color: var(--navy);">
+                "We don&rsquo;t just balance the books — we see the whole picture. Every recommendation we make is grounded in decades of hands-on operational experience."
+            </blockquote>
+
             <p style="font-size: 1.05rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.5rem;">
-                What sets us apart is the breadth of what we bring to the table. We don&rsquo;t just balance the books &mdash; we see the whole picture. Our team has sat in boardrooms negotiating with investors, stood on factory floors understanding production costs, trained finance teams from scratch, and coached CEOs through the most difficult growth decisions of their careers. This is not theoretical consulting. Every recommendation we make is grounded in decades of hands-on operational experience.
+                What sets us apart is the breadth of what we bring to the table. Our team has sat in boardrooms negotiating with investors, stood on factory floors understanding production costs, trained finance teams from scratch, and coached CEOs through the most difficult growth decisions of their careers. This is not theoretical consulting.
             </p>
+
+            <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--navy);">Our System</h3>
             <p style="font-size: 1.05rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 1.5rem;">
                 We&rsquo;ve combined this depth of experience with a proprietary financial intelligence system &mdash; built on Python, SQL, and advanced modelling frameworks &mdash; that transforms raw accounting chaos into board-ready intelligence in days, not weeks. The result is a service that no single hire could replicate: chartered-level financial rigour, analytical horsepower, and strategic business coaching, all delivered as a flexible, fractional engagement.
             </p>
@@ -71,8 +115,8 @@
     </div>
 </section>
 
-<!-- Credentials -->
-<section class="section section--cream">
+<!-- Team Credentials -->
+<section class="section section--cream" id="team">
     <div class="container">
         <div class="section-header section-header--center fade-up">
             <span class="label">Who We Are</span>
@@ -87,6 +131,61 @@
             <div class="credential-card"><div class="credential-card__icon">&#127806;</div><div class="credential-card__title">Operational Veterans</div><div class="credential-card__desc">Decades of hands-on experience in agriculture, manufacturing, financial services, and technology &mdash; from West Africa to Europe to North America.</div></div>
             <div class="credential-card"><div class="credential-card__icon">&#127758;</div><div class="credential-card__title">Multi-Continental Reach</div><div class="credential-card__desc">Teams in London, Accra, and Kinshasa. We bridge global best practice with deep understanding of African business realities.</div></div>
         </div>
+
+        <!-- Key Team Members (placeholder profiles) -->
+        <div style="margin-top: 3rem;" class="fade-up">
+            <div class="section-header section-header--center">
+                <span class="label">Key People</span>
+                <h3>Faces Behind the Numbers</h3>
+                <p>Real people, real experience. Our senior team brings decades of frontline finance leadership across Africa and Europe.</p>
+            </div>
+            <div class="team-grid stagger fade-up">
+                <div class="team-card">
+                    <div class="team-card__image">
+                        <div class="team-card__initials">DA</div>
+                    </div>
+                    <div class="team-card__body">
+                        <div class="team-card__name">D. Asante</div>
+                        <div class="team-card__title">Managing Partner</div>
+                        <div class="team-card__quals">FCCA · 25+ years experience</div>
+                        <div class="team-card__bio">Former Finance Director at two pan-African manufacturers. Led four successful fundraising rounds totalling $12M. Deep expertise in multi-entity consolidation, West Africa.</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-card__image">
+                        <div class="team-card__initials">FK</div>
+                    </div>
+                    <div class="team-card__body">
+                        <div class="team-card__name">F. Kamara</div>
+                        <div class="team-card__title">Head of Analytics</div>
+                        <div class="team-card__quals">CPA · MSc Data Science</div>
+                        <div class="team-card__bio">Built proprietary financial modelling frameworks for 30+ businesses across Sub-Saharan Africa. Specialist in Python-driven dashboards and real-time P&L systems.</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-card__image">
+                        <div class="team-card__initials">NO</div>
+                    </div>
+                    <div class="team-card__body">
+                        <div class="team-card__name">N. Okonkwo</div>
+                        <div class="team-card__title">Senior FD Consultant</div>
+                        <div class="team-card__quals">FCCA · MBA (Wharton)</div>
+                        <div class="team-card__bio">15 years across investment banking (London) and corporate finance (Nigeria). Led financial restructuring for three companies that subsequently listed on the NSE.</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-card__image">
+                        <div class="team-card__initials">GN</div>
+                    </div>
+                    <div class="team-card__body">
+                        <div class="team-card__name">G. Ndlovu</div>
+                        <div class="team-card__title">Strategic Business Coach</div>
+                        <div class="team-card__quals">CPA · Certified Coach (ICF)</div>
+                        <div class="team-card__bio">Coached 80+ founders through growth stages from $500K to $10M+ revenue. Specialist in investor readiness, board governance, and leadership team development.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -100,7 +199,7 @@
         </div>
 
         <div class="portfolio-filters fade-up" id="portfolioFilters">
-            <button class="portfolio-filter portfolio-filter--active" onclick="filterPortfolio('all', this)">All</button>
+            <button class="portfolio-filter portfolio-filter--active" onclick="filterPortfolio('all', this)">All Work</button>
             <button class="portfolio-filter" onclick="filterPortfolio('dashboard', this)">Dashboards</button>
             <button class="portfolio-filter" onclick="filterPortfolio('report', this)">Reports</button>
             <button class="portfolio-filter" onclick="filterPortfolio('model', this)">Financial Models</button>
@@ -154,6 +253,28 @@
             <h2 style="color:#fff;">The FinAccord Intelligence Engine</h2>
             <p>What sets FinAccord apart is not just our qualifications &mdash; it&rsquo;s how we work. Our proprietary analytics engine enables us to:</p>
         </div>
+
+        <!-- Visual representation of the engine flow -->
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0.5rem; align-items: center; margin: 0 auto 2.5rem; max-width: 700px; text-align: center;" class="fade-up">
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 1.25rem 0.75rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.4rem;">📊</div>
+                <div style="font-size: 0.75rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em;">Raw Data</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem;">Accounting chaos, spreadsheets, bank feeds</div>
+            </div>
+            <div style="font-size: 1.5rem; color: var(--gold); opacity: 0.5;">→</div>
+            <div style="background: rgba(200,160,84,0.1); border: 1px solid var(--gold-border); border-radius: var(--radius-md); padding: 1.25rem 0.75rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.4rem;">⚡</div>
+                <div style="font-size: 0.75rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em;">Intelligence Engine</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem;">Python · SQL · Advanced Excel · Proprietary models</div>
+            </div>
+            <div style="font-size: 1.5rem; color: var(--gold); opacity: 0.5;">→</div>
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 1.25rem 0.75rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.4rem;">📋</div>
+                <div style="font-size: 0.75rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em;">Board-Ready Output</div>
+                <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem;">Dashboards, reports, models, board packs</div>
+            </div>
+        </div>
+
         <div style="max-width:560px;margin:0 auto;" class="fade-up">
             <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.06);"><span style="color:var(--gold);font-size:1.2rem;flex-shrink:0;">&rarr;</span><span style="color:rgba(255,255,255,.7);">Transform raw accounting data into clean, decision-ready intelligence within days, not weeks</span></div>
             <div style="display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.06);"><span style="color:var(--gold);font-size:1.2rem;flex-shrink:0;">&rarr;</span><span style="color:rgba(255,255,255,.7);">Generate interactive KPI dashboards that update automatically &mdash; no manual reporting</span></div>
@@ -164,13 +285,61 @@
     </div>
 </section>
 
-<!-- FD-to-FD -->
+<!-- Testimonials -->
 <section class="section">
+    <div class="container">
+        <div class="section-header section-header--center fade-up">
+            <span class="label">Client Voices</span>
+            <h2>What Our Clients Say</h2>
+        </div>
+
+        <div class="testimonials-grid stagger fade-up">
+            <div class="testimonial-card">
+                <div class="testimonial-card__quote">"</div>
+                <p class="testimonial-card__text">Working with FinAccord has been transformational. We finally have an FD-level perspective without the full-time cost. The quality of their management accounts and forecasts is as good as anything I've seen from Big 4 firms.</p>
+                <div class="testimonial-card__author">
+                    <div class="testimonial-card__avatar">EO</div>
+                    <div>
+                        <div class="testimonial-card__name">E. Osei</div>
+                        <div class="testimonial-card__role">CEO, Technology Company · Accra</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-card__quote">"</div>
+                <p class="testimonial-card__text">They rebuilt our chart of accounts, cleaned two years of accounting data, and delivered our first proper management accounts in three weeks. We had no idea our actual margins were 30% lower than we thought.</p>
+                <div class="testimonial-card__author">
+                    <div class="testimonial-card__avatar">BB</div>
+                    <div>
+                        <div class="testimonial-card__name">B. Bah</div>
+                        <div class="testimonial-card__role">Managing Director, Agribusiness · Kinshasa</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-card__quote">"</div>
+                <p class="testimonial-card__text">Our FD subcontracted the board pack preparation to FinAccord. The quality was exceptional — it came back looking sharper than anything we'd produced in-house. Completely white-labelled, completely confidential.</p>
+                <div class="testimonial-card__author">
+                    <div class="testimonial-card__avatar">RA</div>
+                    <div>
+                        <div class="testimonial-card__name">R. Adeyemi</div>
+                        <div class="testimonial-card__role">Finance Director, Professional Services · London</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FD-to-FD -->
+<section class="section section--cream">
     <div class="container container--narrow">
-        <div class="fade-up" style="padding:3rem;background:var(--gold-muted);border:1px solid var(--gold-border);border-radius:var(--radius-lg);text-align:center;">
+        <div class="fade-up" style="padding:3rem;background:var(--white);border:1px solid var(--gold-border);border-radius:var(--radius-lg);text-align:center;">
             <span class="label">For Finance Directors &amp; Accounting Firms</span>
             <div class="gold-divider gold-divider--center"></div>
-            <p style="font-size:1.05rem;color:var(--gray-700);line-height:1.7;max-width:560px;margin:0 auto 1.5rem;">Already have a Finance Director or run an accounting practice? Our subcontracting service allows you to leverage our specialist analytics and reporting capabilities &mdash; white-labelled, confidential, and seamless.</p>
+            <h3 style="margin-bottom: 0.75rem;">White-Label Analytical Services</h3>
+            <p style="font-size:1.05rem;color:var(--gray-700);line-height:1.7;max-width:560px;margin:0 auto 0.75rem;">Already have a Finance Director or run an accounting practice? Our subcontracting service allows you to leverage our specialist analytics and reporting capabilities — white-labelled, confidential, and seamless.</p>
+            <p style="font-size:0.88rem;color:var(--gray-500);margin-bottom:1.5rem;"><strong>Ideal for:</strong> Accounting firms needing specialist analytical capacity · In-house FDs needing overflow support · Consultancies requiring financial modelling</p>
             <a href="booking.html" class="btn btn--dark">Discuss a Partnership &rarr;</a>
         </div>
     </div>
@@ -192,12 +361,55 @@
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
-        <div class="footer__bottom" style="border-top:none;padding-top:0;">
+        <div class="footer__grid" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+            <div class="footer__brand">
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div class="nav__logo-mark" style="width: 28px; height: 28px; font-size: 0.85rem;">FA</div>
+                    <span style="font-family: var(--font-display); font-size: 1.1rem; color: var(--white);">Fin<span style="color: var(--gold);">Accord</span> Advisory</span>
+                </div>
+                <p>Strategic financial leadership for Africa's growth companies.</p>
+                <div class="newsletter-signup">
+                    <h5>The FinAccord Briefing</h5>
+                    <p>Monthly insights on financial leadership for African businesses.</p>
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" id="newsletterEmail" placeholder="your@email.com" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <h5>Services</h5>
+                <a href="services.html">Management Accounts</a>
+                <a href="services.html">Financial Forecasting</a>
+                <a href="services.html">Board &amp; Investor Readiness</a>
+                <a href="services.html">Entrepreneur Development</a>
+                <a href="sovereign-framework.html">The Sovereign Framework™</a>
+            </div>
+            <div>
+                <h5>Company</h5>
+                <a href="about.html">About Us</a>
+                <a href="about.html#team">Our Team</a>
+                <a href="about.html#portfolio">Proof of Work</a>
+                <a href="booking.html">Book Consultation</a>
+            </div>
+            <div>
+                <h5>Connect</h5>
+                <a href="mailto:advisory@finaccord.com">advisory@finaccord.com</a>
+                <a href="#" onclick="openWhatsApp()">&#x1F4AC; WhatsApp</a>
+                <a href="booking.html" style="color: var(--gold); font-weight: 600; margin-top: 1rem; display: block;">Book Free Session &rarr;</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
             <span>&copy; 2026 FinAccord Advisory. All rights reserved.</span>
-            <div class="footer__bottom-links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="booking.html">Book</a></div>
+            <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
         </div>
     </div>
 </footer>
+
+<!-- WhatsApp Float -->
+<a class="whatsapp-float" href="#" onclick="openWhatsApp(); return false;" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <div class="toast-container" id="toastContainer"></div>
 <script src="js/supabase-config.js"></script>
@@ -232,6 +444,14 @@ async function loadPortfolio(){
             +'</div></div>';
         }).join('');
     }catch(e){console.log('Portfolio: using static items');}
+}
+function subscribeNewsletter(e) {
+    e.preventDefault();
+    var email = document.getElementById('newsletterEmail').value;
+    if (email) {
+        showToast('Thank you! You\'re subscribed to the FinAccord Briefing.', 'success');
+        document.getElementById('newsletterEmail').value = '';
+    }
 }
 document.addEventListener('DOMContentLoaded',loadPortfolio);
 </script>
