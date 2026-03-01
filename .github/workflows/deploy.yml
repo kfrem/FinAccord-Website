@@ -2,6 +2,7 @@ name: Deploy to Hostinger
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -12,28 +13,20 @@ jobs:
       - name: Install sshpass and rsync
         run: sudo apt-get update && sudo apt-get install -y sshpass rsync
 
-      - name: Deploy via SSH
+      - name: Deploy to finaccord.workmaster.uk
         env:
           HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
           PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
-          USER: ${{ secrets.HOSTINGER_SSH_USER }}
           PASS: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
         run: |
           echo "$PASS" > /tmp/pass.txt
           chmod 600 /tmp/pass.txt
           sshpass -f /tmp/pass.txt rsync -avz --delete \
-            --exclude '.git' \
-            --exclude '.github' \
-            --exclude 'node_modules' \
-            --exclude 'AUTOMATIC_DEPLOYMENT_SETUP.md' \
-            --exclude 'DEPLOYMENT_GUIDE.md' \
-            --exclude 'GITHUB_ACTIONS_WORKFLOW.txt' \
-            --exclude 'QUICK_START_DEPLOYMENT.md' \
-            --exclude 'SUPABASE_SETUP.sql' \
-            --exclude 'package.json' \
-            --exclude 'railway.json' \
-            --exclude 'vercel.json' \
-            --exclude 'deploy-webhook.php' \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='deploy-webhook.php' \
+            --exclude='deploy.log' \
             -e "ssh -p $PORT -o StrictHostKeyChecking=no" \
-            ./ "$USER@$HOST:/home/$USER/domains/kashiskin.com/public_html/finaccord/"
+            ./ "u609349519@$HOST:/home/u609349519/domains/workmaster.uk/public_html/finaccord/"
           rm /tmp/pass.txt
