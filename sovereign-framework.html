@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Sovereign Framework™ | FinAccord Advisory</title>
 <meta name="description" content="Africa's complete economic activation system — from a student with an idea to a national government programme. One integrated framework for governments, communities, entrepreneurs, and diaspora investors.">
+<meta property="og:title" content="The Sovereign Framework™ | FinAccord Advisory">
+<meta property="og:description" content="Africa's complete economic activation system — one integrated framework for governments, communities, entrepreneurs, and diaspora investors.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://finaccord.workmaster.uk/images/og-image.svg">
+<meta property="og:url" content="https://finaccord.workmaster.uk/sovereign-framework.html">
 <style>
 :root {
   --gold: #C9A84C;
@@ -719,21 +724,58 @@ footer p { font-size: 0.75rem; color: #444; font-weight: 300; letter-spacing: 1p
 </head>
 <body>
 
-<!-- FinAccord Top Navigation -->
-<nav class="fa-topnav">
-  <div class="fa-topnav__inner">
-    <a href="index.html" class="fa-topnav__logo">
-      <div class="fa-topnav__mark">FA</div>
-      <span>Fin<strong>Accord</strong> Advisory</span>
-    </a>
-    <div class="fa-topnav__links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="booking.html">Book Consultation</a>
-      <a href="booking.html" class="fa-topnav__cta">Book Free Session</a>
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" id="mainNav">
+    <div class="container nav__inner">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-mark">FA</div>
+            <div class="nav__logo-text">Fin<span>Accord</span></div>
+        </a>
+
+        <div class="nav__links">
+            <a href="index.html" class="nav__link" data-i18n="nav.home">Home</a>
+            <a href="about.html" class="nav__link" data-i18n="nav.about">About</a>
+
+            <!-- Services Dropdown -->
+            <div class="nav__dropdown">
+                <button class="nav__dropdown-trigger" data-i18n="nav.services">Services</button>
+                <div class="nav__dropdown-menu">
+                    <span class="dropdown-label">Finance Director Services</span>
+                    <a href="services.html">Core Finance Services</a>
+                    <a href="services.html#enterprise">Enterprise Development</a>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-label">Economic Activation</span>
+                    <a href="sovereign-framework.html" class="nav__link--active" style="color: var(--gold);">The Sovereign Framework™</a>
+                </div>
+            </div>
+
+            <a href="booking.html" class="nav__link" data-i18n="nav.booking">Book Consultation</a>
+
+            <div class="lang-toggle">
+                <button class="lang-toggle__btn lang-toggle__btn--active" onclick="setLang('en')">EN</button>
+                <button class="lang-toggle__btn" onclick="setLang('fr')">FR</button>
+            </div>
+
+            <a href="booking.html" class="nav__cta" data-i18n="nav.cta">Book Free Session</a>
+        </div>
+
+        <button class="nav__hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
-  </div>
+
+    <div class="nav__mobile" id="mobileNav">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="sovereign-framework.html" style="color:#C9A84C; font-weight:600;">The Sovereign Framework™</a>
+        <a href="booking.html" data-i18n="nav.booking">Book Consultation</a>
+        <div style="padding: 0.75rem 0; display: flex; gap: 0.5rem;">
+            <button class="lang-toggle__btn lang-toggle__btn--active" onclick="setLang('en')" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; border-radius: 4px;">EN</button>
+            <button class="lang-toggle__btn" onclick="setLang('fr')" style="padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; border-radius: 4px;">FR</button>
+        </div>
+        <a href="booking.html" class="btn btn--primary btn--full mt-2" data-i18n="nav.cta">Book Free Session</a>
+    </div>
 </nav>
 
 <!-- Bridge Banner -->
@@ -1771,6 +1813,10 @@ footer p { font-size: 0.75rem; color: #444; font-weight: 300; letter-spacing: 1p
 </footer>
 
 </div><!-- end main-content -->
+
+<script src="js/supabase-config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
 
 <script>
 const ACCESS_PASSWORD = 'sovereign2026';
