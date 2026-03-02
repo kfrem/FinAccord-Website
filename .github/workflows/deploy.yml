@@ -1,7 +1,9 @@
 name: Deploy to Hostinger
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - claude/fix-truncated-css-kaZmI
   workflow_dispatch:
 
 jobs:
